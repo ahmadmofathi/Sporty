@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,10 @@
 		E02A69202FBF0E3700CF6BE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		56916A6F2FBF1F280011E66B /* Module */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Module; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		E02A690C2FBF0E3400CF6BE2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -37,6 +41,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56916A6D2FBF1F080011E66B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		E02A69062FBF0E3400CF6BE2 = {
 			isa = PBXGroup;
 			children = (
@@ -56,8 +67,8 @@
 		E02A69112FBF0E3400CF6BE2 /* sporty */ = {
 			isa = PBXGroup;
 			children = (
-				E02A69292FBF0E5B00CF6BE2 /* Model */,
-				E02A69282FBF0E5400CF6BE2 /* Module */,
+				56916A6F2FBF1F280011E66B /* Module */,
+				56916A6D2FBF1F080011E66B /* Model */,
 				E02A69262FBF0E4000CF6BE2 /* View */,
 				E02A69122FBF0E3400CF6BE2 /* AppDelegate.swift */,
 				E02A69142FBF0E3400CF6BE2 /* SceneDelegate.swift */,
@@ -77,20 +88,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E02A69282FBF0E5400CF6BE2 /* Module */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Module;
-			sourceTree = "<group>";
-		};
-		E02A69292FBF0E5B00CF6BE2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,6 +102,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				56916A6F2FBF1F280011E66B /* Module */,
 			);
 			name = sporty;
 			productName = sporty;
