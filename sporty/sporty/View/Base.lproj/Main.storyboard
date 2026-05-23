@@ -11,6 +11,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <scene sceneID="Q6F-0d-JOh">
+            <objects>
+                <viewController id="nwO-uz-Z0J" customClass="ViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KTG-KU-R3r">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Nfc-1c-FzV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hPF-IR-PSr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rry-WB-R69" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1486.2595419847328" y="13.380281690140846"/>
+        </scene>
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,7 +40,24 @@
             </objects>
             <point key="canvasLocation" x="-30" y="1513"/>
         </scene>
-        <scene sceneID="zf4-fF-mj1">
+        <scene sceneID="Jzh-j6-gdj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9xD-JR-kt1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ASZ-cV-5Hb">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil key="viewControllers"/>
+                    <connections>
+                        <segue destination="nwO-uz-Z0J" kind="relationship" relationship="rootViewController" id="RfX-zY-486"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SXY-DJ-q5K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="559.5419847328244" y="13.380281690140846"/>
+        </scene>
+        <scene sceneID="zf4-ff-mj1">
             <objects>
                 <viewController id="3xI-vx-YTR" customClass="HomeViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6zf-QR-Whb">
@@ -79,7 +111,7 @@
                                                     <constraint firstItem="VJ0-ds-Zj8" firstAttribute="top" secondItem="npx-AX-jVu" secondAttribute="top" constant="14" id="card-t-1"/>
                                                     <constraint firstItem="derby-title-id" firstAttribute="top" secondItem="VJ0-ds-Zj8" secondAttribute="bottom" constant="8" id="card-t-2"/>
                                                     <constraint firstAttribute="height" constant="90" id="height-90-fixed"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VJ0-ds-Zj8" secondAttribute="trailing" constant="20" symbolic="YES" id="pc1-1o-7vC"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VJ0-ds-Zj8" secondAttribute="constant" constant="20" symbolic="YES" id="pc1-1o-7vC"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -93,6 +125,7 @@
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="12" id="flow-layout-id">
                                                     <size key="itemSize" width="164" height="164"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
@@ -185,7 +218,7 @@
             </objects>
             <point key="canvasLocation" x="515.26717557251902" y="-232.3943661971831"/>
         </scene>
-        <scene sceneID="FXR-uB-P3D">
+        <scene sceneID="dJD-dv-uwd">
             <objects>
                 <tabBarController id="dJD-dv-uwd" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Oc-82-dg1">
