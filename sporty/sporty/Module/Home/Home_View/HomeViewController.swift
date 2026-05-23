@@ -10,6 +10,7 @@ class HomeViewController: UIViewController, SportsViewProtocol, UICollectionView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("entered")
         
         collectionView.delegate = self
         collectionView.dataSource = self

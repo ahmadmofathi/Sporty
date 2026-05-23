@@ -7,21 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56916A732FBF1F500011E66B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A702FBF1F500011E66B /* HomeViewController.swift */; };
+		56916A742FBF1F500011E66B /* SportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A712FBF1F500011E66B /* SportsCell.swift */; };
+		56916A752FBF1F500011E66B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A722FBF1F500011E66B /* HomePresenter.swift */; };
+		56C236012FC1EE3A00ADAEB7 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C235FD2FC1EE3A00ADAEB7 /* FavoritesTableViewController.swift */; };
+		56C236022FC1EE3A00ADAEB7 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C235FE2FC1EE3A00ADAEB7 /* FavoriteTableViewCell.swift */; };
 		E02A69132FBF0E3400CF6BE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A69122FBF0E3400CF6BE2 /* AppDelegate.swift */; };
 		E02A69152FBF0E3400CF6BE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A69142FBF0E3400CF6BE2 /* SceneDelegate.swift */; };
 		E02A69172FBF0E3400CF6BE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A69162FBF0E3400CF6BE2 /* ViewController.swift */; };
 		E02A691A2FBF0E3400CF6BE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E02A69182FBF0E3400CF6BE2 /* Main.storyboard */; };
 		E02A691C2FBF0E3700CF6BE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E02A691B2FBF0E3700CF6BE2 /* Assets.xcassets */; };
 		E02A691F2FBF0E3700CF6BE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E02A691D2FBF0E3700CF6BE2 /* LaunchScreen.storyboard */; };
-		E07986482FBF6BF8009CBF09 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07986472FBF6BF8009CBF09 /* FavoritesTableViewController.swift */; };
-		E079864A2FBF6C2E009CBF09 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07986492FBF6C2E009CBF09 /* FavoriteTableViewCell.swift */; };
 		E07D7D4C2FC1DDCA00D62318 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E07D7D4B2FC1DDCA00D62318 /* Favorites.storyboard */; };
-		56916A732FBF1F500011E66B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A702FBF1F500011E66B /* HomeViewController.swift */; };
-		56916A742FBF1F500011E66B /* SportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A712FBF1F500011E66B /* SportsCell.swift */; };
-		56916A752FBF1F500011E66B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A722FBF1F500011E66B /* HomePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56916A702FBF1F500011E66B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		56916A712FBF1F500011E66B /* SportsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsCell.swift; sourceTree = "<group>"; };
+		56916A722FBF1F500011E66B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		56C235FD2FC1EE3A00ADAEB7 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		56C235FE2FC1EE3A00ADAEB7 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		E02A690F2FBF0E3400CF6BE2 /* sporty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sporty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02A69122FBF0E3400CF6BE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E02A69142FBF0E3400CF6BE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,12 +35,7 @@
 		E02A691B2FBF0E3700CF6BE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E02A691E2FBF0E3700CF6BE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E02A69202FBF0E3700CF6BE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E07986472FBF6BF8009CBF09 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
-		E07986492FBF6C2E009CBF09 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		E07D7D4B2FC1DDCA00D62318 /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
-		56916A702FBF1F500011E66B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		56916A712FBF1F500011E66B /* SportsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsCell.swift; sourceTree = "<group>"; };
-		56916A722FBF1F500011E66B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-
 		56916A6F2FBF1F280011E66B /* Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,7 +64,6 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
-
 		56916A762FBF1F600011E66B /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,7 +73,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-
 		56916A772FBF1F700011E66B /* Home_View */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +82,6 @@
 			path = Home_View;
 			sourceTree = "<group>";
 		};
-
 		56916A782FBF1F800011E66B /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +90,23 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-
+		56C235FF2FC1EE3A00ADAEB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				56C235FD2FC1EE3A00ADAEB7 /* FavoritesTableViewController.swift */,
+				56C235FE2FC1EE3A00ADAEB7 /* FavoriteTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		56C236002FC1EE3A00ADAEB7 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				56C235FF2FC1EE3A00ADAEB7 /* View */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
 		E02A69062FBF0E3400CF6BE2 = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +115,6 @@
 			);
 			sourceTree = "<group>";
 		};
-
 		E02A69102FBF0E3400CF6BE2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,10 +123,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-
 		E02A69112FBF0E3400CF6BE2 /* sporty */ = {
 			isa = PBXGroup;
 			children = (
+				56C236002FC1EE3A00ADAEB7 /* Favorite */,
 				56916A6F2FBF1F280011E66B /* Module */,
 				56916A6D2FBF1F080011E66B /* Model */,
 				E02A69262FBF0E4000CF6BE2 /* View */,
@@ -128,53 +139,12 @@
 			path = sporty;
 			sourceTree = "<group>";
 		};
-
 		E02A69262FBF0E4000CF6BE2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E02A691D2FBF0E3700CF6BE2 /* LaunchScreen.storyboard */,
 				E02A69182FBF0E3400CF6BE2 /* Main.storyboard */,
 				E07D7D4B2FC1DDCA00D62318 /* Favorites.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E02A69282FBF0E5400CF6BE2 /* Module */ = {
-			isa = PBXGroup;
-			children = (
-				E07986442FBF6B3C009CBF09 /* Favorite */,
-			);
-			path = Module;
-			sourceTree = "<group>";
-		};
-		E02A69292FBF0E5B00CF6BE2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E07986442FBF6B3C009CBF09 /* Favorite */ = {
-			isa = PBXGroup;
-			children = (
-				E07986462FBF6B5A009CBF09 /* View */,
-				E07986452FBF6B46009CBF09 /* Presenter */,
-			);
-			path = Favorite;
-			sourceTree = "<group>";
-		};
-		E07986452FBF6B46009CBF09 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		E07986462FBF6B5A009CBF09 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E07986472FBF6BF8009CBF09 /* FavoritesTableViewController.swift */,
-				E07986492FBF6C2E009CBF09 /* FavoriteTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,11 +224,11 @@
 				E02A69172FBF0E3400CF6BE2 /* ViewController.swift in Sources */,
 				E02A69132FBF0E3400CF6BE2 /* AppDelegate.swift in Sources */,
 				E02A69152FBF0E3400CF6BE2 /* SceneDelegate.swift in Sources */,
-				E07986482FBF6BF8009CBF09 /* FavoritesTableViewController.swift in Sources */,
-				E079864A2FBF6C2E009CBF09 /* FavoriteTableViewCell.swift in Sources */,
 				56916A732FBF1F500011E66B /* HomeViewController.swift in Sources */,
 				56916A742FBF1F500011E66B /* SportsCell.swift in Sources */,
 				56916A752FBF1F500011E66B /* HomePresenter.swift in Sources */,
+				56C236012FC1EE3A00ADAEB7 /* FavoritesTableViewController.swift in Sources */,
+				56C236022FC1EE3A00ADAEB7 /* FavoriteTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +272,6 @@
 			};
 			name = Debug;
 		};
-
 		E02A69222FBF0E3700CF6BE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -318,7 +287,6 @@
 			};
 			name = Release;
 		};
-
 		E02A69242FBF0E3700CF6BE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -342,7 +310,6 @@
 			};
 			name = Debug;
 		};
-
 		E02A69252FBF0E3700CF6BE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -378,7 +345,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-
 		E02A69232FBF0E3700CF6BE2 /* Build configuration list for PBXNativeTarget "sporty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -389,7 +355,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = E02A69072FBF0E3400CF6BE2 /* Project object */;
 }
