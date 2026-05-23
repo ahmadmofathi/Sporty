@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Xd-JR-ktI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dJD-dv-uwd">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="Q6F-Od-jOh">
+        <scene sceneID="Q6F-0d-JOh">
             <objects>
                 <viewController id="nwO-uz-Z0J" customClass="ViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KTG-KU-R3r">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Nfc-1C-FzV"/>
+                        <viewLayoutGuide key="safeArea" id="Nfc-1c-FzV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="hPF-IR-PSr"/>
@@ -24,16 +26,29 @@
             </objects>
             <point key="canvasLocation" x="1486.2595419847328" y="13.380281690140846"/>
         </scene>
-        <!--Navigation Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-30" y="1513"/>
+        </scene>
         <scene sceneID="Jzh-j6-gdj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Xd-JR-ktI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9xD-JR-kt1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ASZ-cV-5Hb">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <nil name="viewControllers"/>
+                    <nil key="viewControllers"/>
                     <connections>
                         <segue destination="nwO-uz-Z0J" kind="relationship" relationship="rootViewController" id="RfX-zY-486"/>
                     </connections>
@@ -42,10 +57,198 @@
             </objects>
             <point key="canvasLocation" x="559.5419847328244" y="13.380281690140846"/>
         </scene>
+        <scene sceneID="zf4-ff-mj1">
+            <objects>
+                <viewController id="3xI-vx-YTR" customClass="HomeViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6zf-QR-Whb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWA-wl-xjo">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckG-27-PvB" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="726"/>
+                                        <subviews>
+                                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search sports..." translatesAutoresizingMaskIntoConstraints="NO" id="K5a-vU-VZy">
+                                                <rect key="frame" x="16" y="16" width="361" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="hgt-50-fixed"/>
+                                                </constraints>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </searchBar>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npx-AX-jVu" userLabel="Live Card">
+                                                <rect key="frame" x="16" y="86" width="361" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="● LIVE NOW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ0-ds-Zj8">
+                                                        <rect key="frame" x="16" y="14" width="75" height="15"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Premier League Derby" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="derby-title-id">
+                                                        <rect key="frame" x="16" y="37" width="190.66666666666666" height="22"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="chev-img-id">
+                                                        <rect key="frame" x="330" y="38" width="15" height="14.333333333333329"/>
+                                                        <color key="tintColor" systemColor="systemGrayColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="18" id="H-size-chev"/>
+                                                            <constraint firstAttribute="width" constant="15" id="W-size-chev"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="chev-img-id" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="derby-title-id" secondAttribute="trailing" constant="8" symbolic="YES" id="a9e-ib-vbm"/>
+                                                    <constraint firstItem="chev-img-id" firstAttribute="centerY" secondItem="npx-AX-jVu" secondAttribute="centerY" id="card-c-chev"/>
+                                                    <constraint firstItem="VJ0-ds-Zj8" firstAttribute="leading" secondItem="npx-AX-jVu" secondAttribute="leading" constant="16" id="card-l-1"/>
+                                                    <constraint firstItem="derby-title-id" firstAttribute="leading" secondItem="VJ0-ds-Zj8" secondAttribute="leading" id="card-l-2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="chev-img-id" secondAttribute="trailing" constant="16" id="card-r-chev"/>
+                                                    <constraint firstItem="VJ0-ds-Zj8" firstAttribute="top" secondItem="npx-AX-jVu" secondAttribute="top" constant="14" id="card-t-1"/>
+                                                    <constraint firstItem="derby-title-id" firstAttribute="top" secondItem="VJ0-ds-Zj8" secondAttribute="bottom" constant="8" id="card-t-2"/>
+                                                    <constraint firstAttribute="height" constant="90" id="height-90-fixed"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VJ0-ds-Zj8" secondAttribute="constant" constant="20" symbolic="YES" id="pc1-1o-7vC"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="custom-grid-cv">
+                                                <rect key="frame" x="16" y="200" width="361" height="510"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="12" id="flow-layout-id">
+                                                    <size key="itemSize" width="164" height="164"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SportCell" id="cell-unique-id" customClass="SportsCell" customModule="sporty" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cell-content-view-id">
+                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cell-image-id">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="132.66666666666666"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cell-label-id">
+                                                                    <rect key="frame" x="8" y="140.66666666666666" width="148" height="19.333333333333343"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="cell-image-id" firstAttribute="leading" secondItem="cell-content-view-id" secondAttribute="leading" id="c-i-l"/>
+                                                                <constraint firstItem="cell-image-id" firstAttribute="trailing" secondItem="cell-content-view-id" secondAttribute="trailing" id="c-i-r"/>
+                                                                <constraint firstItem="cell-image-id" firstAttribute="top" secondItem="cell-content-view-id" secondAttribute="top" id="c-i-t"/>
+                                                                <constraint firstAttribute="bottom" secondItem="cell-label-id" secondAttribute="bottom" constant="4" id="c-l-b"/>
+                                                                <constraint firstItem="cell-label-id" firstAttribute="leading" secondItem="cell-content-view-id" secondAttribute="leading" constant="8" id="c-l-l"/>
+                                                                <constraint firstItem="cell-label-id" firstAttribute="trailing" secondItem="cell-content-view-id" secondAttribute="trailing" constant="-8" id="c-l-r"/>
+                                                                <constraint firstItem="cell-label-id" firstAttribute="top" secondItem="cell-image-id" secondAttribute="bottom" constant="8" id="c-l-t"/>
+                                                            </constraints>
+                                                        </collectionViewCellContentView>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="12"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="sportImageView" destination="cell-image-id" id="ewQ-5x-LbM"/>
+                                                            <outlet property="sportLabel" destination="cell-label-id" id="Chh-zy-xvQ"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="custom-grid-cv" secondAttribute="bottom" constant="16" id="bottom-content-sync"/>
+                                            <constraint firstItem="custom-grid-cv" firstAttribute="leading" secondItem="ckG-27-PvB" secondAttribute="leading" constant="16" id="lead-cv"/>
+                                            <constraint firstItem="npx-AX-jVu" firstAttribute="leading" secondItem="ckG-27-PvB" secondAttribute="leading" constant="16" id="lead-live"/>
+                                            <constraint firstItem="K5a-vU-VZy" firstAttribute="leading" secondItem="ckG-27-PvB" secondAttribute="leading" constant="16" id="lead-search"/>
+                                            <constraint firstItem="custom-grid-cv" firstAttribute="top" secondItem="npx-AX-jVu" secondAttribute="bottom" constant="24" id="top-cv"/>
+                                            <constraint firstItem="npx-AX-jVu" firstAttribute="top" secondItem="K5a-vU-VZy" secondAttribute="bottom" constant="20" id="top-live"/>
+                                            <constraint firstItem="K5a-vU-VZy" firstAttribute="top" secondItem="ckG-27-PvB" secondAttribute="top" constant="16" id="top-search"/>
+                                            <constraint firstAttribute="trailing" secondItem="custom-grid-cv" secondAttribute="trailing" constant="16" id="trail-cv"/>
+                                            <constraint firstAttribute="trailing" secondItem="npx-AX-jVu" secondAttribute="trailing" constant="16" id="trail-live"/>
+                                            <constraint firstAttribute="trailing" secondItem="K5a-vU-VZy" secondAttribute="trailing" constant="16" id="trail-search"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ckG-27-PvB" firstAttribute="leading" secondItem="wWA-wl-xjo" secondAttribute="leading" id="cKS-xv-UTq"/>
+                                    <constraint firstAttribute="trailing" secondItem="ckG-27-PvB" secondAttribute="trailing" id="dmf-IG-Sgz"/>
+                                    <constraint firstItem="ckG-27-PvB" firstAttribute="width" secondItem="wWA-wl-xjo" secondAttribute="width" id="lu5-nz-Ev2"/>
+                                    <constraint firstAttribute="bottom" secondItem="ckG-27-PvB" secondAttribute="bottom" id="un9-fixed-scroll"/>
+                                    <constraint firstItem="ckG-27-PvB" firstAttribute="top" secondItem="wWA-wl-xjo" secondAttribute="top" id="vR8-oB-1Mx"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="VS5-a9-1zk"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="qDT-om-DPk"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lw1-WL-hlw"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="lw1-WL-hlw" firstAttribute="trailing" secondItem="wWA-wl-xjo" secondAttribute="trailing" id="4df-ly-xkL"/>
+                            <constraint firstItem="wWA-wl-xjo" firstAttribute="top" secondItem="lw1-WL-hlw" secondAttribute="top" id="V9d-bu-0eA"/>
+                            <constraint firstItem="wWA-wl-xjo" firstAttribute="leading" secondItem="lw1-WL-hlw" secondAttribute="leading" id="jOj-Li-bXM"/>
+                            <constraint firstItem="lw1-WL-hlw" firstAttribute="bottom" secondItem="custom-grid-cv" secondAttribute="bottom" id="l7n-ev-fMs"/>
+                            <constraint firstItem="lw1-WL-hlw" firstAttribute="bottom" secondItem="wWA-wl-xjo" secondAttribute="bottom" id="vr6-D4-x9P"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="F3T-Th-7ke">
+                        <imageReference key="image" image="house.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="collectionView" destination="custom-grid-cv" id="bUH-Fi-0je"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JD9-Iq-gQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="515.26717557251902" y="-232.3943661971831"/>
+        </scene>
+        <scene sceneID="dJD-dv-uwd">
+            <objects>
+                <tabBarController id="dJD-dv-uwd" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Oc-82-dg1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="3xI-vx-YTR" kind="relationship" relationship="viewControllers" id="NIa-Na-w0m"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CPV-JT-gus" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-731" y="11"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
