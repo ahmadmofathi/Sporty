@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Squad View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="SquadViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pitch2" translatesAutoresizingMaskIntoConstraints="NO" id="pit-bg-999" userLabel="Pitch Background">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbar-nv-100" userLabel="Top Bar">
+                                <rect key="frame" x="0.0" y="59" width="393" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-bk-101">
+                                        <rect key="frame" x="16" y="13" width="34" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="h1"/>
+                                            <constraint firstAttribute="width" constant="34" id="w1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Squad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-ttl-102">
+                                        <rect key="frame" x="166.33333333333334" y="18" width="60.666666666666657" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-sr-103">
+                                        <rect key="frame" x="343" y="13" width="34" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="h2"/>
+                                            <constraint firstAttribute="width" constant="34" id="w2"/>
+                                        </constraints>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="lbl-ttl-102" firstAttribute="centerX" secondItem="tbar-nv-100" secondAttribute="centerX" id="c1"/>
+                                    <constraint firstItem="lbl-ttl-102" firstAttribute="centerY" secondItem="tbar-nv-100" secondAttribute="centerY" id="c2"/>
+                                    <constraint firstAttribute="height" constant="60" id="h-tb"/>
+                                    <constraint firstItem="btn-bk-101" firstAttribute="leading" secondItem="tbar-nv-100" secondAttribute="leading" constant="16" id="l1"/>
+                                    <constraint firstItem="btn-bk-101" firstAttribute="centerY" secondItem="tbar-nv-100" secondAttribute="centerY" id="l2"/>
+                                    <constraint firstItem="btn-sr-103" firstAttribute="trailing" secondItem="tbar-nv-100" secondAttribute="trailing" constant="-16" id="r1"/>
+                                    <constraint firstItem="btn-sr-103" firstAttribute="centerY" secondItem="tbar-nv-100" secondAttribute="centerY" id="r2"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdr-cont-300" userLabel="Header Container">
+                                <rect key="frame" x="0.0" y="119" width="393" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Premier League · 2025/26" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-lp-301">
+                                        <rect key="frame" x="16" y="10" width="361" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="1" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Arsenal FC" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-tn-302">
+                                        <rect key="frame" x="16" y="32" width="361" height="39"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Old Trafford · Est. 1968" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-ts-303">
+                                        <rect key="frame" x="16" y="75" width="361" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sts-rw-400" userLabel="Stats Row">
+                                        <rect key="frame" x="16" y="105" width="361" height="45"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Size: 25  |  Avg Age: 24.8  |  Value: €312M" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-st-401">
+                                                <rect key="frame" x="16" y="14" width="329" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <color key="textColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="lbl-st-401" firstAttribute="centerY" secondItem="sts-rw-400" secondAttribute="centerY" id="c-st"/>
+                                            <constraint firstItem="lbl-st-401" firstAttribute="leading" secondItem="sts-rw-400" secondAttribute="leading" constant="16" id="l-st"/>
+                                            <constraint firstAttribute="trailing" secondItem="lbl-st-401" secondAttribute="trailing" constant="16" id="r-st"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="sts-rw-400" secondAttribute="bottom" constant="10" id="b-sts"/>
+                                    <constraint firstAttribute="height" constant="160" id="h-hc"/>
+                                    <constraint firstItem="lbl-lp-301" firstAttribute="leading" secondItem="hdr-cont-300" secondAttribute="leading" constant="16" id="l-lp"/>
+                                    <constraint firstItem="sts-rw-400" firstAttribute="leading" secondItem="hdr-cont-300" secondAttribute="leading" constant="16" id="l-sts"/>
+                                    <constraint firstItem="lbl-tn-302" firstAttribute="leading" secondItem="hdr-cont-300" secondAttribute="leading" constant="16" id="l-tn"/>
+                                    <constraint firstItem="lbl-ts-303" firstAttribute="leading" secondItem="hdr-cont-300" secondAttribute="leading" constant="16" id="l-ts"/>
+                                    <constraint firstAttribute="trailing" secondItem="lbl-lp-301" secondAttribute="trailing" constant="16" id="r-lp"/>
+                                    <constraint firstAttribute="trailing" secondItem="sts-rw-400" secondAttribute="trailing" constant="16" id="r-sts"/>
+                                    <constraint firstAttribute="trailing" secondItem="lbl-tn-302" secondAttribute="trailing" constant="16" id="r-tn"/>
+                                    <constraint firstAttribute="trailing" secondItem="lbl-ts-303" secondAttribute="trailing" constant="16" id="r-ts"/>
+                                    <constraint firstItem="lbl-lp-301" firstAttribute="top" secondItem="hdr-cont-300" secondAttribute="top" constant="10" id="t-lp"/>
+                                    <constraint firstItem="sts-rw-400" firstAttribute="top" secondItem="lbl-ts-303" secondAttribute="bottom" constant="12" id="t-sts"/>
+                                    <constraint firstItem="lbl-tn-302" firstAttribute="top" secondItem="lbl-lp-301" secondAttribute="bottom" constant="6" id="t-tn"/>
+                                    <constraint firstItem="lbl-ts-303" firstAttribute="top" secondItem="lbl-tn-302" secondAttribute="bottom" constant="4" id="t-ts"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tbl-squad-500">
+                                <rect key="frame" x="0.0" y="279" width="393" height="539"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" rowHeight="125" id="tbl-cell-501" customClass="PlayerTableViewCell" customModule="sporty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="125"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tbl-cell-501" id="cell-bg-502">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="125"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crd-box-503" userLabel="Card Box">
+                                                    <rect key="frame" x="16" y="6" width="361" height="113"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ply-img-507" userLabel="Player Image">
+                                                            <rect key="frame" x="16" y="16" width="60" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="60" id="h-img"/>
+                                                                <constraint firstAttribute="width" constant="60" id="w-img"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="30"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="1" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="num-lbl-504">
+                                                            <rect key="frame" x="88" y="16" width="20" height="24"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="w-num"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                            <color key="textColor" red="0.0" green="1" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Player Name" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="name-lbl-505">
+                                                            <rect key="frame" x="122" y="16" width="223" height="24"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Position · Country · Age" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sub-lbl-506">
+                                                            <rect key="frame" x="122" y="45" width="223" height="52"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="0.12" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="sub-lbl-506" secondAttribute="bottom" constant="16" id="b-sb"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ply-img-507" secondAttribute="bottom" constant="16" id="img-b"/>
+                                                        <constraint firstItem="ply-img-507" firstAttribute="leading" secondItem="crd-box-503" secondAttribute="leading" constant="16" id="img-l"/>
+                                                        <constraint firstItem="ply-img-507" firstAttribute="top" secondItem="crd-box-503" secondAttribute="top" constant="16" id="img-t"/>
+                                                        <constraint firstItem="num-lbl-504" firstAttribute="leading" secondItem="ply-img-507" secondAttribute="trailing" constant="12" id="l-n"/>
+                                                        <constraint firstItem="name-lbl-505" firstAttribute="leading" secondItem="num-lbl-504" secondAttribute="trailing" constant="14" id="l-nm"/>
+                                                        <constraint firstItem="sub-lbl-506" firstAttribute="leading" secondItem="name-lbl-505" secondAttribute="leading" id="l-sb"/>
+                                                        <constraint firstAttribute="trailing" secondItem="name-lbl-505" secondAttribute="trailing" constant="16" id="r-nm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="sub-lbl-506" secondAttribute="trailing" constant="16" id="r-sb"/>
+                                                        <constraint firstItem="num-lbl-504" firstAttribute="top" secondItem="crd-box-503" secondAttribute="top" constant="16" id="t-n"/>
+                                                        <constraint firstItem="name-lbl-505" firstAttribute="top" secondItem="crd-box-503" secondAttribute="top" constant="16" id="t-nm"/>
+                                                        <constraint firstItem="sub-lbl-506" firstAttribute="top" secondItem="name-lbl-505" secondAttribute="bottom" constant="5" id="t-sb"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="crd-box-503" secondAttribute="bottom" constant="6" id="b-box"/>
+                                                <constraint firstItem="crd-box-503" firstAttribute="leading" secondItem="cell-bg-502" secondAttribute="leading" constant="16" id="l-box"/>
+                                                <constraint firstAttribute="trailing" secondItem="crd-box-503" secondAttribute="trailing" constant="16" id="r-box"/>
+                                                <constraint firstItem="crd-box-503" firstAttribute="top" secondItem="cell-bg-502" secondAttribute="top" constant="6" id="t-box"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="playerInfo" destination="sub-lbl-506" id="TP3-7u-ps3"/>
+                                            <outlet property="playerName" destination="name-lbl-505" id="LVs-jw-DJS"/>
+                                            <outlet property="playerNumber" destination="num-lbl-504" id="giK-Yj-sQs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pit-bg-999" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="b1"/>
+                            <constraint firstItem="pit-bg-999" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="b2"/>
+                            <constraint firstItem="pit-bg-999" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="b3"/>
+                            <constraint firstItem="pit-bg-999" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="b4"/>
+                            <constraint firstItem="hdr-cont-300" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hLead"/>
+                            <constraint firstItem="hdr-cont-300" firstAttribute="top" secondItem="tbar-nv-100" secondAttribute="bottom" id="hTop"/>
+                            <constraint firstItem="hdr-cont-300" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="hTrail"/>
+                            <constraint firstItem="tbar-nv-100" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="t1"/>
+                            <constraint firstItem="tbar-nv-100" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="t2"/>
+                            <constraint firstItem="tbar-nv-100" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="t3"/>
+                            <constraint firstItem="tbl-squad-500" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="tblBottom"/>
+                            <constraint firstItem="tbl-squad-500" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="tblLead"/>
+                            <constraint firstItem="tbl-squad-500" firstAttribute="top" secondItem="hdr-cont-300" secondAttribute="bottom" id="tblTop"/>
+                            <constraint firstItem="tbl-squad-500" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="tblTrail"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="squadTable" destination="tbl-squad-500" id="g4z-3J-m4c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.5" y="115.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Placeholder" width="226" height="396"/>
+        <image name="pitch2" width="1010" height="708"/>
+    </resources>
+</document>

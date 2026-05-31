@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
            guard let windowScene = (scene as? UIWindowScene) else { return }
 
-           let storyboard = UIStoryboard(name: "league", bundle: nil)
+           let storyboard = UIStoryboard(name: "SquadScreen", bundle: nil)
 
            let rootVC = storyboard.instantiateInitialViewController()
 
