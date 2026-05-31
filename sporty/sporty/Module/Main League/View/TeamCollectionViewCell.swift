@@ -8,5 +8,6 @@
 import UIKit
 
 class TeamCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet weak var teamLogo: UIImageView!
+    @IBOutlet weak var teamTitle: UILabel!
 }
