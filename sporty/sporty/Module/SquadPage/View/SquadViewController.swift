@@ -16,6 +16,7 @@ class SquadViewController: UIViewController , UITableViewDataSource,UITableViewD
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("entered")
         squadTable.delegate = self
         squadTable.dataSource = self
         
