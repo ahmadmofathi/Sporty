@@ -89,7 +89,8 @@ class HomeViewController: UIViewController, SportsViewProtocol, UICollectionView
         presenter.didSelectSport(at: indexPath.row)
     }
     func navigateToLeague(with sportName: String) {
-        if let leagueVC = storyboard?.instantiateViewController(withIdentifier: "LeagueVC") as? LeaguesViewController {
+        let lvc = UIStoryboard(name: "league" , bundle: nil)
+        if let leagueVC = lvc.instantiateViewController(withIdentifier: "LeagueVC") as? LeaguesViewController {
             
             
             self.navigationController?.pushViewController(leagueVC, animated: true)    }

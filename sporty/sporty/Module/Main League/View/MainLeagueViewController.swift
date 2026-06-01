@@ -34,7 +34,8 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol {
     }
     
     func navigateToTeamDetails(with teamName: String) {
-        if let SquadVC = storyboard?.instantiateViewController(withIdentifier: "SquadVC") {
+        let sq = UIStoryboard(name: "SquadScreen", bundle: nil)
+        if let SquadVC = sq.instantiateViewController(withIdentifier: "SquadVC") as? SquadViewController{
             self.navigationController?.pushViewController(SquadVC, animated: true)
         }
     }

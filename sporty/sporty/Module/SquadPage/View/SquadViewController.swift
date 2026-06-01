@@ -20,7 +20,7 @@ class SquadViewController: UIViewController , UITableViewDataSource,UITableViewD
         squadTable.delegate = self
         squadTable.dataSource = self
         
-        // Do any additional setup after loading the view.
+        
     }
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {

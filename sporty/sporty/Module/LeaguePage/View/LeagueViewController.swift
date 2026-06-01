@@ -38,7 +38,8 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
     }
     
     func navigateToLeague(with leagueName: String) {
-        if let MainLeagueVC = storyboard?.instantiateViewController(withIdentifier: "MainLeagueVC") {
+        let ml = UIStoryboard(name: "MainLeague", bundle: nil)
+        if let MainLeagueVC = ml.instantiateViewController(withIdentifier: "MainLeagueVC") as? MainLeagueViewController{
             self.navigationController?.pushViewController(MainLeagueVC, animated: true)
         }
     }

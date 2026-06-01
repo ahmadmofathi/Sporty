@@ -28,7 +28,7 @@
         <!--Leagues-->
         <scene sceneID="vc-scene-id">
             <objects>
-                <viewController id="vc-id" customClass="LeaguesViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeagueVC" id="vc-id" customClass="LeaguesViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="root-view-id">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
