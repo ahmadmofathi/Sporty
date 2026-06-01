@@ -31,6 +31,9 @@
 		E079EF142FC5E71400B98EC5 /* MainLeagueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E079EF132FC5E71400B98EC5 /* MainLeagueViewController.swift */; };
 		E079EF162FC5EAFE00B98EC5 /* UpComingEventCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E079EF152FC5EAFE00B98EC5 /* UpComingEventCellCollectionViewCell.swift */; };
 		E079EF182FC5F57200B98EC5 /* TeamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E079EF172FC5F57200B98EC5 /* TeamCollectionViewCell.swift */; };
+		E0C2723B2FCDB00100609BE2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2723A2FCDB00100609BE2 /* NetworkManager.swift */; };
+		E0C2723E2FCDB03100609BE2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0C2723D2FCDB03100609BE2 /* Alamofire */; };
+		E0C272402FCDB04A00609BE2 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2723F2FCDB04A00609BE2 /* League.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,8 @@
 		E079EF132FC5E71400B98EC5 /* MainLeagueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainLeagueViewController.swift; path = "sporty/Module/Main League/View/MainLeagueViewController.swift"; sourceTree = SOURCE_ROOT; };
 		E079EF152FC5EAFE00B98EC5 /* UpComingEventCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingEventCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		E079EF172FC5F57200B98EC5 /* TeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0C2723A2FCDB00100609BE2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E0C2723F2FCDB04A00609BE2 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = League.swift; path = sporty/Network/League.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C2723E2FCDB03100609BE2 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +104,7 @@
 		56916A6D2FBF1F080011E66B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E0C2723F2FCDB04A00609BE2 /* League.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +217,7 @@
 		E02A69112FBF0E3400CF6BE2 /* sporty */ = {
 			isa = PBXGroup;
 			children = (
+				E0C272392FCDAFE700609BE2 /* Network */,
 				560AC14B2FCC86A700871752 /* View */,
 				56916A6F2FBF1F280011E66B /* Module */,
 				56916A6D2FBF1F080011E66B /* Model */,
@@ -249,6 +257,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		E0C272392FCDAFE700609BE2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E0C2723A2FCDB00100609BE2 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,6 +281,9 @@
 			dependencies = (
 			);
 			name = sporty;
+			packageProductDependencies = (
+				E0C2723D2FCDB03100609BE2 /* Alamofire */,
+			);
 			productName = sporty;
 			productReference = E02A690F2FBF0E3400CF6BE2 /* sporty.app */;
 			productType = "com.apple.product-type.application";
@@ -293,6 +312,9 @@
 				Base,
 			);
 			mainGroup = E02A69062FBF0E3400CF6BE2;
+			packageReferences = (
+				E0C2723C2FCDB03100609BE2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = E02A69102FBF0E3400CF6BE2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -324,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C2723B2FCDB00100609BE2 /* NetworkManager.swift in Sources */,
 				E02A69172FBF0E3400CF6BE2 /* ViewController.swift in Sources */,
 				56C33E542FCC82CF00DED72C /* LeagueViewController.swift in Sources */,
 				56C33E552FCC82CF00DED72C /* LeagueCell.swift in Sources */,
@@ -331,6 +354,7 @@
 				5660EC4B2FCC808C006758A3 /* FavoriteTableViewCell.swift in Sources */,
 				5660EC4C2FCC808C006758A3 /* FavoritesTableViewController.swift in Sources */,
 				E079EF142FC5E71400B98EC5 /* MainLeagueViewController.swift in Sources */,
+				E0C272402FCDB04A00609BE2 /* League.swift in Sources */,
 				56918A7C2FCDABDE00FD9731 /* LeaguePresenter.swift in Sources */,
 				56C33E5A2FCC82E100DED72C /* PlayerTableViewCell.swift in Sources */,
 				56C33E5B2FCC82E100DED72C /* SquadViewController.swift in Sources */,
@@ -467,6 +491,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E0C2723C2FCDB03100609BE2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E0C2723D2FCDB03100609BE2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0C2723C2FCDB03100609BE2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E02A69072FBF0E3400CF6BE2 /* Project object */;
 }
