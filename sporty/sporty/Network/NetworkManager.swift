@@ -1,10 +1,3 @@
-//
-//  NetworkManager.swift
-//  sporty
-//
-//  Created by Ahmad on 01/06/2026.
-//
-
 import Foundation
 import Alamofire
 
@@ -18,21 +11,23 @@ class NetworkManager {
         sport: String,
         completion: @escaping (Result<[League], Error>) -> Void
     ) {
+        // 1️⃣ صلحنا الـ API Key وشيلنا الشرطة الغلط ورجعنا حرف الـ c
+        let apiKey = "53b3a058aedc852b1c141bc3c80078695068dc06342a6e408e3a390a7252cd27"
 
-        let apiKey = "PUT_YOUR_API_KEY_HERE"
+        // 2️⃣ حولنا اسم الرياضة لـ سمول تماماً قبل ما يدخل في الـ URL لمنع الـ 404
+        let safeSport = sport.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
 
-        let url =
-        "https://apiv2.allsportsapi.com/\(sport)/?met=Leagues&APIkey=\(apiKey)"
+        let url = "https://apiv2.allsportsapi.com/\(safeSport)/?met=Leagues&APIkey=\(apiKey)"
+
+        // سطر الـ print ده هيريحك ويوريك الـ URL النهائي في الـ Console
+        print("🚀 Sending Request to URL: \(url)")
 
         AF.request(url)
             .validate()
             .responseDecodable(of: LeaguesResponse.self) { response in
-
                 switch response.result {
-
                 case .success(let data):
                     completion(.success(data.result))
-
                 case .failure(let error):
                     completion(.failure(error))
                 }

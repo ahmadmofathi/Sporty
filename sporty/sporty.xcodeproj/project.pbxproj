@@ -20,6 +20,8 @@
 		56916A752FBF1F500011E66B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A722FBF1F500011E66B /* HomePresenter.swift */; };
 		56918A792FCD955000FD9731 /* MainLeaguePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56918A782FCD955000FD9731 /* MainLeaguePresenter.swift */; };
 		56918A7C2FCDABDE00FD9731 /* LeaguePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56918A7A2FCDABDE00FD9731 /* LeaguePresenter.swift */; };
+		56918A7F2FCDB15C00FD9731 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 56918A7E2FCDB15C00FD9731 /* SDWebImage */; };
+		56918A812FCDB15C00FD9731 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 56918A802FCDB15C00FD9731 /* SDWebImageMapKit */; };
 		56C33E542FCC82CF00DED72C /* LeagueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C33E512FCC82CF00DED72C /* LeagueViewController.swift */; };
 		56C33E552FCC82CF00DED72C /* LeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C33E502FCC82CF00DED72C /* LeagueCell.swift */; };
 		56C33E5A2FCC82E100DED72C /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C33E562FCC82E100DED72C /* PlayerTableViewCell.swift */; };
@@ -72,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56918A7F2FCDB15C00FD9731 /* SDWebImage in Frameworks */,
+				56918A812FCDB15C00FD9731 /* SDWebImageMapKit in Frameworks */,
 				E0C2723E2FCDB03100609BE2 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +287,8 @@
 			name = sporty;
 			packageProductDependencies = (
 				E0C2723D2FCDB03100609BE2 /* Alamofire */,
+				56918A7E2FCDB15C00FD9731 /* SDWebImage */,
+				56918A802FCDB15C00FD9731 /* SDWebImageMapKit */,
 			);
 			productName = sporty;
 			productReference = E02A690F2FBF0E3400CF6BE2 /* sporty.app */;
@@ -314,6 +320,7 @@
 			mainGroup = E02A69062FBF0E3400CF6BE2;
 			packageReferences = (
 				E0C2723C2FCDB03100609BE2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				56918A7D2FCDB15C00FD9731 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = E02A69102FBF0E3400CF6BE2 /* Products */;
 			projectDirPath = "";
@@ -493,6 +500,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		56918A7D2FCDB15C00FD9731 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.7;
+			};
+		};
 		E0C2723C2FCDB03100609BE2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -504,6 +519,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		56918A7E2FCDB15C00FD9731 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56918A7D2FCDB15C00FD9731 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		56918A802FCDB15C00FD9731 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56918A7D2FCDB15C00FD9731 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
 		E0C2723D2FCDB03100609BE2 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0C2723C2FCDB03100609BE2 /* XCRemoteSwiftPackageReference "Alamofire" */;

@@ -2,8 +2,6 @@ import UIKit
 
 class HomeViewController: UIViewController, SportsViewProtocol, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
    
-    
-
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var presenter: HomePresenter!
@@ -12,7 +10,6 @@ class HomeViewController: UIViewController, SportsViewProtocol, UICollectionView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("entered")
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -85,14 +82,16 @@ class HomeViewController: UIViewController, SportsViewProtocol, UICollectionView
         
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter.didSelectSport(at: indexPath.row)
     }
+    
     func navigateToLeague(with sportName: String) {
         let lvc = UIStoryboard(name: "league" , bundle: nil)
         if let leagueVC = lvc.instantiateViewController(withIdentifier: "LeagueVC") as? LeaguesViewController {
-            
-            
-            self.navigationController?.pushViewController(leagueVC, animated: true)    }
+            leagueVC.selectedSport = sportName
+            self.navigationController?.pushViewController(leagueVC, animated: true)
+        }
     }
 }
