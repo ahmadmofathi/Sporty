@@ -2,23 +2,34 @@ import UIKit
 
 protocol MainLeagueViewProtocol: AnyObject {
     func displayData(upcoming: [(team1: String, team2: String, score: String, week: String)], teams: [String])
-    func navigateToTeamDetails(with teamName: String)
+    func navigateToTeamDetails(with teamId: Int)
 }
 
 class MainLeagueViewController: UIViewController, MainLeagueViewProtocol {
+  
+    
+    func navigateToTeamDetails(with teamId: Int) {
+        let sq = UIStoryboard(name: "SquadScreen", bundle: nil)
+        if let squadVC = sq.instantiateViewController(withIdentifier: "SquadVC") as? SquadViewController {
+            squadVC.teamId = teamId
+            self.navigationController?.pushViewController(squadVC, animated: true)
+        }
+        
+    }
+    
     @IBOutlet var teamsCollectionView: UICollectionView!
     @IBOutlet var upComingCollectionView: UICollectionView!
     
     private var presenter: MainLeaguePresenter!
     private var upcomingEvents: [(team1: String, team2: String, score: String, week: String)] = []
     private var teams: [String] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         upComingCollectionView.delegate = self
         upComingCollectionView.dataSource = self
-
+        
         teamsCollectionView.delegate = self
         teamsCollectionView.dataSource = self
         
@@ -33,12 +44,6 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol {
         self.teamsCollectionView.reloadData()
     }
     
-    func navigateToTeamDetails(with teamName: String) {
-        let sq = UIStoryboard(name: "SquadScreen", bundle: nil)
-        if let SquadVC = sq.instantiateViewController(withIdentifier: "SquadVC") as? SquadViewController{
-            self.navigationController?.pushViewController(SquadVC, animated: true)
-        }
-    }
 }
 
 extension MainLeagueViewController: UICollectionViewDataSource {

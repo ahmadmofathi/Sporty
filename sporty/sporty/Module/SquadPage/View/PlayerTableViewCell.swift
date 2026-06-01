@@ -9,6 +9,7 @@ import UIKit
 
 class PlayerTableViewCell: UITableViewCell {
 
+    @IBOutlet var playerImage: UIImageView!
     @IBOutlet var playerNumber: UILabel!
     @IBOutlet var playerInfo: UILabel!
     @IBOutlet var playerName: UILabel!

@@ -1,18 +1,10 @@
-//
-//  SquadViewController.swift
-//  sporty
-//
-//  Created by Shady Ramadan on 31/05/2026.
-//
-
 import UIKit
-
+import SDWebImage
 class SquadViewController: UIViewController {
 
     @IBOutlet weak var squadTable: UITableView!
 
     var presenter: SquadPresenterProtocol!
-
     var teamId: Int = 96
 
     override func viewDidLoad() {
@@ -22,10 +14,10 @@ class SquadViewController: UIViewController {
         squadTable.dataSource = self
 
         presenter = SquadPresenter(view: self)
-
         presenter.getPlayers(teamId: teamId)
     }
 }
+
 extension SquadViewController: SquadViewProtocol {
 
     func renderPlayers() {
@@ -33,34 +25,28 @@ extension SquadViewController: SquadViewProtocol {
     }
 
     func showError(message: String) {
-
         let alert = UIAlertController(
             title: "Error",
             message: message,
             preferredStyle: .alert
         )
-
         alert.addAction(
             UIAlertAction(
                 title: "OK",
                 style: .default
             )
         )
-
         present(alert, animated: true)
     }
 }
 
-extension SquadViewController:
-UITableViewDelegate,
-UITableViewDataSource {
+extension SquadViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-
-        presenter.players.count
+        return presenter.players.count
     }
 
     func tableView(
@@ -72,20 +58,26 @@ UITableViewDataSource {
             withIdentifier: "PlayerCell",
             for: indexPath
         ) as? PlayerTableViewCell else {
-
             return UITableViewCell()
         }
 
         let player = presenter.players[indexPath.row]
 
-        cell.playerName.text =
-            player.playerName ?? "Unknown"
+        cell.playerName.text = player.playerName ?? "Unknown"
+        cell.playerNumber.text = player.playerNumber ?? "-"
+        
+        // شيلنا الـ playerCountry لأن الـ API مش بيرجعه في الـ Teams عشان السطر يطلع مظبوط
+        cell.playerInfo.text = "\(player.playerType ?? "") • Age: \(player.playerAge ?? "-")"
 
-        cell.playerNumber.text =
-            player.playerNumber ?? "-"
-
-        cell.playerInfo.text =
-        "\(player.playerType ?? "") • \(player.playerCountry ?? "") • \(player.playerAge ?? "")"
+        // ⬇️ 🔥 استخدام SDWebImage السحري لشحن الصورة 🔥 ⬇️
+        // تأكدوا إن اسم الـ Outlet جوه الـ PlayerTableViewCell هو playerImageView
+        if let imageUrlString = player.playerImage, let url = URL(string: imageUrlString) {
+            cell.playerImage.sd_setImage(
+                with: url,
+                placeholderImage: UIImage(named: "monkey_placeholder")      )
+        } else {
+                   cell.playerImage.image = UIImage(named: "monkey_placeholder")
+        }
 
         return cell
     }

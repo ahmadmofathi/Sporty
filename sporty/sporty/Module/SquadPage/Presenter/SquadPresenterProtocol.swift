@@ -13,9 +13,4 @@ protocol SquadViewProtocol: AnyObject {
     func showError(message: String)
 }
 
-protocol SquadPresenterProtocol {
 
-    var players: [Player] { get }
-
-    func getPlayers(teamId: Int)
-}

@@ -1,10 +1,3 @@
-//
-//  MainLeaguePresenter.swift
-//  sporty
-//
-//  Created by Shady Ramadan on 01/06/2026.
-//
-
 import Foundation
 
 class MainLeaguePresenter {
@@ -16,8 +9,13 @@ class MainLeaguePresenter {
         (team1: "Man United", team2: "Tottenham", score: "0 - 0", week: "Week 30")
     ]
 
-    private let teams = [
-        "Liverpool", "Arsenal", "Chelsea", "Man City", "Man United", "Tottenham"
+      private let teams: [(name: String, id: Int)] = [
+        (name: "Liverpool", id: 86),
+        (name: "Arsenal", id: 96),
+        (name: "Chelsea", id: 102),
+        (name: "Man City", id: 95),
+        (name: "Man United", id: 101),
+        (name: "Tottenham", id: 110)
     ]
     
     init(view: MainLeagueViewProtocol) {
@@ -25,11 +23,12 @@ class MainLeaguePresenter {
     }
     
     func viewDidLoad() {
-        view?.displayData(upcoming: upcomingEvents, teams: teams)
+              let teamNames = teams.map { $0.name }
+        view?.displayData(upcoming: upcomingEvents, teams: teamNames)
     }
     
     func didSelectTeam(at index: Int) {
-        let selectedTeam = teams[index]
-        view?.navigateToTeamDetails(with: selectedTeam)
+           let selectedTeamId = teams[index].id
+         view?.navigateToTeamDetails(with: selectedTeamId)
     }
 }
