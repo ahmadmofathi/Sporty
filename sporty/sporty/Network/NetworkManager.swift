@@ -33,4 +33,29 @@ class NetworkManager {
                 }
             }
     }
+    
+    func fetchPlayers(
+        teamId: Int,
+        completion: @escaping (Result<[Player], Error>) -> Void
+    ) {
+
+        let apiKey = "YOUR_API_KEY"
+
+        let url =
+        "https://apiv2.allsportsapi.com/football/?met=Teams&teamId=\(teamId)&APIkey=\(apiKey)"
+
+        AF.request(url)
+            .validate()
+            .responseDecodable(of: TeamPlayersResponse.self) { response in
+
+                switch response.result {
+
+                case .success(let data):
+                    completion(.success(data.result))
+
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
 }

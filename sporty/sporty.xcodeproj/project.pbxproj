@@ -36,6 +36,9 @@
 		E0C2723B2FCDB00100609BE2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2723A2FCDB00100609BE2 /* NetworkManager.swift */; };
 		E0C2723E2FCDB03100609BE2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0C2723D2FCDB03100609BE2 /* Alamofire */; };
 		E0C272402FCDB04A00609BE2 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2723F2FCDB04A00609BE2 /* League.swift */; };
+		E0C272422FCDB84700609BE2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C272412FCDB84700609BE2 /* Player.swift */; };
+		E0C272452FCDB94F00609BE2 /* SquadPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C272442FCDB94F00609BE2 /* SquadPresenterProtocol.swift */; };
+		E0C272472FCDB9A900609BE2 /* SqaudPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C272462FCDB9A900609BE2 /* SqaudPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +70,9 @@
 		E079EF172FC5F57200B98EC5 /* TeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0C2723A2FCDB00100609BE2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E0C2723F2FCDB04A00609BE2 /* League.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = League.swift; path = sporty/Network/League.swift; sourceTree = SOURCE_ROOT; };
+		E0C272412FCDB84700609BE2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Player.swift; path = sporty/Network/Player.swift; sourceTree = SOURCE_ROOT; };
+		E0C272442FCDB94F00609BE2 /* SquadPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadPresenterProtocol.swift; sourceTree = "<group>"; };
+		E0C272462FCDB9A900609BE2 /* SqaudPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqaudPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				E0C2723F2FCDB04A00609BE2 /* League.swift */,
+				E0C272412FCDB84700609BE2 /* Player.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +204,7 @@
 		56C33E592FCC82E100DED72C /* SquadPage */ = {
 			isa = PBXGroup;
 			children = (
+				E0C272432FCDB8D500609BE2 /* Presenter */,
 				56C33E582FCC82E100DED72C /* View */,
 			);
 			path = SquadPage;
@@ -267,6 +275,15 @@
 				E0C2723A2FCDB00100609BE2 /* NetworkManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E0C272432FCDB8D500609BE2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E0C272442FCDB94F00609BE2 /* SquadPresenterProtocol.swift */,
+				E0C272462FCDB9A900609BE2 /* SqaudPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +378,7 @@
 				5660EC4B2FCC808C006758A3 /* FavoriteTableViewCell.swift in Sources */,
 				5660EC4C2FCC808C006758A3 /* FavoritesTableViewController.swift in Sources */,
 				E079EF142FC5E71400B98EC5 /* MainLeagueViewController.swift in Sources */,
+				E0C272422FCDB84700609BE2 /* Player.swift in Sources */,
 				E0C272402FCDB04A00609BE2 /* League.swift in Sources */,
 				56918A7C2FCDABDE00FD9731 /* LeaguePresenter.swift in Sources */,
 				56C33E5A2FCC82E100DED72C /* PlayerTableViewCell.swift in Sources */,
@@ -369,7 +387,9 @@
 				56916A732FBF1F500011E66B /* HomeViewController.swift in Sources */,
 				56918A792FCD955000FD9731 /* MainLeaguePresenter.swift in Sources */,
 				56916A742FBF1F500011E66B /* SportsCell.swift in Sources */,
+				E0C272452FCDB94F00609BE2 /* SquadPresenterProtocol.swift in Sources */,
 				56916A752FBF1F500011E66B /* HomePresenter.swift in Sources */,
+				E0C272472FCDB9A900609BE2 /* SqaudPresenter.swift in Sources */,
 				E079EF162FC5EAFE00B98EC5 /* UpComingEventCellCollectionViewCell.swift in Sources */,
 				E079EF182FC5F57200B98EC5 /* TeamCollectionViewCell.swift in Sources */,
 			);
