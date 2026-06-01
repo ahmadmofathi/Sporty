@@ -1,6 +1,8 @@
 import UIKit
 
 class HomeViewController: UIViewController, SportsViewProtocol, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+   
+    
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -44,8 +46,6 @@ class HomeViewController: UIViewController, SportsViewProtocol, UICollectionView
         let totalWidthPadding = (padding * 2) + minimumSpacing
         
         let cellWidth = (collectionView.bounds.width - totalWidthPadding) / 2
-        
-        // 🔥 حل لغز الفعص: لو العرض أكبر من الارتفاع (يعني لاندسكيب) نثبت الارتفاع ومفيش فعص!
         let cellHeight: CGFloat
         if collectionView.bounds.width > collectionView.bounds.height {
             cellHeight = 250
@@ -84,5 +84,14 @@ class HomeViewController: UIViewController, SportsViewProtocol, UICollectionView
         cell.backgroundColor = .systemBackground
         
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.didSelectSport(at: indexPath.row)
+    }
+    func navigateToLeague(with sportName: String) {
+        if let leagueVC = storyboard?.instantiateViewController(withIdentifier: "LeagueVC") as? LeaguesViewController {
+            
+            
+            self.navigationController?.pushViewController(leagueVC, animated: true)    }
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 protocol SportsViewProtocol : AnyObject{
     func displaySports (_ names : [String], images:[String])
+    func navigateToLeague(with sportName:String)
 }
 class HomePresenter{
     private weak var view : SportsViewProtocol?
@@ -19,4 +20,8 @@ class HomePresenter{
     func viewDidLoad(){
         view?.displaySports( sportsNames, images: sportsImages)
     }
+    func didSelectSport(at index: Int) {
+            let selectedSport = sportsNames[index]
+        view?.navigateToLeague(with: "sportsNames")
+        }
 }
