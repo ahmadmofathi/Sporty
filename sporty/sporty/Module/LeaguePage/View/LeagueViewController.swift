@@ -1,16 +1,5 @@
-//
-//  LeaguesViewController.swift
-//  sporty
-//
-//  Created by Shady Ramadan on 25/05/2026.
-//
-
 import UIKit
 import SDWebImage
-protocol LeaguesViewProtocol: AnyObject {
-    func displayLeagues(_ names: [String], countries: [String], logos: [String])
-    func navigateToLeague(with leagueName: String)
-}
 
 class LeaguesViewController: UIViewController, LeaguesViewProtocol {
 
@@ -20,7 +9,9 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
     private var leagueNames: [String] = []
     private var leagueCountries: [String] = []
     private var leagueLogos: [String] = []
-    var selectedSport : String?
+    private var leagueFavorites: [Bool] = []
+    var selectedSport: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Leagues"
@@ -28,16 +19,16 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
         tableView.delegate = self
         tableView.dataSource = self
         let sportToFetch = selectedSport ?? "football"
-        presenter = LeaguePresenter(view: self, sport : sportToFetch)
+        presenter = LeaguePresenter(view: self, sport: sportToFetch)
         presenter.viewDidLoad()
     }
     
-    func displayLeagues(_ names: [String], countries: [String], logos: [String]) {
+    func displayLeagues(_ names: [String], countries: [String], logos: [String], favorites: [Bool]) {
         self.leagueNames = names
         self.leagueCountries = countries
         self.leagueLogos = logos
+        self.leagueFavorites = favorites
         
-        // التحديث على الـ Main Thread لأن الـ API شغال في الخلفية
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -45,7 +36,7 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
     
     func navigateToLeague(with leagueName: String) {
         let ml = UIStoryboard(name: "MainLeague", bundle: nil)
-        if let MainLeagueVC = ml.instantiateViewController(withIdentifier: "MainLeagueVC") as? MainLeagueViewController{
+        if let MainLeagueVC = ml.instantiateViewController(withIdentifier: "MainLeagueVC") as? MainLeagueViewController {
             self.navigationController?.pushViewController(MainLeagueVC, animated: true)
         }
     }
@@ -62,28 +53,31 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let name = leagueNames[indexPath.row]
-        let country = leagueCountries[indexPath.row]
-        let logoURLString = leagueLogos[indexPath.row]
-        
-        cell.leagueNameLabel.text = name
-        cell.countryLabel.text = country
+        cell.leagueNameLabel.text = leagueNames[indexPath.row]
+        cell.countryLabel.text = leagueCountries[indexPath.row]
+        let isFav = leagueFavorites[indexPath.row]
+        let heartImage = isFav ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        cell.favoriteButton.setImage(heartImage, for: .normal)
+                cell.onFavoriteTapped = { [weak self] in
+            self?.presenter.toggleFavorite(at: indexPath.row)
+        }
         
         let defaultPlaceholder = UIImage(named: "league_placeholder")
+        let logoURLString = leagueLogos[indexPath.row]
         
         if let url = URL(string: logoURLString), !logoURLString.isEmpty {
             cell.logoImageView.sd_setImage(
                 with: url,
                 placeholderImage: defaultPlaceholder,
-                options: [.retryFailed, .continueInBackground]    )
+                options: [.retryFailed, .continueInBackground]
+            )
         } else {
-               cell.logoImageView.image = defaultPlaceholder
+            cell.logoImageView.image = defaultPlaceholder
         }
         
         return cell
     }
     
-    // الأنميشن مكانه الصح هنا عشان الـ Cell تكون ظهرت بالـ Frames المظبوطة
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let leagueCell = cell as? LeagueCell {
             leagueCell.startFlashying()
