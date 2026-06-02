@@ -3,6 +3,7 @@ import SDWebImage
 
 class LeaguesViewController: UIViewController, LeaguesViewProtocol {
 
+    @IBOutlet var mySearch: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
     private var presenter: LeaguePresenter!
@@ -18,6 +19,8 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
 
         tableView.delegate = self
         tableView.dataSource = self
+        mySearch.delegate = self
+        
         let sportToFetch = selectedSport ?? "football"
         presenter = LeaguePresenter(view: self, sport: sportToFetch)
         presenter.viewDidLoad()
@@ -58,7 +61,7 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
         let isFav = leagueFavorites[indexPath.row]
         let heartImage = isFav ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
         cell.favoriteButton.setImage(heartImage, for: .normal)
-                cell.onFavoriteTapped = { [weak self] in
+        cell.onFavoriteTapped = { [weak self] in
             self?.presenter.toggleFavorite(at: indexPath.row)
         }
         
@@ -87,5 +90,22 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.didSelectLeague(at: indexPath.row)
+    }
+}
+
+extension LeaguesViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        presenter.filterLeagues(with: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        presenter.filterLeagues(with: "")
     }
 }
