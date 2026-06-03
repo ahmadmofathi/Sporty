@@ -6,89 +6,112 @@
 //
 
 import UIKit
+import SDWebImage
 
-class FavoritesTableViewController: UITableViewController {
+class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol {
 
+    private var presenter: FavoritesPresenter!
+    private var favoriteLeagues: [League] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.rowHeight = 92
+        
+             presenter = FavoritesPresenter(view: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          presenter.viewWillAppear()
+    }
+
+    // MARK: - FavoritesViewProtocol Implementation
+    
+    func displayFavorites(_ leagues: [League]) {
+        self.favoriteLeagues = leagues
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func navigateToLeague(with leagueName: String) {
+        let ml = UIStoryboard(name: "MainLeague", bundle: nil)
+        if let mainLeagueVC = ml.instantiateViewController(withIdentifier: "MainLeagueVC") as? MainLeagueViewController {
+                    self.navigationController?.pushViewController(mainLeagueVC, animated: true)
+        }
+    }
+       func showDeleteConfirmationAlert(leagueName: String, confirmHandler: @escaping () -> Void) {
+        let alert = UIAlertController(
+            title: "Remove From Favorites",
+            message: "Are you sure you want to remove \(leagueName) from your favorites?",
+            preferredStyle: .alert
+        )
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            confirmHandler()
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        
+        presenter.fetchFavoritesFromCoreData()
+        presenter.viewWillAppear()
+        self.presenter.viewWillAppear()
+        present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3 + 1
+     return favoriteLeagues.count + 1
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 3 {
+        if indexPath.row == favoriteLeagues.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "addLeague", for: indexPath)
             return cell
         }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FavoriteTableViewCell
-        cell.favTitle.text = "Premier League"
-        cell.favOrigin.text = "England"
+        let league = favoriteLeagues[indexPath.row]
+        
+        cell.favTitle.text = league.leagueName ?? "Unknown League"
+        cell.favOrigin.text = league.countryName ?? "Unknown Country"
+        
         cell.favImg.layer.cornerRadius = 28
         cell.favImg.clipsToBounds = true
-        cell.favImg.image = UIImage(named: "Placeholder")
+        
+        let defaultPlaceholder = UIImage(named: "Placeholder")
+        if let logoURLString = league.leagueLogo, let url = URL(string: logoURLString), !logoURLString.isEmpty {
+            cell.favImg.sd_setImage(with: url, placeholderImage: defaultPlaceholder)
+        } else {
+            cell.favImg.image = defaultPlaceholder
+        }
         
         return cell
-        
     }
-    
 
-    /*
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        return indexPath.row < favoriteLeagues.count
     }
-    */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            presenter.requestDeleteLeague(at: indexPath.row)
+        }
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        presenter.didSelectRow(at: indexPath.row)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

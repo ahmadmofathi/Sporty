@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFo-HO-Tg2" userLabel="contentView">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="779"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="LCc-Xi-aLn">
-                                        <rect key="frame" x="16" y="16" width="361" height="739"/>
+                                        <rect key="frame" x="16" y="16" width="361" height="719"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2ge-pf-87Q">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="35"/>
@@ -221,7 +221,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J2o-1r-VWx">
-                                                <rect key="frame" x="0.0" y="565" width="361" height="174"/>
+                                                <rect key="frame" x="0.0" y="565" width="361" height="154"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="450" id="latestHeight"/>
