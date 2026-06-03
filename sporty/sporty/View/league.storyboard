@@ -78,33 +78,33 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Premier League" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="league-name-id">
-                                                            <rect key="frame" x="83.999999999999986" y="20" width="134.66666666666663" height="22"/>
+                                                            <rect key="frame" x="84" y="20" width="236" height="22"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="England" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="country-label-id">
-                                                            <rect key="frame" x="84" y="46" width="53" height="17"/>
+                                                            <rect key="frame" x="84" y="46" width="236" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="live-badge-id">
-                                                            <rect key="frame" x="317" y="31" width="51" height="22"/>
+                                                        <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="live-badge-id">
+                                                            <rect key="frame" x="328" y="16" width="45" height="18"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="LIVE" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="live-label-id">
-                                                                    <rect key="frame" x="13" y="4" width="25" height="14"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                                    <rect key="frame" x="10.999999999999998" y="3" width="23.333333333333329" height="12"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </label>
                                                             </subviews>
                                                             <color key="backgroundColor" red="1" green="0.17999999999999999" blue="0.17999999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="22" id="lb-h-const"/>
-                                                                <constraint firstAttribute="width" constant="51" id="lb-w-const"/>
+                                                                <constraint firstAttribute="height" constant="18" id="lb-h-const"/>
+                                                                <constraint firstAttribute="width" constant="45" id="lb-w-const"/>
                                                                 <constraint firstItem="live-label-id" firstAttribute="centerX" secondItem="live-badge-id" secondAttribute="centerX" id="live-x"/>
                                                                 <constraint firstItem="live-label-id" firstAttribute="centerY" secondItem="live-badge-id" secondAttribute="centerY" id="live-y"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="10"/>
+                                                                    <integer key="value" value="4"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
@@ -116,6 +116,15 @@
                                                                 <constraint firstAttribute="width" constant="14" id="ch-width"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="favorite-btn-id">
+                                                            <rect key="frame" x="335.66666666666669" y="38" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="fav-h"/>
+                                                                <constraint firstAttribute="width" constant="30" id="fav-w"/>
+                                                            </constraints>
+                                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                                            <state key="normal" image="heart.fill" catalog="system"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
@@ -123,12 +132,16 @@
                                                         <constraint firstItem="chevron-id" firstAttribute="trailing" secondItem="card-view-id" secondAttribute="trailing" constant="-16" id="ch-trailing"/>
                                                         <constraint firstItem="country-label-id" firstAttribute="leading" secondItem="league-name-id" secondAttribute="leading" id="country-leading"/>
                                                         <constraint firstItem="country-label-id" firstAttribute="top" secondItem="league-name-id" secondAttribute="bottom" constant="4" id="country-top"/>
+                                                        <constraint firstItem="country-label-id" firstAttribute="trailing" secondItem="live-badge-id" secondAttribute="leading" constant="-8" id="country-trailing"/>
+                                                        <constraint firstItem="favorite-btn-id" firstAttribute="centerX" secondItem="live-badge-id" secondAttribute="centerX" id="fav-center-to-live"/>
+                                                        <constraint firstItem="favorite-btn-id" firstAttribute="top" secondItem="live-badge-id" secondAttribute="bottom" constant="4" id="fav-top-to-live"/>
                                                         <constraint firstItem="logo-container-id" firstAttribute="centerY" secondItem="card-view-id" secondAttribute="centerY" id="lc-center"/>
                                                         <constraint firstItem="logo-container-id" firstAttribute="leading" secondItem="card-view-id" secondAttribute="leading" constant="14" id="lc-leading"/>
-                                                        <constraint firstItem="live-badge-id" firstAttribute="centerY" secondItem="card-view-id" secondAttribute="centerY" id="live-center"/>
-                                                        <constraint firstItem="live-badge-id" firstAttribute="trailing" secondItem="chevron-id" secondAttribute="leading" constant="-10" id="live-trailing"/>
+                                                        <constraint firstItem="live-badge-id" firstAttribute="top" secondItem="card-view-id" secondAttribute="top" constant="16" id="live-top-new"/>
+                                                        <constraint firstItem="live-badge-id" firstAttribute="trailing" secondItem="chevron-id" secondAttribute="leading" constant="-5" id="live-trailing-new"/>
                                                         <constraint firstItem="league-name-id" firstAttribute="leading" secondItem="logo-container-id" secondAttribute="trailing" constant="14" id="name-leading"/>
                                                         <constraint firstItem="league-name-id" firstAttribute="top" secondItem="card-view-id" secondAttribute="top" constant="20" id="name-top"/>
+                                                        <constraint firstItem="league-name-id" firstAttribute="trailing" secondItem="live-badge-id" secondAttribute="leading" constant="-8" id="name-trailing"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -147,6 +160,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="countryLabel" destination="country-label-id" id="TTG-5u-UA2"/>
+                                            <outlet property="favoriteButton" destination="favorite-btn-id" id="XUl-ip-ahQ"/>
                                             <outlet property="leagueNameLabel" destination="league-name-id" id="Exe-7t-wUN"/>
                                             <outlet property="liveBadegView" destination="live-badge-id" id="uVv-8X-KWw"/>
                                             <outlet property="logoImageView" destination="logo-img-id" id="bZR-8T-xhu"/>
@@ -169,6 +183,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Leagues" id="nav-item-id"/>
                     <connections>
+                        <outlet property="mySearch" destination="search-bar-id" id="Tme-3t-e6Q"/>
                         <outlet property="tableView" destination="tableView-id" id="tv-outlet"/>
                     </connections>
                 </viewController>
@@ -178,6 +193,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -186,6 +202,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
