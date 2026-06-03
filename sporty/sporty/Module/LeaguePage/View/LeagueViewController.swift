@@ -37,10 +37,20 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
         }
     }
     
-    func navigateToLeague(with leagueName: String) {
+    func navigateToLeague(with leagueId: Int) {
+
         let ml = UIStoryboard(name: "MainLeague", bundle: nil)
-        if let MainLeagueVC = ml.instantiateViewController(withIdentifier: "MainLeagueVC") as? MainLeagueViewController {
-            self.navigationController?.pushViewController(MainLeagueVC, animated: true)
+
+        if let mainLeagueVC = ml.instantiateViewController(
+            withIdentifier: "MainLeagueVC"
+        ) as? MainLeagueViewController {
+
+            mainLeagueVC.leagueId = leagueId
+
+            navigationController?.pushViewController(
+                mainLeagueVC,
+                animated: true
+            )
         }
     }
 }

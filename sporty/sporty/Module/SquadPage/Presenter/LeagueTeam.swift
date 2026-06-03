@@ -1,25 +1,26 @@
 //
-//  Team.swift
+//  LeagueTeam.swift
 //  sporty
 //
-//  Created by Shady Ramadan on 01/06/2026.
+//  Created by Ahmad on 02/06/2026.
 //
 
 import Foundation
-struct TeamResponse: Codable {
+
+struct LeagueTeamsResponse: Codable {
     let success: Int?
-    let result: [TeamData]?
+    let result: [LeagueTeam]?
 }
 
-struct TeamData: Codable {
+struct LeagueTeam: Codable {
+
     let teamKey: Int?
     let teamName: String?
-    let players: [Player]?
+    let teamLogo: String?
 
     enum CodingKeys: String, CodingKey {
         case teamKey = "team_key"
         case teamName = "team_name"
-        case players
+        case teamLogo = "team_logo"
     }
 }
-

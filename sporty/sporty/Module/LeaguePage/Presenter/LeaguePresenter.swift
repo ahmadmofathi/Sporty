@@ -2,7 +2,7 @@ import Foundation
 
 protocol LeaguesViewProtocol: AnyObject {
     func displayLeagues(_ names: [String], countries: [String], logos: [String], favorites: [Bool])
-    func navigateToLeague(with leagueName: String)
+    func navigateToLeague(with leagueId: Int)
 }
 
 class LeaguePresenter {
@@ -66,8 +66,14 @@ class LeaguePresenter {
     }
     
     func didSelectLeague(at index: Int) {
-        guard index < filteredLeagues.count else { return }
-        let selectedLeague = filteredLeagues[index].leagueName ?? ""
-        view?.navigateToLeague(with: selectedLeague)
+
+        guard index < leagues.count else { return }
+
+        let leagueId =
+        leagues[index].leagueKey ?? 0
+
+        view?.navigateToLeague(
+            with: leagueId
+        )
     }
 }
