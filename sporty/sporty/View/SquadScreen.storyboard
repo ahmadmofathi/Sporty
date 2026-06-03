@@ -219,7 +219,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="leagueName" destination="lbl-lp-301" id="UVc-gw-NQb"/>
                         <outlet property="squadTable" destination="tbl-squad-500" id="g4z-3J-m4c"/>
+                        <outlet property="staduimName" destination="lbl-ts-303" id="fEK-P4-dIp"/>
+                        <outlet property="teamName" destination="lbl-tn-302" id="dFe-yi-uNE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
