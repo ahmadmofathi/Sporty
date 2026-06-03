@@ -6,16 +6,20 @@ protocol MainLeagueViewProtocol: AnyObject {
         latest: [Fixture],
         teams: [LeagueTeam]
     )
+
     func navigateToTeamDetails(with teamId: Int)
 }
 
 class MainLeagueViewController: UIViewController, MainLeagueViewProtocol {
+  
 
     @IBOutlet weak var upComingCollectionView: UICollectionView!
     @IBOutlet weak var teamsCollectionView: UICollectionView!
     @IBOutlet weak var latestCollectionView: UICollectionView!
+    @IBOutlet weak var latestCollectionHeight: NSLayoutConstraint!
 
     var leagueId: Int = 34
+
     private var presenter: MainLeaguePresenter!
 
     private var upcomingEvents: [Fixture] = []
@@ -33,6 +37,8 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol {
 
         latestCollectionView.delegate = self
         latestCollectionView.dataSource = self
+
+        latestCollectionView.isScrollEnabled = false
 
         presenter = MainLeaguePresenter(
             view: self,
@@ -54,6 +60,27 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol {
         upComingCollectionView.reloadData()
         latestCollectionView.reloadData()
         teamsCollectionView.reloadData()
+
+        DispatchQueue.main.async {
+            self.updateLatestCollectionHeight()
+        }
+    }
+
+    private func updateLatestCollectionHeight() {
+        latestCollectionView.layoutIfNeeded()
+
+        guard let layout = latestCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+
+        let itemHeight = layout.itemSize.height
+        let spacing = layout.minimumLineSpacing
+        let count = CGFloat(latestEvents.count)
+
+        let totalHeight = (count * itemHeight) + ((count - 1) * spacing)
+
+        latestCollectionHeight.constant = max(totalHeight, 140)
+        view.layoutIfNeeded()
     }
 
     func navigateToTeamDetails(with teamId: Int) {
@@ -83,12 +110,15 @@ extension MainLeagueViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
+
         if collectionView == upComingCollectionView {
             return upcomingEvents.count
         }
+
         if collectionView == latestCollectionView {
             return latestEvents.count
         }
+
         return teams.count
     }
 
@@ -97,14 +127,15 @@ extension MainLeagueViewController: UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
 
-        // UPCOMING EVENTS
         if collectionView == upComingCollectionView {
+
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "UpComingEventCell",
                 for: indexPath
             ) as! UpComingEventCellCollectionViewCell
 
             let event = upcomingEvents[indexPath.row]
+
             cell.team1Name.text = event.eventHomeTeam
             cell.team2Name.text = event.eventAwayTeam
             cell.eventDate.text = event.eventDate
@@ -116,14 +147,15 @@ extension MainLeagueViewController: UICollectionViewDataSource {
             return cell
         }
 
-        // LATEST MATCHES (تم تصحيح الـ Identifier هنا ليتطابق مع الـ Storyboard)
         if collectionView == latestCollectionView {
+
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "latestCell",
                 for: indexPath
             ) as! LatestCollectionViewCell
 
             let match = latestEvents[indexPath.row]
+
             cell.teamATitle.text = match.eventHomeTeam
             cell.teamBTitle.text = match.eventAwayTeam
             cell.result.text = match.eventFinalResult
@@ -134,13 +166,13 @@ extension MainLeagueViewController: UICollectionViewDataSource {
             return cell
         }
 
-        // TEAMS
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "TeamCell",
             for: indexPath
         ) as! TeamCollectionViewCell
 
         let team = teams[indexPath.row]
+
         cell.teamTitle.text = team.teamName
         cell.teamLogo.loadImage(from: team.teamLogo)
 
@@ -159,16 +191,12 @@ extension MainLeagueViewController: UICollectionViewDelegateFlowLayout {
         let availableWidth = collectionView.frame.width
 
         if collectionView == upComingCollectionView {
-            // يعطي براح جانبي ممتاز للكروت الأفقية العريضة
             return CGSize(width: availableWidth - 16, height: 200)
         }
 
         if collectionView == latestCollectionView {
-            // كروت الـ Latest Matches هتاخد الـ Width كامل للشاشة ناقص الهوامش البسيطة
-            return CGSize(width: availableWidth, height: 140)
+            return CGSize(width: collectionView.bounds.width - 4, height: 140)
         }
-
-        // كروت الـ Teams الدائرية
         return CGSize(width: 100, height: 120)
     }
 
@@ -183,19 +211,25 @@ extension MainLeagueViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension UIImageView {
+
     func loadImage(from urlString: String?) {
+
         guard let urlString = urlString,
               let url = URL(string: urlString) else {
             return
         }
 
         URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data, error == nil else {
+
+            guard let data = data,
+                  error == nil else {
                 return
             }
+
             DispatchQueue.main.async {
                 self.image = UIImage(data: data)
             }
+
         }.resume()
     }
 }
