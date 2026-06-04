@@ -8,23 +8,22 @@ protocol SquadPresenterProtocol {
 class SquadPresenter: SquadPresenterProtocol {
     private weak var view: SquadViewProtocol?
     var players: [Player] = []
+    private let sport: String // أضفنا هذا المتغير
 
-    init(view: SquadViewProtocol) {
+    // عدلنا الـ init ليستقبل الرياضة
+    init(view: SquadViewProtocol, sport: String) {
         self.view = view
+        self.sport = sport
     }
 
     func getPlayers(teamId: Int) {
-       NetworkManager.shared.fetchPlayers(teamId: teamId) { [weak self] result in
+        // استخدمنا المتغير sport هنا
+        NetworkManager.shared.fetchPlayers(teamId: teamId, sport: self.sport) { [weak self] result in
             switch result {
             case .success(let fetchedPlayers):
                 self?.players = fetchedPlayers
+                print("✅ Successfully fetched \(fetchedPlayers.count) players")
                 
-                       print("✅ Successfully fetched \(fetchedPlayers.count) players")
-                if let firstPlayer = fetchedPlayers.first {
-                    print("👤 First Player Name: \(firstPlayer.playerName ?? "Nil")")
-                }
-                
-                // بنرجع للـ Main Thread عشان نحدث الـ TableView
                 DispatchQueue.main.async {
                     self?.view?.renderPlayers()
                 }

@@ -14,6 +14,7 @@ class SquadViewController: UIViewController {
     var teamNameText: String?
     var leagueNameText: String?
     var stadiumNameText: String?
+    var sportType : String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,8 @@ class SquadViewController: UIViewController {
         leagueName.text = leagueNameText ?? "N/A"
         staduimName.text = stadiumNameText ?? "N/A"
 
-        presenter = SquadPresenter(view: self)
-        presenter.getPlayers(teamId: teamId)
+        presenter = SquadPresenter(view: self, sport: self.sportType ?? "football")
+            presenter.getPlayers(teamId: self.teamId)
     }
 }
 

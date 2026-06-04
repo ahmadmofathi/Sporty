@@ -7,7 +7,7 @@ protocol MainLeagueViewProtocol: AnyObject {
     func setLeagueName(_ name: String)
 }
 
-class MainLeagueViewController: UIViewController, MainLeagueViewProtocol {
+class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var upComingCollectionView: UICollectionView!
     @IBOutlet weak var teamsCollectionView: UICollectionView!
@@ -16,6 +16,7 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol {
 
     var leagueId: Int = 34
     var leagueName: String = "Unknown League"
+    var sportType: String = "football"
     private var presenter: MainLeaguePresenter!
     
     private var upcomingEvents: [Fixture] = []
@@ -25,22 +26,24 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegates()
-        presenter = MainLeaguePresenter(view: self, leagueId: leagueId)
+        presenter = MainLeaguePresenter(view: self, leagueId: leagueId, sport: sportType)
         presenter.viewDidLoad()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        upComingCollectionView.collectionViewLayout.invalidateLayout()
+        latestCollectionView.collectionViewLayout.invalidateLayout()
+        teamsCollectionView.collectionViewLayout.invalidateLayout()
     }
 
     private func setupDelegates() {
         upComingCollectionView.delegate = self
         upComingCollectionView.dataSource = self
-        teamsCollectionView.delegate = self
-        teamsCollectionView.dataSource = self
         latestCollectionView.delegate = self
         latestCollectionView.dataSource = self
-        latestCollectionView.isScrollEnabled = false
-    }
-
-    func setLeagueName(_ name: String) {
-        self.leagueName = name
+        teamsCollectionView.delegate = self
+        teamsCollectionView.dataSource = self
     }
 
     func displayData(upcoming: [Fixture], latest: [Fixture], teams: [LeagueTeam]) {
@@ -56,29 +59,32 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol {
         }
     }
 
+    func navigateToTeamDetails(with teamId: Int) {
+        let sq = UIStoryboard(name: "SquadScreen", bundle: nil)
+        if let squadVC = sq.instantiateViewController(withIdentifier: "SquadVC") as? SquadViewController {
+            squadVC.teamId = teamId
+            navigationController?.pushViewController(squadVC, animated: true)
+        }
+    }
+
+    func setLeagueName(_ name: String) {
+        self.leagueName = name
+    }
+    
     private func updateLatestCollectionHeight() {
-        guard let layout = latestCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        let count = CGFloat(latestEvents.count)
-        let totalHeight = (count * layout.itemSize.height) + ((count - 1) * layout.minimumLineSpacing)
-        latestCollectionHeight.constant = max(totalHeight, 140)
+        let rows = CGFloat(latestEvents.count)
+        let itemHeight: CGFloat = 190
+        let spacing: CGFloat = 14
+        let topBottomInsets: CGFloat = 0
+        
+        if rows > 0 {
+            latestCollectionHeight?.constant = (rows * itemHeight) + ((rows - 1) * spacing) + topBottomInsets
+        } else {
+            latestCollectionHeight?.constant = 0
+        }
         view.layoutIfNeeded()
     }
 
-    func navigateToTeamDetails(with teamId: Int) {
-        let storyboard = UIStoryboard(name: "SquadScreen", bundle: nil)
-        guard let squadVC = storyboard.instantiateViewController(withIdentifier: "SquadVC") as? SquadViewController else { return }
-        
-        if let selectedTeam = teams.first(where: { $0.teamKey == teamId }) {
-            squadVC.teamId = teamId
-            squadVC.teamNameText = selectedTeam.teamName
-            squadVC.leagueNameText = self.leagueName
-            //squadVC.stadiumNameText = selectedTeam.teamStadium ?? ""
-        }
-        navigationController?.pushViewController(squadVC, animated: true)
-    }
-}
-
-extension MainLeagueViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == upComingCollectionView { return upcomingEvents.count }
         if collectionView == latestCollectionView { return latestEvents.count }
@@ -88,13 +94,12 @@ extension MainLeagueViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == upComingCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpComingEventCell", for: indexPath) as! UpComingEventCellCollectionViewCell
-            let event = upcomingEvents[indexPath.row]
-            cell.team1Name.text = event.eventHomeTeam
-            cell.team2Name.text = event.eventAwayTeam
-            cell.eventDate.text = event.eventDate
-            cell.matchWeek.text = event.leagueRound
-            cell.team1Img.sd_setImage(with: URL(string: event.homeTeamLogo ?? ""))
-            cell.team2Img.sd_setImage(with: URL(string: event.awayTeamLogo ?? ""))
+            let match = upcomingEvents[indexPath.row]
+            cell.team1Name.text = match.eventHomeTeam
+            cell.team2Name.text = match.eventAwayTeam
+            cell.eventDate.text = match.eventDate
+            cell.team1Img.sd_setImage(with: URL(string: match.homeTeamLogo ?? ""))
+            cell.team2Img.sd_setImage(with: URL(string: match.awayTeamLogo ?? ""))
             return cell
         }
         
@@ -117,9 +122,31 @@ extension MainLeagueViewController: UICollectionViewDataSource, UICollectionView
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == upComingCollectionView { return CGSize(width: collectionView.frame.width - 16, height: 200) }
-        if collectionView == latestCollectionView { return CGSize(width: collectionView.bounds.width - 4, height: 140) }
-        return CGSize(width: 100, height: 120)
+        if collectionView == upComingCollectionView {
+            return CGSize(width: 320, height: 212)
+        }
+        if collectionView == latestCollectionView {
+            return CGSize(width: collectionView.bounds.width, height: 190)
+        }
+        return CGSize(width: 80, height: 116)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == latestCollectionView {
+            return 14
+        }
+        return 16
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView == latestCollectionView {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
+        return UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

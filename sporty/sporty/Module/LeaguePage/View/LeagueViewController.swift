@@ -38,21 +38,13 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
     }
     
     func navigateToLeague(with leagueId: Int) {
-
-        let ml = UIStoryboard(name: "MainLeague", bundle: nil)
-
-        if let mainLeagueVC = ml.instantiateViewController(
-            withIdentifier: "MainLeagueVC"
-        ) as? MainLeagueViewController {
-
-            mainLeagueVC.leagueId = leagueId
-
-            navigationController?.pushViewController(
-                mainLeagueVC,
-                animated: true
-            )
+            let ml = UIStoryboard(name: "MainLeague", bundle: nil)
+            if let mainLeagueVC = ml.instantiateViewController(withIdentifier: "MainLeagueVC") as? MainLeagueViewController {
+                mainLeagueVC.leagueId = leagueId
+                mainLeagueVC.sportType = self.selectedSport ?? "football"
+                navigationController?.pushViewController(mainLeagueVC, animated: true)
+            }
         }
-    }
 }
 
 extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource {
