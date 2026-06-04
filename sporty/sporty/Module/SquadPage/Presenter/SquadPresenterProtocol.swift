@@ -11,6 +11,9 @@ protocol SquadViewProtocol: AnyObject {
     func renderPlayers()
 
     func showError(message: String)
+    func showNoInternet()
+    func showEmptyState(message: String)
+    func hideEmptyState()
 }
 
 
