@@ -18,17 +18,16 @@ class MainLeaguePresenter {
         self.leagueId = leagueId
         self.sport = sport
     }
-    
+
     func viewDidLoad() {
         loadData()
     }
-    
+
     private func loadData() {
 
         guard ReachabilityManager.shared.isConnected else {
 
             DispatchQueue.main.async {
-
                 self.view?.showNoInternet()
             }
 
@@ -37,91 +36,191 @@ class MainLeaguePresenter {
 
         let group = DispatchGroup()
 
-        var fetchedFixtures: [Fixture] = []
+        var finalFixtures: [MatchProtocol] = []
         var fetchedTeams: [LeagueTeam] = []
 
         var fixturesError: Error?
         var teamsError: Error?
 
-        group.enter()
-
-        NetworkManager.shared.fetchFixtures(
-            leagueId: leagueId,
-            sport: sport
-        ) { result in
-
-            switch result {
-
-            case .success(let fixtures):
-                fetchedFixtures = fixtures
-
-            case .failure(let error):
-                fixturesError = error
-            }
-
-            group.leave()
-        }
+        // MARK: Fixtures
 
         group.enter()
 
-        NetworkManager.shared.fetchTeams(
-            leagueId: leagueId,
-            sport: sport
-        ) { result in
+        if sport.lowercased() == "tennis" {
 
-            switch result {
+            NetworkManager.shared.fetchTennisFixtures(
+                leagueId: leagueId
+            ) { result in
 
-            case .success(let teams):
-                fetchedTeams = teams
+                switch result {
 
-            case .failure(let error):
-                teamsError = error
+                case .success(let fixtures):
+                    finalFixtures = fixtures
+
+                case .failure(let error):
+                    fixturesError = error
+                }
+
+                group.leave()
             }
 
-            group.leave()
+        } else {
+
+            NetworkManager.shared.fetchFixtures(
+                leagueId: leagueId,
+                sport: sport
+            ) { result in
+
+                switch result {
+
+                case .success(let fixtures):
+                    finalFixtures = fixtures
+
+                case .failure(let error):
+                    fixturesError = error
+                }
+
+                group.leave()
+            }
         }
+
+        // MARK: Teams
+
+        if sport.lowercased() != "tennis" {
+
+            group.enter()
+
+            NetworkManager.shared.fetchTeams(
+                leagueId: leagueId,
+                sport: sport
+            ) { result in
+
+                switch result {
+
+                case .success(let teams):
+                    fetchedTeams = teams
+
+                case .failure(let error):
+                    teamsError = error
+                }
+
+                group.leave()
+            }
+        }
+
+        // MARK: Final Processing
+
         group.notify(queue: .main) {
-            let upcoming = finalFixtures.filter { ($0.result ?? "").isEmpty || ($0.result ?? "") == "-" }
-            let latest = finalFixtures.filter { !($0.result ?? "").isEmpty && ($0.result ?? "") != "-" }
-            
+
+            if fixturesError != nil {
+
+                self.view?.showEmptyState(
+                    message: "Failed to load league data"
+                )
+
+                return
+            }
+
+            if self.sport.lowercased() != "tennis",
+               teamsError != nil {
+
+                self.view?.showEmptyState(
+                    message: "Failed to load teams"
+                )
+
+                return
+            }
+
+            let upcoming = finalFixtures.filter {
+                ($0.result ?? "").isEmpty ||
+                ($0.result ?? "") == "-"
+            }
+
+            let latest = finalFixtures.filter {
+                !($0.result ?? "").isEmpty &&
+                ($0.result ?? "") != "-"
+            }
+
             if self.sport.lowercased() == "tennis" {
+
                 var extractedPlayers: [LeagueTeam] = []
                 var seenPlayerNames = Set<String>()
-                
+
                 for fixture in finalFixtures {
-                    print("🔍 Fixture type: \(type(of: fixture)) | Title: \(fixture.title1 ?? "")")
-                    
-                    if let tennisFixture = fixture as? TennisFixture {
-                        print("✅ Successfully casted to TennisFixture!")
-                        if let p1 = tennisFixture.title1, !p1.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !seenPlayerNames.contains(p1) {
-                            seenPlayerNames.insert(p1)
-                            
-                            let p1Key = tennisFixture.playerKey1
-                            print("🎯 Extracted Player 1 Key: \(String(describing: p1Key))")
-                            
-                            let playerAsTeam = LeagueTeam(teamKey: p1Key, teamName: p1, teamLogo: tennisFixture.logo1)
-                            extractedPlayers.append(playerAsTeam)
-                        }
-                        
-                        if let p2 = tennisFixture.title2, !p2.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !seenPlayerNames.contains(p2) {
-                            seenPlayerNames.insert(p2)
-                            
-                            let p2Key = tennisFixture.playerKey2
-                            
-                            let playerAsTeam = LeagueTeam(teamKey: p2Key, teamName: p2, teamLogo: tennisFixture.logo2)
-                            extractedPlayers.append(playerAsTeam)
-                        }
-                    } else {
-                        print("❌ Failed to cast to TennisFixture!")
+
+                    guard let tennisFixture = fixture as? TennisFixture else {
+                        continue
+                    }
+
+                    if let player1 = tennisFixture.title1,
+                       !player1.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+                       !seenPlayerNames.contains(player1) {
+
+                        seenPlayerNames.insert(player1)
+
+                        extractedPlayers.append(
+                            LeagueTeam(
+                                teamKey: tennisFixture.playerKey1,
+                                teamName: player1,
+                                teamLogo: tennisFixture.logo1
+                            )
+                        )
+                    }
+
+                    if let player2 = tennisFixture.title2,
+                       !player2.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+                       !seenPlayerNames.contains(player2) {
+
+                        seenPlayerNames.insert(player2)
+
+                        extractedPlayers.append(
+                            LeagueTeam(
+                                teamKey: tennisFixture.playerKey2,
+                                teamName: player2,
+                                teamLogo: tennisFixture.logo2
+                            )
+                        )
                     }
                 }
+
                 self.teams = extractedPlayers
-                
+
             } else {
+
                 self.teams = fetchedTeams
             }
-            
-            self.view?.displayData(upcoming: upcoming, latest: latest, teams: self.teams)
+
+            if upcoming.isEmpty &&
+                latest.isEmpty &&
+                self.teams.isEmpty {
+
+                self.view?.showEmptyState(
+                    message: "No league data available"
+                )
+
+                return
+            }
+
+            self.view?.hideEmptyState()
+
+            self.view?.displayData(
+                upcoming: upcoming,
+                latest: latest,
+                teams: self.teams
+            )
         }
+    }
+
+    func didSelectTeam(at index: Int) {
+
+        guard index < teams.count else {
+            return
+        }
+
+        let teamId = teams[index].teamKey ?? 0
+
+        view?.navigateToTeamDetails(
+            with: teamId
+        )
     }
 }
