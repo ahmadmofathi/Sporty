@@ -3,16 +3,17 @@ import SDWebImage
 import Foundation
 
 protocol MainLeagueViewProtocol: AnyObject {
-
-
     func setLeagueName(_ name: String)
-
     func showNoInternet()
-
     func showEmptyState(message: String)
-
     func hideEmptyState()
-    func displayData(upcoming: [MatchProtocol], latest: [MatchProtocol], teams: [LeagueTeam])
+
+    func displayData(
+        upcoming: [MatchProtocol],
+        latest: [MatchProtocol],
+        teams: [LeagueTeam]
+    )
+
     func navigateToTeamDetails(with teamId: Int)
     func navigateToTennisDetails(with playerKey: Int)
 }
@@ -64,7 +65,6 @@ class MainLeagueViewController: UIViewController,
     }
 
     private func setupDelegates() {
-
         upComingCollectionView.delegate = self
         upComingCollectionView.dataSource = self
 
@@ -76,7 +76,6 @@ class MainLeagueViewController: UIViewController,
     }
 
     private func setupEmptyState() {
-
         emptyStateLabel.translatesAutoresizingMaskIntoConstraints = false
         emptyStateLabel.textAlignment = .center
         emptyStateLabel.numberOfLines = 0
@@ -94,12 +93,23 @@ class MainLeagueViewController: UIViewController,
         ])
     }
 
-    func displayData(upcoming: [MatchProtocol], latest: [MatchProtocol], teams: [LeagueTeam]) {
+    // MARK: - View Protocol
+
+    func setLeagueName(_ name: String) {
+        leagueName = name
+        title = name
+    }
+
+    func displayData(
+        upcoming: [MatchProtocol],
+        latest: [MatchProtocol],
+        teams: [LeagueTeam]
+    ) {
         self.upcomingEvents = upcoming
         self.latestEvents = latest
         self.teams = teams
-        DispatchQueue.main.async {
 
+        DispatchQueue.main.async {
             self.hideEmptyState()
 
             self.upComingCollectionView.reloadData()
@@ -110,34 +120,7 @@ class MainLeagueViewController: UIViewController,
         }
     }
 
-    func navigateToTeamDetails(with teamId: Int) {
-
-        let sq = UIStoryboard(
-            name: "SquadScreen",
-            bundle: nil
-        )
-
-        if let squadVC = sq.instantiateViewController(
-            withIdentifier: "SquadVC"
-        ) as? SquadViewController {
-
-            squadVC.teamId = teamId
-
-            navigationController?.pushViewController(
-                squadVC,
-                animated: true
-            )
-        }
-    }
-
-    func setLeagueName(_ name: String) {
-
-        leagueName = name
-        title = name
-    }
-
     func showNoInternet() {
-
         emptyStateLabel.text =
         """
         📡 No Internet Connection
@@ -153,7 +136,6 @@ class MainLeagueViewController: UIViewController,
     }
 
     func showEmptyState(message: String) {
-
         emptyStateLabel.text = message
 
         emptyStateLabel.isHidden = false
@@ -164,7 +146,6 @@ class MainLeagueViewController: UIViewController,
     }
 
     func hideEmptyState() {
-
         emptyStateLabel.isHidden = true
 
         upComingCollectionView.isHidden = false
@@ -172,30 +153,63 @@ class MainLeagueViewController: UIViewController,
         teamsCollectionView.isHidden = false
     }
 
+    // MARK: - Navigation
 
-        let sq = UIStoryboard(name: "SquadScreen", bundle: nil)
-        if let vc = sq.instantiateViewController(withIdentifier: "SquadVC") as? SquadViewController {
+    func navigateToTeamDetails(with teamId: Int) {
+        let storyboard = UIStoryboard(
+            name: "SquadScreen",
+            bundle: nil
+        )
+
+        if let vc = storyboard.instantiateViewController(
+            withIdentifier: "SquadVC"
+        ) as? SquadViewController {
+
             vc.teamId = teamId
-            navigationController?.pushViewController(vc, animated: true)
+
+            navigationController?.pushViewController(
+                vc,
+                animated: true
+            )
         }
     }
 
     func navigateToTennisDetails(with playerKey: Int) {
-        let storyboard = UIStoryboard(name: "TennisPlayerProfile", bundle: nil)
-        if let vc = storyboard.instantiateViewController(withIdentifier: "TennisVC") as? TennisPlayerViewController {
+        let storyboard = UIStoryboard(
+            name: "TennisPlayerProfile",
+            bundle: nil
+        )
+
+        if let vc = storyboard.instantiateViewController(
+            withIdentifier: "TennisVC"
+        ) as? TennisPlayerViewController {
+
             vc.playerKey = playerKey
-            vc.leagueId = self.leagueId
-            navigationController?.pushViewController(vc, animated: true)
+            vc.leagueId = leagueId
+
+            navigationController?.pushViewController(
+                vc,
+                animated: true
+            )
         }
     }
+
+    // MARK: - Layout
 
     private func updateLatestCollectionHeight() {
         let itemHeight: CGFloat = 190
         let spacing: CGFloat = 14
         let count = CGFloat(latestEvents.count)
-        latestCollectionHeight.constant = count > 0 ? (count * itemHeight) + ((count - 1) * spacing) : 0
+
+        latestCollectionHeight.constant =
+            count > 0
+            ? (count * itemHeight) + ((count - 1) * spacing)
+            : 0
+
         view.layoutIfNeeded()
     }
+
+    // MARK: - Collection View
 
     func collectionView(
         _ collectionView: UICollectionView,
@@ -226,10 +240,20 @@ class MainLeagueViewController: UIViewController,
             ) as! UpComingEventCellCollectionViewCell
 
             let match = upcomingEvents[indexPath.row]
+
             cell.team1Name.text = match.title1 ?? "-"
             cell.team2Name.text = match.title2 ?? "-"
-            cell.team1Img.sd_setImage(with: URL(string: match.logo1 ?? ""), placeholderImage: UIImage(named: "placeholder"))
-            cell.team2Img.sd_setImage(with: URL(string: match.logo2 ?? ""), placeholderImage: UIImage(named: "placeholder"))
+
+            cell.team1Img.sd_setImage(
+                with: URL(string: match.logo1 ?? ""),
+                placeholderImage: UIImage(named: "placeholder")
+            )
+
+            cell.team2Img.sd_setImage(
+                with: URL(string: match.logo2 ?? ""),
+                placeholderImage: UIImage(named: "placeholder")
+            )
+
             return cell
         }
 
@@ -241,33 +265,84 @@ class MainLeagueViewController: UIViewController,
             ) as! LatestCollectionViewCell
 
             let match = latestEvents[indexPath.row]
+
             cell.teamATitle.text = match.title1 ?? "-"
             cell.teamBTitle.text = match.title2 ?? "-"
             cell.result.text = match.result ?? "-"
-            cell.teamAImage.sd_setImage(with: URL(string: match.logo1 ?? ""), placeholderImage: UIImage(named: "placeholder"))
-            cell.teamBImage.sd_setImage(with: URL(string: match.logo2 ?? ""), placeholderImage: UIImage(named: "placeholder"))
+
+            cell.teamAImage.sd_setImage(
+                with: URL(string: match.logo1 ?? ""),
+                placeholderImage: UIImage(named: "placeholder")
+            )
+
+            cell.teamBImage.sd_setImage(
+                with: URL(string: match.logo2 ?? ""),
+                placeholderImage: UIImage(named: "placeholder")
+            )
+
             return cell
         }
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "TeamCell",
+            for: indexPath
+        ) as! TeamCollectionViewCell
+
         let team = teams[indexPath.row]
+
         cell.teamTitle.text = team.teamName ?? "-"
-        cell.teamLogo.sd_setImage(with: URL(string: team.teamLogo ?? ""), placeholderImage: UIImage(named: "placeholder"))
+
+        cell.teamLogo.sd_setImage(
+            with: URL(string: team.teamLogo ?? ""),
+            placeholderImage: UIImage(named: "placeholder")
+        )
+
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == upComingCollectionView { return CGSize(width: 320, height: 212) }
-        if collectionView == latestCollectionView { return CGSize(width: collectionView.bounds.width, height: 190) }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+
+        if collectionView == upComingCollectionView {
+            return CGSize(width: 320, height: 212)
+        }
+
+        if collectionView == latestCollectionView {
+            return CGSize(
+                width: collectionView.bounds.width,
+                height: 190
+            )
+        }
+
         return CGSize(width: 80, height: 116)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
+
         return collectionView == latestCollectionView ? 14 : 16
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return collectionView == latestCollectionView ? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) : UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
+
+        return collectionView == latestCollectionView
+        ? UIEdgeInsets.zero
+        : UIEdgeInsets(
+            top: 8,
+            left: 16,
+            bottom: 8,
+            right: 16
+        )
     }
 
     func collectionView(
@@ -279,14 +354,19 @@ class MainLeagueViewController: UIViewController,
         return 8
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == teamsCollectionView {
-            let teamId = teams[indexPath.row].teamKey ?? 0
-            if sportType.lowercased() == "tennis" {
-                navigateToTennisDetails(with: teamId)
-            } else {
-                navigateToTeamDetails(with: teamId)
-            }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+
+        guard collectionView == teamsCollectionView else { return }
+
+        let teamId = teams[indexPath.row].teamKey ?? 0
+
+        if sportType.lowercased() == "tennis" {
+            navigateToTennisDetails(with: teamId)
+        } else {
+            navigateToTeamDetails(with: teamId)
         }
     }
 }
