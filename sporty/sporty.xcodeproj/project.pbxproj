@@ -53,6 +53,9 @@
 		566EDEEE2FD326EF0063EBD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 566EDEB32FD326EF0063EBD8 /* Main.storyboard */; };
 		566EDEEF2FD326EF0063EBD8 /* SquadScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 566EDEB52FD326EF0063EBD8 /* SquadScreen.storyboard */; };
 		566EDEF02FD326EF0063EBD8 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 566EDEAE2FD326EF0063EBD8 /* Favorites.storyboard */; };
+		E05523A02FD327B0000E3117 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E055239F2FD327B0000E3117 /* SDWebImage */; };
+		E05523A22FD327B0000E3117 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E05523A12FD327B0000E3117 /* SDWebImageMapKit */; };
+		E05523A52FD327DA000E3117 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E05523A42FD327DA000E3117 /* Alamofire */; };
 		E0D806412FD0624F00729663 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E0D8063E2FD0624F00729663 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +114,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05523A02FD327B0000E3117 /* SDWebImage in Frameworks */,
+				E05523A52FD327DA000E3117 /* Alamofire in Frameworks */,
+				E05523A22FD327B0000E3117 /* SDWebImageMapKit in Frameworks */,
 				E0D806412FD0624F00729663 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +385,11 @@
 			dependencies = (
 			);
 			name = sporty;
+			packageProductDependencies = (
+				E055239F2FD327B0000E3117 /* SDWebImage */,
+				E05523A12FD327B0000E3117 /* SDWebImageMapKit */,
+				E05523A42FD327DA000E3117 /* Alamofire */,
+			);
 			productName = sporty;
 			productReference = 560AC10E2FCC86A600871752 /* sporty.app */;
 			productType = "com.apple.product-type.application";
@@ -407,6 +418,10 @@
 				Base,
 			);
 			mainGroup = 560AC1052FCC86A600871752;
+			packageReferences = (
+				E055239E2FD327B0000E3117 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				E05523A32FD327DA000E3117 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 560AC10F2FCC86A600871752 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -700,6 +715,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E055239E2FD327B0000E3117 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		E05523A32FD327DA000E3117 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = exactVersion;
+				version = 5.9.1;
+			};
+		};
 		E0D8063D2FD0624E00729663 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -711,6 +742,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E055239F2FD327B0000E3117 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E055239E2FD327B0000E3117 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		E05523A12FD327B0000E3117 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E055239E2FD327B0000E3117 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		E05523A42FD327DA000E3117 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E05523A32FD327DA000E3117 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		E0D8063E2FD0624F00729663 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0D8063D2FD0624E00729663 /* XCRemoteSwiftPackageReference "SDWebImage" */;
