@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,8 +22,6 @@
 		56916A742FBF1F500011E66B /* SportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A712FBF1F500011E66B /* SportsCell.swift */; };
 		56916A752FBF1F500011E66B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A722FBF1F500011E66B /* HomePresenter.swift */; };
 		56918A7C2FCDABDE00FD9731 /* LeaguePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56918A7A2FCDABDE00FD9731 /* LeaguePresenter.swift */; };
-		56918A7F2FCDB15C00FD9731 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		56918A812FCDB15C00FD9731 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		569B54C62FD05F73008163F9 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569B54BF2FD05F73008163F9 /* Fixtures.swift */; };
 		569B54C72FD05F73008163F9 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569B54C32FD05F73008163F9 /* Team.swift */; };
 		569B54C82FD05F73008163F9 /* LeagueTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569B54C12FD05F73008163F9 /* LeagueTeam.swift */; };
@@ -164,9 +162,7 @@
 			files = (
 				E0B2DBB02FD1C27600AC2F8D /* Alamofire in Frameworks */,
 				E0D806412FD0624F00729663 /* SDWebImageMapKit in Frameworks */,
-				56918A7F2FCDB15C00FD9731 /* (null) in Frameworks */,
 				E0D8063F2FD0624F00729663 /* SDWebImage in Frameworks */,
-				56918A812FCDB15C00FD9731 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,7 +698,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
@@ -767,7 +763,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
