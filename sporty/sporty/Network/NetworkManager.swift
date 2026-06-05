@@ -1,7 +1,15 @@
 import Foundation
 import Alamofire
-
-class NetworkManager {
+protocol NetworkManagerProtocol {
+    func fetchLeagues(sport: String, completion: @escaping (Result<[League], Error>) -> Void)
+    func fetchTeams(leagueId: Int, sport: String, completion: @escaping (Result<[LeagueTeam], Error>) -> Void)
+    func fetchFixtures(leagueId: Int, sport: String, completion: @escaping (Result<[Fixture], Error>) -> Void)
+    func fetchPlayers(teamId: Int, sport: String, completion: @escaping (Result<[Player], Error>) -> Void)
+    func fetchTennisFixtures(leagueId: Int, completion: @escaping (Result<[TennisFixture], Error>) -> Void)
+    func fetchPlayerProfile(with playerKey: Int, completion: @escaping (Result<TennisPlayerProfile, Error>) -> Void)
+    func fetchPlayerTournaments(playerKey: Int, completion: @escaping (Result<[TennisFixture], Error>) -> Void)
+}
+class NetworkManager : NetworkManagerProtocol{
     let apiKey = "53b3a058aedc852b1c141bc3c80078695068dc06342a6e408e3a390a7252cd27"
     static let shared = NetworkManager()
     private init() {}

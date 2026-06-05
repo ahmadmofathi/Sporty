@@ -3,17 +3,19 @@ import Foundation
 class TennisPlayerPresenter {
 
     private weak var view: TennisPlayerViewProtocol?
+    private let networkManager: NetworkManagerProtocol
     private var playerProfile: TennisPlayerProfile?
     private var tournaments: [TennisFixture] = []
     var leagueId: Int = 0
 
-    init(view: TennisPlayerViewProtocol) {
+    init(view: TennisPlayerViewProtocol,networkManger: NetworkManagerProtocol = NetworkManager.shared) {
         self.view = view
+        self.networkManager = networkManger
     }
 
     func fetchPlayerDetails(playerKey: Int) {
         view?.showLoading()
-        NetworkManager.shared.fetchPlayerProfile(with: playerKey) { [weak self] result in
+        networkManager.fetchPlayerProfile(with: playerKey) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let profile):
