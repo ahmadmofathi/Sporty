@@ -1,10 +1,3 @@
-//
-//  FavoritesTableViewController.swift
-//  sporty
-//
-//  Created by Ahmad on 21/05/2026.
-//
-
 import UIKit
 import SDWebImage
 
@@ -18,17 +11,14 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
         title = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.rowHeight = 92
-        
-             presenter = FavoritesPresenter(view: self)
+        presenter = FavoritesPresenter(view: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-          presenter.viewWillAppear()
+        super.viewDidLoad()
+        presenter.viewWillAppear()
     }
 
-    // MARK: - FavoritesViewProtocol Implementation
-    
     func displayFavorites(_ leagues: [League]) {
         self.favoriteLeagues = leagues
         DispatchQueue.main.async {
@@ -39,10 +29,11 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
     func navigateToLeague(with leagueName: String) {
         let ml = UIStoryboard(name: "MainLeague", bundle: nil)
         if let mainLeagueVC = ml.instantiateViewController(withIdentifier: "MainLeagueVC") as? MainLeagueViewController {
-                    self.navigationController?.pushViewController(mainLeagueVC, animated: true)
+            self.navigationController?.pushViewController(mainLeagueVC, animated: true)
         }
     }
-       func showDeleteConfirmationAlert(leagueName: String, confirmHandler: @escaping () -> Void) {
+    
+    func showDeleteConfirmationAlert(leagueName: String, confirmHandler: @escaping () -> Void) {
         let alert = UIAlertController(
             title: "Remove From Favorites",
             message: "Are you sure you want to remove \(leagueName) from your favorites?",
@@ -56,29 +47,18 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
         
         alert.addAction(cancelAction)
         alert.addAction(deleteAction)
-        
-        presenter.fetchFavoritesFromCoreData()
-        presenter.viewWillAppear()
-        self.presenter.viewWillAppear()
         present(alert, animated: true, completion: nil)
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return favoriteLeagues.count + 1
+        return favoriteLeagues.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == favoriteLeagues.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "addLeague", for: indexPath)
-            return cell
-        }
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FavoriteTableViewCell
         let league = favoriteLeagues[indexPath.row]
         
@@ -99,7 +79,7 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row < favoriteLeagues.count
+        return true
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -108,8 +88,6 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
         }
     }
 
-    // MARK: - Table view delegate
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.didSelectRow(at: indexPath.row)
