@@ -18,11 +18,11 @@ class MainLeaguePresenter {
         self.leagueId = leagueId
         self.sport = sport
     }
-
+    
     func viewDidLoad() {
         loadData()
     }
-
+    
     private func loadData() {
 
         guard ReachabilityManager.shared.isConnected else {
@@ -80,60 +80,48 @@ class MainLeaguePresenter {
 
             group.leave()
         }
-
         group.notify(queue: .main) {
-
-            if fixturesError != nil || teamsError != nil {
-
-                self.view?.showEmptyState(
-                    message: "Failed to load league data"
-                )
-
-                return
+            let upcoming = finalFixtures.filter { ($0.result ?? "").isEmpty || ($0.result ?? "") == "-" }
+            let latest = finalFixtures.filter { !($0.result ?? "").isEmpty && ($0.result ?? "") != "-" }
+            
+            if self.sport.lowercased() == "tennis" {
+                var extractedPlayers: [LeagueTeam] = []
+                var seenPlayerNames = Set<String>()
+                
+                for fixture in finalFixtures {
+                    print("🔍 Fixture type: \(type(of: fixture)) | Title: \(fixture.title1 ?? "")")
+                    
+                    if let tennisFixture = fixture as? TennisFixture {
+                        print("✅ Successfully casted to TennisFixture!")
+                        if let p1 = tennisFixture.title1, !p1.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !seenPlayerNames.contains(p1) {
+                            seenPlayerNames.insert(p1)
+                            
+                            let p1Key = tennisFixture.playerKey1
+                            print("🎯 Extracted Player 1 Key: \(String(describing: p1Key))")
+                            
+                            let playerAsTeam = LeagueTeam(teamKey: p1Key, teamName: p1, teamLogo: tennisFixture.logo1)
+                            extractedPlayers.append(playerAsTeam)
+                        }
+                        
+                        if let p2 = tennisFixture.title2, !p2.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, !seenPlayerNames.contains(p2) {
+                            seenPlayerNames.insert(p2)
+                            
+                            let p2Key = tennisFixture.playerKey2
+                            
+                            let playerAsTeam = LeagueTeam(teamKey: p2Key, teamName: p2, teamLogo: tennisFixture.logo2)
+                            extractedPlayers.append(playerAsTeam)
+                        }
+                    } else {
+                        print("❌ Failed to cast to TennisFixture!")
+                    }
+                }
+                self.teams = extractedPlayers
+                
+            } else {
+                self.teams = fetchedTeams
             }
-
-            self.teams = fetchedTeams
-
-            let upcoming = fetchedFixtures.filter {
-                $0.isUpcoming
-            }
-
-            let latest = fetchedFixtures.filter {
-                !$0.isUpcoming
-            }
-
-            if upcoming.isEmpty &&
-                latest.isEmpty &&
-                fetchedTeams.isEmpty {
-
-                self.view?.showEmptyState(
-                    message: "No league data available"
-                )
-
-                return
-            }
-
-            self.view?.hideEmptyState()
-
-            self.view?.displayData(
-                upcoming: upcoming,
-                latest: latest,
-                teams: fetchedTeams
-            )
+            
+            self.view?.displayData(upcoming: upcoming, latest: latest, teams: self.teams)
         }
-    }
-
-    func didSelectTeam(at index: Int) {
-
-        guard index < teams.count else {
-            return
-        }
-
-        let teamId =
-        teams[index].teamKey ?? 0
-
-        view?.navigateToTeamDetails(
-            with: teamId
-        )
     }
 }
