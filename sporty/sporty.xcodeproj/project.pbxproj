@@ -54,10 +54,11 @@
 		E04498262FD05EC8001B2B64 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04498202FD05EC8001B2B64 /* League.swift */; };
 		E04498272FD05EC8001B2B64 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04498212FD05EC8001B2B64 /* Player.swift */; };
 		E04498282FD05EC8001B2B64 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04498222FD05EC8001B2B64 /* Fixtures.swift */; };
+		E0B2DBB02FD1C27600AC2F8D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0B2DBAF2FD1C27600AC2F8D /* Alamofire */; };
+		E0B2DBB22FD1C9FF00AC2F8D /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B2DBB12FD1C9FF00AC2F8D /* ReachabilityManager.swift */; };
 		E0C2723B2FCDB00100609BE2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2723A2FCDB00100609BE2 /* NetworkManager.swift */; };
 		E0C272452FCDB94F00609BE2 /* SquadPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C272442FCDB94F00609BE2 /* SquadPresenterProtocol.swift */; };
 		E0C272472FCDB9A900609BE2 /* SqaudPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C272462FCDB9A900609BE2 /* SqaudPresenter.swift */; };
-		E0D8063C2FD0622600729663 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E0D8063B2FD0622600729663 /* Alamofire */; };
 		E0D8063F2FD0624F00729663 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E0D8063E2FD0624F00729663 /* SDWebImage */; };
 		E0D806412FD0624F00729663 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E0D806402FD0624F00729663 /* SDWebImageMapKit */; };
 		E0D806442FD062B800729663 /* FavoritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D806432FD062B700729663 /* FavoritePresenter.swift */; };
@@ -125,6 +126,7 @@
 		E04498202FD05EC8001B2B64 /* League.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		E04498212FD05EC8001B2B64 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E04498222FD05EC8001B2B64 /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		E0B2DBB12FD1C9FF00AC2F8D /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		E0C2723A2FCDB00100609BE2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E0C272442FCDB94F00609BE2 /* SquadPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadPresenterProtocol.swift; sourceTree = "<group>"; };
 		E0C272462FCDB9A900609BE2 /* SqaudPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqaudPresenter.swift; sourceTree = "<group>"; };
@@ -141,7 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0D8063C2FD0622600729663 /* Alamofire in Frameworks */,
+				E0B2DBB02FD1C27600AC2F8D /* Alamofire in Frameworks */,
 				E0D806412FD0624F00729663 /* SDWebImageMapKit in Frameworks */,
 				56918A7F2FCDB15C00FD9731 /* (null) in Frameworks */,
 				E0D8063F2FD0624F00729663 /* SDWebImage in Frameworks */,
@@ -392,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				E0C2723A2FCDB00100609BE2 /* NetworkManager.swift */,
+				E0B2DBB12FD1C9FF00AC2F8D /* ReachabilityManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -442,9 +445,9 @@
 			);
 			name = sporty;
 			packageProductDependencies = (
-				E0D8063B2FD0622600729663 /* Alamofire */,
 				E0D8063E2FD0624F00729663 /* SDWebImage */,
 				E0D806402FD0624F00729663 /* SDWebImageMapKit */,
+				E0B2DBAF2FD1C27600AC2F8D /* Alamofire */,
 			);
 			productName = sporty;
 			productReference = E02A690F2FBF0E3400CF6BE2 /* sporty.app */;
@@ -475,8 +478,8 @@
 			);
 			mainGroup = E02A69062FBF0E3400CF6BE2;
 			packageReferences = (
-				E0D8063A2FD0622600729663 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E0D8063D2FD0624E00729663 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				E0B2DBAE2FD1C27600AC2F8D /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = E02A69102FBF0E3400CF6BE2 /* Products */;
 			projectDirPath = "";
@@ -515,6 +518,7 @@
 				E02A69172FBF0E3400CF6BE2 /* ViewController.swift in Sources */,
 				569B54C62FD05F73008163F9 /* Fixtures.swift in Sources */,
 				569B54C72FD05F73008163F9 /* Team.swift in Sources */,
+				E0B2DBB22FD1C9FF00AC2F8D /* ReachabilityManager.swift in Sources */,
 				569B54C82FD05F73008163F9 /* LeagueTeam.swift in Sources */,
 				569B54C92FD05F73008163F9 /* League.swift in Sources */,
 				569B54CA2FD05F73008163F9 /* Player.swift in Sources */,
@@ -680,12 +684,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E0D8063A2FD0622600729663 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		E0B2DBAE2FD1C27600AC2F8D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
-				kind = exactVersion;
-				version = 5.9.1;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		E0D8063D2FD0624E00729663 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
@@ -699,9 +703,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E0D8063B2FD0622600729663 /* Alamofire */ = {
+		E0B2DBAF2FD1C27600AC2F8D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E0D8063A2FD0622600729663 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = E0B2DBAE2FD1C27600AC2F8D /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		E0D8063E2FD0624F00729663 /* SDWebImage */ = {

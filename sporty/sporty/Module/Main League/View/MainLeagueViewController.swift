@@ -3,12 +3,25 @@ import SDWebImage
 import Foundation
 
 protocol MainLeagueViewProtocol: AnyObject {
+
+
+    func setLeagueName(_ name: String)
+
+    func showNoInternet()
+
+    func showEmptyState(message: String)
+
+    func hideEmptyState()
     func displayData(upcoming: [MatchProtocol], latest: [MatchProtocol], teams: [LeagueTeam])
     func navigateToTeamDetails(with teamId: Int)
     func navigateToTennisDetails(with playerKey: Int)
 }
 
-class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainLeagueViewController: UIViewController,
+                                MainLeagueViewProtocol,
+                                UICollectionViewDelegate,
+                                UICollectionViewDataSource,
+                                UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var upComingCollectionView: UICollectionView!
     @IBOutlet weak var teamsCollectionView: UICollectionView!
@@ -18,33 +31,67 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
     var leagueId: Int = 34
     var leagueName: String = "Unknown League"
     var sportType: String = "football"
+
     private var presenter: MainLeaguePresenter!
 
     private var upcomingEvents: [MatchProtocol] = []
     private var latestEvents: [MatchProtocol] = []
     private var teams: [LeagueTeam] = []
 
+    private let emptyStateLabel = UILabel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupDelegates()
-        presenter = MainLeaguePresenter(view: self, leagueId: leagueId, sport: sportType)
+        setupEmptyState()
+
+        presenter = MainLeaguePresenter(
+            view: self,
+            leagueId: leagueId,
+            sport: sportType
+        )
+
         presenter.viewDidLoad()
     }
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+
         upComingCollectionView.collectionViewLayout.invalidateLayout()
         latestCollectionView.collectionViewLayout.invalidateLayout()
         teamsCollectionView.collectionViewLayout.invalidateLayout()
     }
 
     private func setupDelegates() {
+
         upComingCollectionView.delegate = self
         upComingCollectionView.dataSource = self
+
         latestCollectionView.delegate = self
         latestCollectionView.dataSource = self
+
         teamsCollectionView.delegate = self
         teamsCollectionView.dataSource = self
+    }
+
+    private func setupEmptyState() {
+
+        emptyStateLabel.translatesAutoresizingMaskIntoConstraints = false
+        emptyStateLabel.textAlignment = .center
+        emptyStateLabel.numberOfLines = 0
+        emptyStateLabel.font = .systemFont(ofSize: 18)
+        emptyStateLabel.textColor = .secondaryLabel
+        emptyStateLabel.isHidden = true
+
+        view.addSubview(emptyStateLabel)
+
+        NSLayoutConstraint.activate([
+            emptyStateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyStateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            emptyStateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
     }
 
     func displayData(upcoming: [MatchProtocol], latest: [MatchProtocol], teams: [LeagueTeam]) {
@@ -52,14 +99,80 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
         self.latestEvents = latest
         self.teams = teams
         DispatchQueue.main.async {
+
+            self.hideEmptyState()
+
             self.upComingCollectionView.reloadData()
             self.latestCollectionView.reloadData()
             self.teamsCollectionView.reloadData()
+
             self.updateLatestCollectionHeight()
         }
     }
 
     func navigateToTeamDetails(with teamId: Int) {
+
+        let sq = UIStoryboard(
+            name: "SquadScreen",
+            bundle: nil
+        )
+
+        if let squadVC = sq.instantiateViewController(
+            withIdentifier: "SquadVC"
+        ) as? SquadViewController {
+
+            squadVC.teamId = teamId
+
+            navigationController?.pushViewController(
+                squadVC,
+                animated: true
+            )
+        }
+    }
+
+    func setLeagueName(_ name: String) {
+
+        leagueName = name
+        title = name
+    }
+
+    func showNoInternet() {
+
+        emptyStateLabel.text =
+        """
+        📡 No Internet Connection
+
+        Please check your internet connection and try again.
+        """
+
+        emptyStateLabel.isHidden = false
+
+        upComingCollectionView.isHidden = true
+        latestCollectionView.isHidden = true
+        teamsCollectionView.isHidden = true
+    }
+
+    func showEmptyState(message: String) {
+
+        emptyStateLabel.text = message
+
+        emptyStateLabel.isHidden = false
+
+        upComingCollectionView.isHidden = true
+        latestCollectionView.isHidden = true
+        teamsCollectionView.isHidden = true
+    }
+
+    func hideEmptyState() {
+
+        emptyStateLabel.isHidden = true
+
+        upComingCollectionView.isHidden = false
+        latestCollectionView.isHidden = false
+        teamsCollectionView.isHidden = false
+    }
+
+
         let sq = UIStoryboard(name: "SquadScreen", bundle: nil)
         if let vc = sq.instantiateViewController(withIdentifier: "SquadVC") as? SquadViewController {
             vc.teamId = teamId
@@ -84,15 +197,34 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
         view.layoutIfNeeded()
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == upComingCollectionView { return upcomingEvents.count }
-        if collectionView == latestCollectionView { return latestEvents.count }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+
+        if collectionView == upComingCollectionView {
+            return upcomingEvents.count
+        }
+
+        if collectionView == latestCollectionView {
+            return latestEvents.count
+        }
+
         return teams.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+
         if collectionView == upComingCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpComingEventCell", for: indexPath) as! UpComingEventCellCollectionViewCell
+
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "UpComingEventCell",
+                for: indexPath
+            ) as! UpComingEventCellCollectionViewCell
+
             let match = upcomingEvents[indexPath.row]
             cell.team1Name.text = match.title1 ?? "-"
             cell.team2Name.text = match.title2 ?? "-"
@@ -102,7 +234,12 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
         }
 
         if collectionView == latestCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "latestCell", for: indexPath) as! LatestCollectionViewCell
+
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "latestCell",
+                for: indexPath
+            ) as! LatestCollectionViewCell
+
             let match = latestEvents[indexPath.row]
             cell.teamATitle.text = match.title1 ?? "-"
             cell.teamBTitle.text = match.title2 ?? "-"
@@ -133,7 +270,12 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
         return collectionView == latestCollectionView ? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) : UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumInteritemSpacingForSectionAt section: Int
+    ) -> CGFloat {
+
         return 8
     }
 

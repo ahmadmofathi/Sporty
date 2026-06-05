@@ -1,12 +1,19 @@
 import Foundation
 
 class MainLeaguePresenter {
+
     weak var view: MainLeagueViewProtocol?
+
     private var teams: [LeagueTeam] = []
+
     private let leagueId: Int
     private let sport: String
-    
-    init(view: MainLeagueViewProtocol, leagueId: Int, sport: String) {
+
+    init(
+        view: MainLeagueViewProtocol,
+        leagueId: Int,
+        sport: String
+    ) {
         self.view = view
         self.leagueId = leagueId
         self.sport = sport
@@ -17,29 +24,61 @@ class MainLeaguePresenter {
     }
     
     private func loadData() {
-        let group = DispatchGroup()
-        var finalFixtures: [MatchProtocol] = []
-        var fetchedTeams: [LeagueTeam] = []
-        
-        group.enter()
-        if sport.lowercased() == "tennis" {
-            NetworkManager.shared.fetchTennisFixtures(leagueId: leagueId) { result in
-                if case .success(let data) = result { finalFixtures = data }
-                group.leave()
+
+        guard ReachabilityManager.shared.isConnected else {
+
+            DispatchQueue.main.async {
+
+                self.view?.showNoInternet()
             }
-        } else {
-            NetworkManager.shared.fetchFixtures(leagueId: leagueId, sport: sport) { result in
-                if case .success(let data) = result { finalFixtures = data }
-                group.leave()
-            }
+
+            return
         }
-        
-        if sport.lowercased() != "tennis" {
-            group.enter()
-            NetworkManager.shared.fetchTeams(leagueId: leagueId, sport: sport) { result in
-                if case .success(let teams) = result { fetchedTeams = teams }
-                group.leave()
+
+        let group = DispatchGroup()
+
+        var fetchedFixtures: [Fixture] = []
+        var fetchedTeams: [LeagueTeam] = []
+
+        var fixturesError: Error?
+        var teamsError: Error?
+
+        group.enter()
+
+        NetworkManager.shared.fetchFixtures(
+            leagueId: leagueId,
+            sport: sport
+        ) { result in
+
+            switch result {
+
+            case .success(let fixtures):
+                fetchedFixtures = fixtures
+
+            case .failure(let error):
+                fixturesError = error
             }
+
+            group.leave()
+        }
+
+        group.enter()
+
+        NetworkManager.shared.fetchTeams(
+            leagueId: leagueId,
+            sport: sport
+        ) { result in
+
+            switch result {
+
+            case .success(let teams):
+                fetchedTeams = teams
+
+            case .failure(let error):
+                teamsError = error
+            }
+
+            group.leave()
         }
         group.notify(queue: .main) {
             let upcoming = finalFixtures.filter { ($0.result ?? "").isEmpty || ($0.result ?? "") == "-" }
