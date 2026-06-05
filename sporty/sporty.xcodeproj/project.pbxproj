@@ -65,7 +65,8 @@
 		E0D806472FD0630300729663 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D806462FD0630200729663 /* CoreData.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section *//* End PBXContainerItemProxy section */
+/* Begin PBXContainerItemProxy section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		567E121A2FCF277B00D806E5 /* Embed Frameworks */ = {
@@ -451,7 +452,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				568C66A82FD31683005FB5EA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				568C66A42FD31683005FB5EA /* sportyTests */,
@@ -617,11 +617,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		568C66A82FD31683005FB5EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E02A690E2FBF0E3400CF6BE2 /* sporty */;
-			targetProxy = 568C66A72FD31683005FB5EA /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
