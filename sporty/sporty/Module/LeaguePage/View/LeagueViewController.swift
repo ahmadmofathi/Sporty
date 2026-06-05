@@ -43,6 +43,7 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
                 mainLeagueVC.leagueId = leagueId
                 mainLeagueVC.sportType = self.selectedSport ?? "football"
                 navigationController?.pushViewController(mainLeagueVC, animated: true)
+                
             }
         }
 }
