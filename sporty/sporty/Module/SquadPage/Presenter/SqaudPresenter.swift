@@ -8,17 +8,14 @@ protocol SquadPresenterProtocol {
 class SquadPresenter: SquadPresenterProtocol {
     private weak var view: SquadViewProtocol?
     var players: [Player] = []
-    private let sport: String // أضفنا هذا المتغير
-
-    // عدلنا الـ init ليستقبل الرياضة
+    private let sport: String
     init(view: SquadViewProtocol, sport: String) {
         self.view = view
         self.sport = sport
     }
 
     func getPlayers(teamId: Int) {
-        // استخدمنا المتغير sport هنا
-        NetworkManager.shared.fetchPlayers(teamId: teamId, sport: self.sport) { [weak self] result in
+            NetworkManager.shared.fetchPlayers(teamId: teamId, sport: self.sport) { [weak self] result in
             switch result {
             case .success(let fetchedPlayers):
                 self?.players = fetchedPlayers

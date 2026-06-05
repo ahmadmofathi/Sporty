@@ -1,18 +1,12 @@
 import UIKit
 import SDWebImage
-
 import Foundation
 
 protocol MainLeagueViewProtocol: AnyObject {
-    func displayData(
-        upcoming: [MatchProtocol],
-        latest: [MatchProtocol],
-        teams: [LeagueTeam]
-    )
-
+    func displayData(upcoming: [MatchProtocol], latest: [MatchProtocol], teams: [LeagueTeam])
     func navigateToTeamDetails(with teamId: Int)
+    func navigateToTennisDetails(with playerKey: Int)
 }
-
 
 class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
@@ -25,7 +19,7 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
     var leagueName: String = "Unknown League"
     var sportType: String = "football"
     private var presenter: MainLeaguePresenter!
-    
+
     private var upcomingEvents: [MatchProtocol] = []
     private var latestEvents: [MatchProtocol] = []
     private var teams: [LeagueTeam] = []
@@ -36,7 +30,7 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
         presenter = MainLeaguePresenter(view: self, leagueId: leagueId, sport: sportType)
         presenter.viewDidLoad()
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         upComingCollectionView.collectionViewLayout.invalidateLayout()
@@ -73,6 +67,15 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
         }
     }
 
+    func navigateToTennisDetails(with playerKey: Int) {
+        let storyboard = UIStoryboard(name: "TennisPlayerProfile", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "TennisVC") as? TennisPlayerViewController {
+            vc.playerKey = playerKey
+            vc.leagueId = self.leagueId
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
     private func updateLatestCollectionHeight() {
         let itemHeight: CGFloat = 190
         let spacing: CGFloat = 14
@@ -97,7 +100,7 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
             cell.team2Img.sd_setImage(with: URL(string: match.logo2 ?? ""), placeholderImage: UIImage(named: "placeholder"))
             return cell
         }
-        
+
         if collectionView == latestCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "latestCell", for: indexPath) as! LatestCollectionViewCell
             let match = latestEvents[indexPath.row]
@@ -108,7 +111,7 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
             cell.teamBImage.sd_setImage(with: URL(string: match.logo2 ?? ""), placeholderImage: UIImage(named: "placeholder"))
             return cell
         }
-        
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamCollectionViewCell
         let team = teams[indexPath.row]
         cell.teamTitle.text = team.teamName ?? "-"
@@ -135,6 +138,13 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == teamsCollectionView { presenter.didSelectTeam(at: indexPath.row) }
+        if collectionView == teamsCollectionView {
+            let teamId = teams[indexPath.row].teamKey ?? 0
+            if sportType.lowercased() == "tennis" {
+                navigateToTennisDetails(with: teamId)
+            } else {
+                navigateToTeamDetails(with: teamId)
+            }
+        }
     }
 }

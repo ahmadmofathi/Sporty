@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,8 @@
 		560EF2FC2FCF115500311F6E /* sporty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 560EF2FA2FCF115500311F6E /* sporty.xcdatamodeld */; };
 		5660EC4B2FCC808C006758A3 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5660EC492FCC808C006758A3 /* FavoriteTableViewCell.swift */; };
 		5660EC4C2FCC808C006758A3 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5660EC482FCC808C006758A3 /* FavoritesTableViewController.swift */; };
+		567D2D342FD1F570001B367A /* TennisPlayerProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567D2D332FD1F570001B367A /* TennisPlayerProfile.storyboard */; };
+		567D2D3D2FD1FCEE001B367A /* TennisPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567D2D3C2FD1FCEE001B367A /* TennisPlayer.swift */; };
 		56916A732FBF1F500011E66B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A702FBF1F500011E66B /* HomeViewController.swift */; };
 		56916A742FBF1F500011E66B /* SportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A712FBF1F500011E66B /* SportsCell.swift */; };
 		56916A752FBF1F500011E66B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A722FBF1F500011E66B /* HomePresenter.swift */; };
@@ -85,6 +87,8 @@
 		560EF2FB2FCF115500311F6E /* sporty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sporty.xcdatamodel; sourceTree = "<group>"; };
 		5660EC482FCC808C006758A3 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		5660EC492FCC808C006758A3 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		567D2D332FD1F570001B367A /* TennisPlayerProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TennisPlayerProfile.storyboard; sourceTree = "<group>"; };
+		567D2D3C2FD1FCEE001B367A /* TennisPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisPlayer.swift; sourceTree = "<group>"; };
 		56916A702FBF1F500011E66B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		56916A712FBF1F500011E66B /* SportsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsCell.swift; sourceTree = "<group>"; };
 		56916A722FBF1F500011E66B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -128,6 +132,10 @@
 		E0D806462FD0630200729663 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		567D2D352FD1FAD5001B367A /* Tennis Player */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Tennis Player"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		E02A690C2FBF0E3400CF6BE2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -153,6 +161,7 @@
 				560AC1482FCC86A700871752 /* Main.storyboard */,
 				560AC1492FCC86A700871752 /* MainLeague.storyboard */,
 				560AC14A2FCC86A700871752 /* SquadScreen.storyboard */,
+				567D2D332FD1F570001B367A /* TennisPlayerProfile.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +187,7 @@
 		56916A6F2FBF1F280011E66B /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				567D2D352FD1FAD5001B367A /* Tennis Player */,
 				56FDA1E52FD053C1006798A3 /* Main League */,
 				56C33E592FCC82E100DED72C /* SquadPage */,
 				56C33E532FCC82CF00DED72C /* LeaguePage */,
@@ -372,6 +382,7 @@
 				E04498212FD05EC8001B2B64 /* Player.swift */,
 				E04498222FD05EC8001B2B64 /* Fixtures.swift */,
 				56EDF9A92FD1C539001DC70B /* TennisFixtures.swift */,
+				567D2D3C2FD1FCEE001B367A /* TennisPlayer.swift */,
 			);
 			name = models;
 			path = sporty/models;
@@ -425,6 +436,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				567D2D352FD1FAD5001B367A /* Tennis Player */,
 			);
 			name = sporty;
 			packageProductDependencies = (
@@ -482,6 +496,7 @@
 				560AC14D2FCC86A700871752 /* Main.storyboard in Resources */,
 				560AC14E2FCC86A700871752 /* league.storyboard in Resources */,
 				560AC14F2FCC86A700871752 /* LaunchScreen.storyboard in Resources */,
+				567D2D342FD1F570001B367A /* TennisPlayerProfile.storyboard in Resources */,
 				560AC1502FCC86A700871752 /* SquadScreen.storyboard in Resources */,
 				560AC1512FCC86A700871752 /* MainLeague.storyboard in Resources */,
 				E02A691C2FBF0E3700CF6BE2 /* Assets.xcassets in Resources */,
@@ -532,6 +547,7 @@
 				E04498232FD05EC8001B2B64 /* Team.swift in Sources */,
 				E0D806442FD062B800729663 /* FavoritePresenter.swift in Sources */,
 				56916A752FBF1F500011E66B /* HomePresenter.swift in Sources */,
+				567D2D3D2FD1FCEE001B367A /* TennisPlayer.swift in Sources */,
 				E0C272472FCDB9A900609BE2 /* SqaudPresenter.swift in Sources */,
 				560EF2FC2FCF115500311F6E /* sporty.xcdatamodeld in Sources */,
 				E04498272FD05EC8001B2B64 /* Player.swift in Sources */,

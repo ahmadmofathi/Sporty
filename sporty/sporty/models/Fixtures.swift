@@ -8,7 +8,10 @@ protocol MatchProtocol {
     var result: String? { get }
     var isUpcoming: Bool { get }
     var date: String? { get }
-    var time: String? { get } }
+    var time: String? { get }
+    var playerKey1: Int? { get }
+    var playerKey2: Int? { get }
+}
 
 struct FixturesResponse: Codable {
     let success: Int?
@@ -16,9 +19,13 @@ struct FixturesResponse: Codable {
 }
 
 struct Fixture: Codable, MatchProtocol {
+    var playerKey1: Int?
+    
+    var playerKey2: Int?
+    
     let eventKey: Int?
     let eventDate: String?
-    let eventTime: String? // ✅ إضافة الوقت
+    let eventTime: String?
     let eventHomeTeam: String?
     let eventAwayTeam: String?
     let homeTeamLogo: String?
