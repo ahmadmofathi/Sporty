@@ -10,6 +10,7 @@ protocol SquadPresenterProtocol {
 class SquadPresenter: SquadPresenterProtocol {
 
     private weak var view: SquadViewProtocol?
+    private let networkManger : NetworkManagerProtocol
 
     var players: [Player] = []
 
@@ -17,11 +18,13 @@ class SquadPresenter: SquadPresenterProtocol {
 
     init(
         view: SquadViewProtocol,
-        sport: String
+        sport: String,
+        networkManger: NetworkManagerProtocol = NetworkManager.shared
     ) {
 
         self.view = view
         self.sport = sport
+        self.networkManger = networkManger
     }
 
     func getPlayers(teamId: Int) {
@@ -36,7 +39,7 @@ class SquadPresenter: SquadPresenterProtocol {
             return
         }
 
-        NetworkManager.shared.fetchPlayers(
+        networkManger.fetchPlayers(
             teamId: teamId,
             sport: self.sport
         ) { [weak self] result in

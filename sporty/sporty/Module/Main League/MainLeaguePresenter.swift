@@ -8,15 +8,18 @@ class MainLeaguePresenter {
 
     private let leagueId: Int
     private let sport: String
+    private let networkManger : NetworkManagerProtocol
 
     init(
         view: MainLeagueViewProtocol,
         leagueId: Int,
-        sport: String
+        sport: String,
+        networkManger:NetworkManagerProtocol = NetworkManager.shared
     ) {
         self.view = view
         self.leagueId = leagueId
         self.sport = sport
+        self.networkManger = networkManger
     }
 
     func viewDidLoad() {
@@ -48,7 +51,7 @@ class MainLeaguePresenter {
 
         if sport.lowercased() == "tennis" {
 
-            NetworkManager.shared.fetchTennisFixtures(
+            networkManger.fetchTennisFixtures(
                 leagueId: leagueId
             ) { result in
 
@@ -66,7 +69,7 @@ class MainLeaguePresenter {
 
         } else {
 
-            NetworkManager.shared.fetchFixtures(
+            networkManger.fetchFixtures(
                 leagueId: leagueId,
                 sport: sport
             ) { result in
@@ -90,7 +93,7 @@ class MainLeaguePresenter {
 
             group.enter()
 
-            NetworkManager.shared.fetchTeams(
+            networkManger.fetchTeams(
                 leagueId: leagueId,
                 sport: sport
             ) { result in
