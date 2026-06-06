@@ -59,29 +59,25 @@ class MainLeaguePresenterTests: XCTestCase {
         super.tearDown()
     }
     
-   func testDidSelectTeamWithInvalidIndexDoesNotCrash() {
-       
+    // MARK: - Original Tests
+    
+    func testDidSelectTeamWithInvalidIndexDoesNotCrash() {
         presenter = MainLeaguePresenter(view: mockView, leagueId: 5, sport: "football", networkManger: mockNetwork)
-      
         presenter.didSelectTeam(at: 99)
-        
-       
         XCTAssertFalse(mockView.navigateToTeamDetailsCalled)
     }
     
     func testFootballDataLoadingReturnsEmptyState() {
-        
         presenter = MainLeaguePresenter(view: mockView, leagueId: 4, sport: "football", networkManger: mockNetwork)
         mockNetwork.mockFixtures = []
         mockNetwork.mockTeams = []
         
         let expectation = self.expectation(description: "Wait for dispatch group notify")
         
-       
         presenter.viewDidLoad()
         
-         DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
-                   if self.mockView.showNoInternetCalled {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
+            if self.mockView.showNoInternetCalled {
                 XCTAssertTrue(self.mockView.showNoInternetCalled)
             } else {
                 XCTAssertTrue(self.mockView.showEmptyStateCalled)
@@ -91,4 +87,5 @@ class MainLeaguePresenterTests: XCTestCase {
         }
         waitForExpectations(timeout: 0.5)
     }
+    
 }
