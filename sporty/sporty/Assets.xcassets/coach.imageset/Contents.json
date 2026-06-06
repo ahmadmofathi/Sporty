@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "coach.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

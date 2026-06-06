@@ -246,12 +246,12 @@ class MainLeagueViewController: UIViewController,
 
             cell.team1Img.sd_setImage(
                 with: URL(string: match.logo1 ?? ""),
-                placeholderImage: UIImage(named: "placeholder")
+                placeholderImage: UIImage(named: "team")
             )
 
             cell.team2Img.sd_setImage(
                 with: URL(string: match.logo2 ?? ""),
-                placeholderImage: UIImage(named: "placeholder")
+                placeholderImage: UIImage(named: "team")
             )
 
             return cell
@@ -272,12 +272,12 @@ class MainLeagueViewController: UIViewController,
 
             cell.teamAImage.sd_setImage(
                 with: URL(string: match.logo1 ?? ""),
-                placeholderImage: UIImage(named: "placeholder")
+                placeholderImage: UIImage(named: "team")
             )
 
             cell.teamBImage.sd_setImage(
                 with: URL(string: match.logo2 ?? ""),
-                placeholderImage: UIImage(named: "placeholder")
+                placeholderImage: UIImage(named: "team")
             )
 
             return cell
@@ -294,7 +294,7 @@ class MainLeagueViewController: UIViewController,
 
         cell.teamLogo.sd_setImage(
             with: URL(string: team.teamLogo ?? ""),
-            placeholderImage: UIImage(named: "placeholder")
+            placeholderImage: UIImage(named: "team")
         )
 
         return cell

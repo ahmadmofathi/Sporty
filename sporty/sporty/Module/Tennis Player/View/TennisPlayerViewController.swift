@@ -78,11 +78,10 @@ extension TennisPlayerViewController: TennisPlayerViewProtocol {
             self.rankNumber.text = self.presenter.getBestRank()
             self.proSince.text = self.presenter.getProSince()
             self.totalGrandSlams.text = self.presenter.getTotalTitles()
-            if let urlString = profile.imageURL, let url = URL(string: urlString) {
-                URLSession.shared.dataTask(with: url) { data, _, _ in
-                    guard let data = data, let image = UIImage(data: data) else { return }
-                    DispatchQueue.main.async { self.playerImage.image = image }
-                }.resume()
+            if let urlString = profile.imageURL, let url = URL(string: urlString){
+                self.playerImage.sd_setImage(with: url,placeholderImage: UIImage(named: "tennisPlayer"))
+            } else {
+                self.playerImage.image = UIImage(named: "tennisPlayer")
             }
             self.tableView.reloadData()
             self.updateTableHeight()
