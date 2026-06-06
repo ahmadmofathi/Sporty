@@ -150,8 +150,8 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
             let match = upcomingEvents[indexPath.row]
             cell.team1Name.text = match.title1 ?? "-"
             cell.team2Name.text = match.title2 ?? "-"
-            cell.team1Img.sd_setImage(with: URL(string: match.logo1 ?? ""), placeholderImage: UIImage(named: "placeholder"))
-            cell.team2Img.sd_setImage(with: URL(string: match.logo2 ?? ""), placeholderImage: UIImage(named: "placeholder"))
+            cell.team1Img.sd_setImage(with: URL(string: match.logo1 ?? ""), placeholderImage: UIImage(named: "team"))
+            cell.team2Img.sd_setImage(with: URL(string: match.logo2 ?? ""), placeholderImage: UIImage(named: "team"))
             return cell
         }
 
@@ -161,15 +161,15 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
             cell.teamATitle.text = match.title1 ?? "-"
             cell.teamBTitle.text = match.title2 ?? "-"
             cell.result.text = match.result ?? "-"
-            cell.teamAImage.sd_setImage(with: URL(string: match.logo1 ?? ""), placeholderImage: UIImage(named: "placeholder"))
-            cell.teamBImage.sd_setImage(with: URL(string: match.logo2 ?? ""), placeholderImage: UIImage(named: "placeholder"))
+            cell.teamAImage.sd_setImage(with: URL(string: match.logo1 ?? ""), placeholderImage: UIImage(named: "team"))
+            cell.teamBImage.sd_setImage(with: URL(string: match.logo2 ?? ""), placeholderImage: UIImage(named: "team"))
             return cell
         }
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamCollectionViewCell
         let team = teams[indexPath.row]
         cell.teamTitle.text = team.teamName ?? "-"
-        cell.teamLogo.sd_setImage(with: URL(string: team.teamLogo ?? ""), placeholderImage: UIImage(named: "placeholder"))
+        cell.teamLogo.sd_setImage(with: URL(string: team.teamLogo ?? ""), placeholderImage: UIImage(named: "team"))
         return cell
     }
 

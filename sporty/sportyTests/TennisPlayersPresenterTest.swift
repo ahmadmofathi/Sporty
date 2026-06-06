@@ -35,7 +35,7 @@ class TennisPlayerPresenterTests: XCTestCase {
         super.tearDown()
     }
     
-     func testFetchPlayerDetailsSuccess() {
+    func testFetchPlayerDetailsSuccess() {
         let jsonString = """
         {
             "player_key": 123,
@@ -48,13 +48,13 @@ class TennisPlayerPresenterTests: XCTestCase {
         """
         let jsonData = jsonString.data(using: .utf8)!
         let dummyProfile = try! JSONDecoder().decode(TennisPlayerProfile.self, from: jsonData)
-        mockNetwork.mockPlayerProfile = dummyProfile
         
         mockNetwork.mockPlayerProfile = dummyProfile
+        
         presenter.fetchPlayerDetails(playerKey: 123)
-         XCTAssertTrue(mockView.showLoadingCalled)
+        XCTAssertTrue(mockView.showLoadingCalled)
         XCTAssertTrue(mockView.displayPlayerProfileCalled)
-           XCTAssertEqual(presenter.getBestRank(), "#8")
+        XCTAssertEqual(presenter.getBestRank(), "#8")
         XCTAssertEqual(presenter.getProSince(), "-")
         XCTAssertEqual(presenter.getTotalTitles(), "6")
         
@@ -63,7 +63,7 @@ class TennisPlayerPresenterTests: XCTestCase {
     }
     
     func testFetchPlayerDetailsFailure() {
-         mockNetwork.shouldReturnError = true
+        mockNetwork.shouldReturnError = true
         presenter.fetchPlayerDetails(playerKey: 123)
         XCTAssertTrue(mockView.hideLoadingCalled)
         XCTAssertTrue(mockView.showErrorCalled)

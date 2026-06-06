@@ -157,22 +157,36 @@ UITableViewDataSource {
         cell.playerInfo.text =
         "\(player.playerType ?? "") • Age: \(player.playerAge ?? "-")"
 
-        if let imageUrlString = player.playerImage,
-           let url = URL(string: imageUrlString) {
+        let placeholder: UIImage?
+        print("Type:")
+        print(self.sportType as Any)
+        switch self.sportType?.lowercased() {
+
+        case "football":
+            placeholder = UIImage(named: "footballPlayer")
+
+        case "basketball":
+            placeholder = UIImage(named: "basketballPlayer")
+
+        case "cricket":
+            placeholder = UIImage(named: "cricketPlayer")
+
+        default:
+            placeholder = UIImage(named: "defaultPlayer")
+        }
+
+
+        if let imageUrl = player.playerImage,
+           let url = URL(string: imageUrl) {
 
             cell.playerImage.sd_setImage(
                 with: url,
-                placeholderImage: UIImage(
-                    named: "monkey_placeholder"
-                )
+                placeholderImage: placeholder
             )
 
         } else {
 
-            cell.playerImage.image =
-            UIImage(
-                named: "monkey_placeholder"
-            )
+            cell.playerImage.image = placeholder
         }
 
         return cell

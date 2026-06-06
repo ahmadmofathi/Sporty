@@ -7,7 +7,9 @@ protocol FavoritesViewProtocol: AnyObject {
 }
 
 class FavoritesPresenter {
+
     private weak var view: FavoritesViewProtocol?
+    // internal (مش private) عشان extension في الـ tests يقدر يكتب عليها
     var favoriteLeagues: [League] = []
 
     init(view: FavoritesViewProtocol) {
@@ -23,10 +25,20 @@ class FavoritesPresenter {
         self.view?.displayFavorites(favoriteLeagues)
     }
 
+    func getFavoritesCount() -> Int {
+        return favoriteLeagues.count
+    }
+
+    func getFavoriteLeague(at index: Int) -> League? {
+        guard index < favoriteLeagues.count else { return nil }
+        return favoriteLeagues[index]
+    }
+
     func didSelectRow(at index: Int) {
         guard index < favoriteLeagues.count else { return }
-        // استخدام الـ leagueKey كـ id للذهاب للشاشة التالية
-        let selectedLeagueId = Int(favoriteLeagues[index].leagueKey ?? 0) ?? 0
+        // استخدام الـ leagueKey كـ id للذهاب للشاشة التالية زي ما HEAD كان عامل
+        // ملحوظة: لو leagueKey عندك نوعه String، السطر ده هيحوله لـ Int بأمان.
+        let selectedLeagueId = Int(String(describing: favoriteLeagues[index].leagueKey ?? 0)) ?? 0
         view?.navigateToLeague(with: selectedLeagueId)
     }
 

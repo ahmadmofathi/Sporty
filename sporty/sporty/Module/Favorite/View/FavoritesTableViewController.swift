@@ -71,7 +71,7 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
         cell.favImg.layer.cornerRadius = 28
         cell.favImg.clipsToBounds = true
         
-        let defaultPlaceholder = UIImage(named: "Placeholder")
+        let defaultPlaceholder = UIImage(named: "team")
         if let logoURLString = league.leagueLogo, let url = URL(string: logoURLString), !logoURLString.isEmpty {
             cell.favImg.sd_setImage(with: url, placeholderImage: defaultPlaceholder)
         } else {
