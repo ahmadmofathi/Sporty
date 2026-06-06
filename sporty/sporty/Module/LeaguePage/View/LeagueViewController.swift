@@ -184,7 +184,7 @@ UITableViewDataSource {
         }
 
         let defaultPlaceholder =
-        UIImage(named: "league_placeholder")
+        UIImage(named: "Placeholder")
 
         let logoURLString =
         leagueLogos[indexPath.row]

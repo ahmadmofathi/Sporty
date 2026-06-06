@@ -116,6 +116,7 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
         let storyboard = UIStoryboard(name: "SquadScreen", bundle: nil)
         if let vc = storyboard.instantiateViewController(withIdentifier: "SquadVC") as? SquadViewController {
             vc.teamId = teamId
+            vc.sportType = self.sportType
             vc.teamNameText = teamName
             navigationController?.pushViewController(vc, animated: true)
         }
