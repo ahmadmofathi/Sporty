@@ -166,7 +166,7 @@ class MainLeagueViewController: UIViewController,
         ) as? SquadViewController {
 
             vc.teamId = teamId
-
+            vc.sportType = self.sportType
             navigationController?.pushViewController(
                 vc,
                 animated: true
