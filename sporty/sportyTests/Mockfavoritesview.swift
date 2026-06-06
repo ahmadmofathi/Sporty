@@ -2,8 +2,9 @@ import XCTest
 @testable import sporty
 
 class MockFavoritesView: FavoritesViewProtocol {
+    
     var displayedLeagues: [League] = []
-    var navigatedLeagueName: String?
+    var navigatedLeagueId: Int? // تم التعديل لتخزين الـ ID كرقم
     var deleteAlertLeagueName: String?
     var deleteConfirmHandler: (() -> Void)?
 
@@ -11,8 +12,8 @@ class MockFavoritesView: FavoritesViewProtocol {
         displayedLeagues = leagues
     }
 
-    func navigateToLeague(with leagueName: String) {
-        navigatedLeagueName = leagueName
+    func navigateToLeague(with leagueId: Int) {
+        navigatedLeagueId = leagueId // تم إزالة <#code#> وحفظ الـ ID
     }
 
     func showDeleteConfirmationAlert(leagueName: String, confirmHandler: @escaping () -> Void) {

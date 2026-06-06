@@ -70,25 +70,25 @@ class FavoritesPresenterTests: XCTestCase {
         presenter.fetchFavoritesFromCoreData()
 
         presenter.didSelectRow(at: 0)
-        XCTAssertEqual(mockView.navigatedLeagueName, "Bundesliga")
+        // تم التعديل لاختبار الـ ID بدلاً من الاسم
+        XCTAssertEqual(mockView.navigatedLeagueId, 333)
 
         CoreDataManager.shared.deleteLeague(byKey: 333)
     }
 
-    func test_didSelectRow_nilLeagueName_navigatesWithEmpty() {
-        let league = League(leagueKey: 444, leagueName: nil, countryKey: nil, countryName: nil, leagueLogo: nil, countryLogo: nil)
-        CoreDataManager.shared.saveLeague(league, sport: "football")
-        presenter.fetchFavoritesFromCoreData()
+    func test_didSelectRow_nilLeagueKey_navigatesWithZero() {
+        // تم التعديل لاختبار الـ ID لما يكون nil
+        let league = League(leagueKey: nil, leagueName: nil, countryKey: nil, countryName: nil, leagueLogo: nil, countryLogo: nil)
+        presenter.setLeaguesForTesting([league])
 
         presenter.didSelectRow(at: 0)
-        XCTAssertEqual(mockView.navigatedLeagueName, "")
-
-        CoreDataManager.shared.deleteLeague(byKey: 444)
+        XCTAssertEqual(mockView.navigatedLeagueId, 0)
     }
 
     func test_didSelectRow_outOfBounds_doesNotNavigate() {
         presenter.didSelectRow(at: 99)
-        XCTAssertNil(mockView.navigatedLeagueName)
+        // تم التعديل لاختبار الـ ID
+        XCTAssertNil(mockView.navigatedLeagueId)
     }
 
     func test_requestDeleteLeague_outOfBounds_doesNotShowAlert() {

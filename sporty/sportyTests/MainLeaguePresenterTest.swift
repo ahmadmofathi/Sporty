@@ -2,6 +2,7 @@ import XCTest
 @testable import sporty
 
 class MockMainLeagueView: MainLeagueViewProtocol {
+    
     var displayDataCalled = false
     var navigateToTeamDetailsCalled = false
     var navigateToTennisDetailsCalled = false
@@ -19,7 +20,8 @@ class MockMainLeagueView: MainLeagueViewProtocol {
         displayDataCalled = true
     }
     
-    func navigateToTeamDetails(with teamId: Int) {
+    // تم إصلاح هذه الدالة وحذف <#code#>
+    func navigateToTeamDetails(with teamId: Int, teamName: String) {
         navigateToTeamDetailsCalled = true
     }
     
@@ -87,5 +89,4 @@ class MainLeaguePresenterTests: XCTestCase {
         }
         waitForExpectations(timeout: 0.5)
     }
-    
 }

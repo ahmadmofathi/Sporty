@@ -2,7 +2,7 @@ import Foundation
 
 protocol FavoritesViewProtocol: AnyObject {
     func displayFavorites(_ leagues: [League])
-    func navigateToLeague(with leagueName: String)
+    func navigateToLeague(with leagueId: Int) // غيرنا النوع لـ Int
     func showDeleteConfirmationAlert(leagueName: String, confirmHandler: @escaping () -> Void)
 }
 
@@ -36,8 +36,10 @@ class FavoritesPresenter {
 
     func didSelectRow(at index: Int) {
         guard index < favoriteLeagues.count else { return }
-        let selectedLeagueName = favoriteLeagues[index].leagueName ?? ""
-        view?.navigateToLeague(with: selectedLeagueName)
+        // استخدام الـ leagueKey كـ id للذهاب للشاشة التالية زي ما HEAD كان عامل
+        // ملحوظة: لو leagueKey عندك نوعه String، السطر ده هيحوله لـ Int بأمان.
+        let selectedLeagueId = Int(String(describing: favoriteLeagues[index].leagueKey ?? 0)) ?? 0
+        view?.navigateToLeague(with: selectedLeagueId)
     }
 
     func requestDeleteLeague(at index: Int) {
