@@ -2,6 +2,10 @@ import XCTest
 @testable import sporty
 
 class MockMainLeagueView: MainLeagueViewProtocol {
+    func navigateToTeamDetails(with teamId: Int, teamName: String) {
+        <#code#>
+    }
+    
     var displayDataCalled = false
     var navigateToTeamDetailsCalled = false
     var navigateToTennisDetailsCalled = false
