@@ -58,6 +58,9 @@
 		E04498262FD05EC8001B2B64 /* League.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04498202FD05EC8001B2B64 /* League.swift */; };
 		E04498272FD05EC8001B2B64 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04498212FD05EC8001B2B64 /* Player.swift */; };
 		E04498282FD05EC8001B2B64 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04498222FD05EC8001B2B64 /* Fixtures.swift */; };
+		E04DC5C72FD4891D0097E2A2 /* OnboardingPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DC5C62FD4891D0097E2A2 /* OnboardingPager.swift */; };
+		E04DC5C92FD48AEA0097E2A2 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DC5C82FD48AEA0097E2A2 /* OnboardingPage.swift */; };
+		E04DC5CB2FD48C070097E2A2 /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DC5CA2FD48C070097E2A2 /* OnboardingContentViewController.swift */; };
 		E09A43B92FD46C7800FABB6D /* sportyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09A43B42FD46C7800FABB6D /* sportyTests.swift */; };
 		E09A43BA2FD46C7800FABB6D /* SquadPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09A43B52FD46C7800FABB6D /* SquadPresenterTest.swift */; };
 		E09A43BB2FD46C7800FABB6D /* TennisPlayersPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09A43B62FD46C7800FABB6D /* TennisPlayersPresenterTest.swift */; };
@@ -140,6 +143,9 @@
 		E04498202FD05EC8001B2B64 /* League.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = League.swift; sourceTree = "<group>"; };
 		E04498212FD05EC8001B2B64 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E04498222FD05EC8001B2B64 /* Fixtures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		E04DC5C62FD4891D0097E2A2 /* OnboardingPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPager.swift; sourceTree = "<group>"; };
+		E04DC5C82FD48AEA0097E2A2 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+		E04DC5CA2FD48C070097E2A2 /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
 		E09A43B42FD46C7800FABB6D /* sportyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sportyTests.swift; sourceTree = "<group>"; };
 		E09A43B52FD46C7800FABB6D /* SquadPresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquadPresenterTest.swift; sourceTree = "<group>"; };
 		E09A43B62FD46C7800FABB6D /* TennisPlayersPresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TennisPlayersPresenterTest.swift; sourceTree = "<group>"; };
@@ -224,6 +230,7 @@
 		56916A6F2FBF1F280011E66B /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				E04DC5C52FD488CC0097E2A2 /* Onboarding */,
 				567D2D352FD1FAD5001B367A /* Tennis Player */,
 				56FDA1E52FD053C1006798A3 /* Main League */,
 				56C33E592FCC82E100DED72C /* SquadPage */,
@@ -444,6 +451,16 @@
 			path = sporty/models;
 			sourceTree = SOURCE_ROOT;
 		};
+		E04DC5C52FD488CC0097E2A2 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E04DC5C62FD4891D0097E2A2 /* OnboardingPager.swift */,
+				E04DC5C82FD48AEA0097E2A2 /* OnboardingPage.swift */,
+				E04DC5CA2FD48C070097E2A2 /* OnboardingContentViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		E09A43B32FD46C7800FABB6D /* sportyTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -635,7 +652,9 @@
 				56FDA1E72FD053C1006798A3 /* MainLeagueViewController.swift in Sources */,
 				56E370902FD34DE300FDFB7A /* TennisPlayerPresenter.swift in Sources */,
 				56E370912FD34DE300FDFB7A /* TennisPlayerViewController.swift in Sources */,
+				E04DC5CB2FD48C070097E2A2 /* OnboardingContentViewController.swift in Sources */,
 				56E370922FD34DE300FDFB7A /* TennisPlayerCustomCell.swift in Sources */,
+				E04DC5C92FD48AEA0097E2A2 /* OnboardingPage.swift in Sources */,
 				E0D806472FD0630300729663 /* CoreData.swift in Sources */,
 				56FDA1E82FD053C1006798A3 /* MainLeaguePresenter.swift in Sources */,
 				569B54D12FD05FCC008163F9 /* FavoritePresenter.swift in Sources */,
@@ -662,6 +681,7 @@
 				E04498232FD05EC8001B2B64 /* Team.swift in Sources */,
 				E0D806442FD062B800729663 /* FavoritePresenter.swift in Sources */,
 				56916A752FBF1F500011E66B /* HomePresenter.swift in Sources */,
+				E04DC5C72FD4891D0097E2A2 /* OnboardingPager.swift in Sources */,
 				567D2D3D2FD1FCEE001B367A /* TennisPlayer.swift in Sources */,
 				E0C272472FCDB9A900609BE2 /* SqaudPresenter.swift in Sources */,
 				560EF2FC2FCF115500311F6E /* sporty.xcdatamodeld in Sources */,
