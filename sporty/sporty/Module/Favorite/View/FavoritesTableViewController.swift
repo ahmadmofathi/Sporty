@@ -2,7 +2,7 @@ import UIKit
 import SDWebImage
 
 class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol {
-
+    
     private var presenter: FavoritesPresenter!
     private var favoriteLeagues: [League] = []
     
@@ -15,10 +15,10 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidLoad()
+        super.viewWillAppear(animated) // تصحيح لـ super.viewWillAppear
         presenter.viewWillAppear()
     }
-
+    
     func displayFavorites(_ leagues: [League]) {
         self.favoriteLeagues = leagues
         DispatchQueue.main.async {
@@ -26,9 +26,14 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
         }
     }
     
-    func navigateToLeague(with leagueName: String) {
+    // الميثود المحدثة لاستقبال الـ id
+    func navigateToLeague(with leagueId: Int) {
         let ml = UIStoryboard(name: "MainLeague", bundle: nil)
         if let mainLeagueVC = ml.instantiateViewController(withIdentifier: "MainLeagueVC") as? MainLeagueViewController {
+            
+            // تمرير الـ id للشاشة اللي رايح لها
+            mainLeagueVC.leagueId = leagueId
+            
             self.navigationController?.pushViewController(mainLeagueVC, animated: true)
         }
     }
@@ -40,24 +45,22 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
             preferredStyle: .alert
         )
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
-            confirmHandler()
-        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Remove", style: .destructive) { _ in confirmHandler() })
         
-        alert.addAction(cancelAction)
-        alert.addAction(deleteAction)
-        present(alert, animated: true, completion: nil)
+        present(alert, animated: true)
     }
-
+    
+    // ... باقي الـ TableView Delegate methods (cellForRowAt, didSelectRowAt, etc)
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favoriteLeagues.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FavoriteTableViewCell
         let league = favoriteLeagues[indexPath.row]
@@ -77,19 +80,20 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
         
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             presenter.requestDeleteLeague(at: indexPath.row)
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.didSelectRow(at: indexPath.row)
     }
+    
 }

@@ -1,20 +1,16 @@
-//
-//  ReachabilityManager.swift
-//  sporty
-//
-//  Created by Ahmad on 04/06/2026.
-//
-
 import Foundation
 import Alamofire
+protocol ReachabilityProtocol {
+    var isConnected: Bool { get }
+}
 
-final class ReachabilityManager {
-
-    static let shared = ReachabilityManager()
-
+final class ReachabilityManager: ReachabilityProtocol {
+    static var shared = ReachabilityManager()
     private init() {}
 
+    var mockIsConnected: Bool?
     var isConnected: Bool {
+        if let mock = mockIsConnected { return mock }
         return NetworkReachabilityManager()?.isReachable ?? false
     }
 }

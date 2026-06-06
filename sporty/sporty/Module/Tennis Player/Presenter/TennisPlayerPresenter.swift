@@ -30,7 +30,7 @@ class TennisPlayerPresenter {
     }
 
     private func fetchTournaments(playerKey: Int) {
-        NetworkManager.shared.fetchTennisFixtures(leagueId: leagueId) { [weak self] result in
+               networkManager.fetchTennisFixtures(leagueId: leagueId) { [weak self] result in 
             guard let self = self else { return }
             self.view?.hideLoading()
             if case .success(let data) = result {

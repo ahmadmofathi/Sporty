@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DkO-Bv-2gn">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding Page View Controller-->
+        <scene sceneID="b0e-rI-IDi">
+            <objects>
+                <pageViewController storyboardIdentifier="onboardingPageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="DkO-Bv-2gn" customClass="OnboardingPageViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FWF-cG-HJA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-867" y="197"/>
+        </scene>
+        <!--Onboarding Content View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="onboardingContentVC" id="Y6W-OH-hqX" customClass="OnboardingContentViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wtW-uc-sM5">
+                                <rect key="frame" x="46.666666666666657" y="159" width="300" height="280"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="img-h"/>
+                                    <constraint firstAttribute="width" constant="300" id="img-w"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKt-wW-mfW">
+                                <rect key="frame" x="32" y="471" width="329" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="34"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPT-3G-1To">
+                                <rect key="frame" x="40" y="527.66666666666663" width="313" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-finish" userLabel="Finish Button">
+                                <rect key="frame" x="32" y="732" width="329" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="btn-h"/>
+                                </constraints>
+                                <state key="normal" title="Get Started"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Get Started" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" systemColor="systemBlueColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="finishTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="act-finish"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="btn-finish" secondAttribute="bottom" constant="32" id="btn-b"/>
+                            <constraint firstItem="btn-finish" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="btn-l"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="btn-finish" secondAttribute="trailing" constant="32" id="btn-r"/>
+                            <constraint firstItem="wtW-uc-sM5" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cx1"/>
+                            <constraint firstItem="wtW-uc-sM5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="cy1"/>
+                            <constraint firstItem="IKt-wW-mfW" firstAttribute="top" secondItem="wtW-uc-sM5" secondAttribute="bottom" constant="32" id="cy2"/>
+                            <constraint firstItem="gPT-3G-1To" firstAttribute="top" secondItem="IKt-wW-mfW" secondAttribute="bottom" constant="16" id="cy3"/>
+                            <constraint firstItem="gPT-3G-1To" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="desc-l"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gPT-3G-1To" secondAttribute="trailing" constant="40" id="desc-r"/>
+                            <constraint firstItem="IKt-wW-mfW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="lbl-l"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IKt-wW-mfW" secondAttribute="trailing" constant="32" id="lbl-r"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="gPT-3G-1To" id="7ep-BB-eL4"/>
+                        <outlet property="finishButton" destination="btn-finish" id="CSw-RG-gbG"/>
+                        <outlet property="imageView" destination="wtW-uc-sM5" id="lSh-IT-4R1"/>
+                        <outlet property="titleLabel" destination="IKt-wW-mfW" id="0rF-wf-Ziu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.76335877862595414" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
