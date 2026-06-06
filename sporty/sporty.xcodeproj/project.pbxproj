@@ -150,9 +150,6 @@
 		E0D806462FD0630200729663 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		568C66A42FD31683005FB5EA /* sportyTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = sportyTests; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		568C66A02FD31683005FB5EA /* Frameworks */ = {
@@ -489,9 +486,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				568C66A42FD31683005FB5EA /* sportyTests */,
 			);
 			name = sportyTests;
 			packageProductDependencies = (
