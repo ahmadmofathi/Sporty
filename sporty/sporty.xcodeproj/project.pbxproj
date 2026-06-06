@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,6 @@
 		5660EC4C2FCC808C006758A3 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5660EC482FCC808C006758A3 /* FavoritesTableViewController.swift */; };
 		567D2D342FD1F570001B367A /* TennisPlayerProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567D2D332FD1F570001B367A /* TennisPlayerProfile.storyboard */; };
 		567D2D3D2FD1FCEE001B367A /* TennisPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567D2D3C2FD1FCEE001B367A /* TennisPlayer.swift */; };
-		568E6A6F2FD4401B0099AEB6 /* OnboardingPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 568E6A6E2FD4401B0099AEB6 /* OnboardingPage.storyboard */; };
 		56916A732FBF1F500011E66B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A702FBF1F500011E66B /* HomeViewController.swift */; };
 		56916A742FBF1F500011E66B /* SportsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A712FBF1F500011E66B /* SportsCell.swift */; };
 		56916A752FBF1F500011E66B /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56916A722FBF1F500011E66B /* HomePresenter.swift */; };
@@ -99,7 +98,6 @@
 		567D2D332FD1F570001B367A /* TennisPlayerProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TennisPlayerProfile.storyboard; sourceTree = "<group>"; };
 		567D2D3C2FD1FCEE001B367A /* TennisPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisPlayer.swift; sourceTree = "<group>"; };
 		568C66A32FD31683005FB5EA /* sportyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sportyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		568E6A6E2FD4401B0099AEB6 /* OnboardingPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingPage.storyboard; sourceTree = "<group>"; };
 		56916A702FBF1F500011E66B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		56916A712FBF1F500011E66B /* SportsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsCell.swift; sourceTree = "<group>"; };
 		56916A722FBF1F500011E66B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -153,7 +151,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		568E6A702FD442390099AEB6 /* OnBoardingPage */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = OnBoardingPage; sourceTree = "<group>"; };
+		568C66A42FD31683005FB5EA /* sportyTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = sportyTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +187,6 @@
 				560AC1492FCC86A700871752 /* MainLeague.storyboard */,
 				560AC14A2FCC86A700871752 /* SquadScreen.storyboard */,
 				567D2D332FD1F570001B367A /* TennisPlayerProfile.storyboard */,
-				568E6A6E2FD4401B0099AEB6 /* OnboardingPage.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,18 +209,6 @@
 			path = "Tennis Player";
 			sourceTree = "<group>";
 		};
-		568C66A42FD31683005FB5EA /* sportyTests */ = {
-			isa = PBXGroup;
-			children = (
-				56E370932FD34ECE00FDFB7A /* MainLeaguePresenterTest.swift */,
-				56E370942FD34ECE00FDFB7A /* MockNetworkManger.swift */,
-				56E370952FD34ECE00FDFB7A /* sportyTests.swift */,
-				56E370962FD34ECE00FDFB7A /* SquadPresenterTest.swift */,
-				56E370972FD34ECE00FDFB7A /* TennisPlayersPresenterTest.swift */,
-			);
-			path = sportyTests;
-			sourceTree = "<group>";
-		};
 		56916A6D2FBF1F080011E66B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,7 +221,6 @@
 		56916A6F2FBF1F280011E66B /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				568E6A702FD442390099AEB6 /* OnBoardingPage */,
 				567D2D352FD1FAD5001B367A /* Tennis Player */,
 				56FDA1E52FD053C1006798A3 /* Main League */,
 				56C33E592FCC82E100DED72C /* SquadPage */,
@@ -506,6 +490,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				568C66A42FD31683005FB5EA /* sportyTests */,
+			);
 			name = sportyTests;
 			packageProductDependencies = (
 			);
@@ -526,9 +513,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				568E6A702FD442390099AEB6 /* OnBoardingPage */,
-			);
 			name = sporty;
 			packageProductDependencies = (
 				E0D8063E2FD0624F00729663 /* SDWebImage */,
@@ -546,12 +530,11 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					568C66A22FD31683005FB5EA = {
-						CreatedOnToolsVersion = 14.1;
-						LastSwiftMigration = 1600;
+						CreatedOnToolsVersion = 16.0;
 						TestTargetID = E02A690E2FBF0E3400CF6BE2;
 					};
 					E02A690E2FBF0E3400CF6BE2 = {
@@ -596,7 +579,6 @@
 			files = (
 				560AC14C2FCC86A700871752 /* Favorites.storyboard in Resources */,
 				560AC14D2FCC86A700871752 /* Main.storyboard in Resources */,
-				568E6A6F2FD4401B0099AEB6 /* OnboardingPage.storyboard in Resources */,
 				560AC14E2FCC86A700871752 /* league.storyboard in Resources */,
 				560AC14F2FCC86A700871752 /* LaunchScreen.storyboard in Resources */,
 				567D2D342FD1F570001B367A /* TennisPlayerProfile.storyboard in Resources */,
@@ -698,11 +680,11 @@
 		568C66A92FD31683005FB5EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -730,6 +712,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -744,30 +727,33 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = iti.sportyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sporty.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/sporty";
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
 		568C66AA2FD31683005FB5EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -796,6 +782,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -805,17 +792,21 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = iti.sportyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sporty.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/sporty";
+				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
