@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5609EAC02FD468A6002A4C3F /* sportyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609EABC2FD468A6002A4C3F /* sportyTests.swift */; };
+		5609EAC12FD468A6002A4C3F /* MockNetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609EABB2FD468A6002A4C3F /* MockNetworkManger.swift */; };
+		5609EAC22FD468A6002A4C3F /* MainLeaguePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609EABA2FD468A6002A4C3F /* MainLeaguePresenterTest.swift */; };
+		5609EAC32FD468A6002A4C3F /* SquadPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609EABD2FD468A6002A4C3F /* SquadPresenterTest.swift */; };
+		5609EAC42FD468A6002A4C3F /* TennisPlayersPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609EABE2FD468A6002A4C3F /* TennisPlayersPresenterTest.swift */; };
 		560AC14C2FCC86A700871752 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560AC1432FCC86A700871752 /* Favorites.storyboard */; };
 		560AC14D2FCC86A700871752 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560AC1482FCC86A700871752 /* Main.storyboard */; };
 		560AC14E2FCC86A700871752 /* league.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560AC1462FCC86A700871752 /* league.storyboard */; };
@@ -40,11 +45,6 @@
 		56E370902FD34DE300FDFB7A /* TennisPlayerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3708B2FD34DE300FDFB7A /* TennisPlayerPresenter.swift */; };
 		56E370912FD34DE300FDFB7A /* TennisPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3708E2FD34DE300FDFB7A /* TennisPlayerViewController.swift */; };
 		56E370922FD34DE300FDFB7A /* TennisPlayerCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3708D2FD34DE300FDFB7A /* TennisPlayerCustomCell.swift */; };
-		56E370982FD34ECE00FDFB7A /* TennisPlayersPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E370972FD34ECE00FDFB7A /* TennisPlayersPresenterTest.swift */; };
-		56E370992FD34ECE00FDFB7A /* SquadPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E370962FD34ECE00FDFB7A /* SquadPresenterTest.swift */; };
-		56E3709A2FD34ECE00FDFB7A /* MockNetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E370942FD34ECE00FDFB7A /* MockNetworkManger.swift */; };
-		56E3709B2FD34ECE00FDFB7A /* MainLeaguePresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E370932FD34ECE00FDFB7A /* MainLeaguePresenterTest.swift */; };
-		56E3709C2FD34ECE00FDFB7A /* sportyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E370952FD34ECE00FDFB7A /* sportyTests.swift */; };
 		56EDF9AA2FD1C539001DC70B /* TennisFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EDF9A92FD1C539001DC70B /* TennisFixtures.swift */; };
 		56FDA1E62FD053C1006798A3 /* UpComingEventCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA1E22FD053C1006798A3 /* UpComingEventCellCollectionViewCell.swift */; };
 		56FDA1E72FD053C1006798A3 /* MainLeagueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDA1E02FD053C1006798A3 /* MainLeagueViewController.swift */; };
@@ -86,6 +86,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5609EAB92FD4687B002A4C3F /* sportyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sportyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5609EABA2FD468A6002A4C3F /* MainLeaguePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLeaguePresenterTest.swift; sourceTree = "<group>"; };
+		5609EABB2FD468A6002A4C3F /* MockNetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManger.swift; sourceTree = "<group>"; };
+		5609EABC2FD468A6002A4C3F /* sportyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sportyTests.swift; sourceTree = "<group>"; };
+		5609EABD2FD468A6002A4C3F /* SquadPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadPresenterTest.swift; sourceTree = "<group>"; };
+		5609EABE2FD468A6002A4C3F /* TennisPlayersPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisPlayersPresenterTest.swift; sourceTree = "<group>"; };
 		560AC1432FCC86A700871752 /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		560AC1442FCC86A700871752 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		560AC1462FCC86A700871752 /* league.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = league.storyboard; sourceTree = "<group>"; };
@@ -97,7 +103,6 @@
 		5660EC492FCC808C006758A3 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		567D2D332FD1F570001B367A /* TennisPlayerProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TennisPlayerProfile.storyboard; sourceTree = "<group>"; };
 		567D2D3C2FD1FCEE001B367A /* TennisPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisPlayer.swift; sourceTree = "<group>"; };
-		568C66A32FD31683005FB5EA /* sportyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sportyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56916A702FBF1F500011E66B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		56916A712FBF1F500011E66B /* SportsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsCell.swift; sourceTree = "<group>"; };
 		56916A722FBF1F500011E66B /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -119,11 +124,6 @@
 		56E3708B2FD34DE300FDFB7A /* TennisPlayerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisPlayerPresenter.swift; sourceTree = "<group>"; };
 		56E3708D2FD34DE300FDFB7A /* TennisPlayerCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisPlayerCustomCell.swift; sourceTree = "<group>"; };
 		56E3708E2FD34DE300FDFB7A /* TennisPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisPlayerViewController.swift; sourceTree = "<group>"; };
-		56E370932FD34ECE00FDFB7A /* MainLeaguePresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLeaguePresenterTest.swift; sourceTree = "<group>"; };
-		56E370942FD34ECE00FDFB7A /* MockNetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManger.swift; sourceTree = "<group>"; };
-		56E370952FD34ECE00FDFB7A /* sportyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sportyTests.swift; sourceTree = "<group>"; };
-		56E370962FD34ECE00FDFB7A /* SquadPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadPresenterTest.swift; sourceTree = "<group>"; };
-		56E370972FD34ECE00FDFB7A /* TennisPlayersPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisPlayersPresenterTest.swift; sourceTree = "<group>"; };
 		56EDF9A92FD1C539001DC70B /* TennisFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisFixtures.swift; sourceTree = "<group>"; };
 		56FDA1DF2FD053C1006798A3 /* LatestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectionViewCell.swift; sourceTree = "<group>"; };
 		56FDA1E02FD053C1006798A3 /* MainLeagueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLeagueViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +150,6 @@
 		E0D806462FD0630200729663 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-
 /* Begin PBXFrameworksBuildPhase section */
 		568C66A02FD31683005FB5EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -174,6 +173,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5609EABF2FD468A6002A4C3F /* sportyTests */ = {
+			isa = PBXGroup;
+			children = (
+				5609EABA2FD468A6002A4C3F /* MainLeaguePresenterTest.swift */,
+				5609EABB2FD468A6002A4C3F /* MockNetworkManger.swift */,
+				5609EABC2FD468A6002A4C3F /* sportyTests.swift */,
+				5609EABD2FD468A6002A4C3F /* SquadPresenterTest.swift */,
+				5609EABE2FD468A6002A4C3F /* TennisPlayersPresenterTest.swift */,
+			);
+			path = sportyTests;
+			sourceTree = "<group>";
+		};
 		560AC14B2FCC86A700871752 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,8 +399,8 @@
 		E02A69062FBF0E3400CF6BE2 = {
 			isa = PBXGroup;
 			children = (
+				5609EABF2FD468A6002A4C3F /* sportyTests */,
 				E02A69112FBF0E3400CF6BE2 /* sporty */,
-				568C66A42FD31683005FB5EA /* sportyTests */,
 				E02A69102FBF0E3400CF6BE2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -398,7 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				E02A690F2FBF0E3400CF6BE2 /* sporty.app */,
-				568C66A32FD31683005FB5EA /* sportyTests.xctest */,
+				5609EAB92FD4687B002A4C3F /* sportyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -491,7 +502,7 @@
 			packageProductDependencies = (
 			);
 			productName = sportyTests;
-			productReference = 568C66A32FD31683005FB5EA /* sportyTests.xctest */;
+			productReference = 5609EAB92FD4687B002A4C3F /* sportyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		E02A690E2FBF0E3400CF6BE2 /* sporty */ = {
@@ -589,11 +600,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56E370982FD34ECE00FDFB7A /* TennisPlayersPresenterTest.swift in Sources */,
-				56E370992FD34ECE00FDFB7A /* SquadPresenterTest.swift in Sources */,
-				56E3709A2FD34ECE00FDFB7A /* MockNetworkManger.swift in Sources */,
-				56E3709B2FD34ECE00FDFB7A /* MainLeaguePresenterTest.swift in Sources */,
-				56E3709C2FD34ECE00FDFB7A /* sportyTests.swift in Sources */,
+				5609EAC02FD468A6002A4C3F /* sportyTests.swift in Sources */,
+				5609EAC12FD468A6002A4C3F /* MockNetworkManger.swift in Sources */,
+				5609EAC22FD468A6002A4C3F /* MainLeaguePresenterTest.swift in Sources */,
+				5609EAC32FD468A6002A4C3F /* SquadPresenterTest.swift in Sources */,
+				5609EAC42FD468A6002A4C3F /* TennisPlayersPresenterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,11 +685,11 @@
 		568C66A92FD31683005FB5EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -706,7 +717,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -721,33 +731,30 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = iti.sportyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sporty.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/sporty";
-				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
 		568C66AA2FD31683005FB5EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -776,7 +783,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -786,21 +792,17 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = iti.sportyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sporty.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/sporty";
-				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
