@@ -11,7 +11,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let storyboard = UIStoryboard(name: "MainLeague", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainLeagueViewController") as! MainLeagueViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 

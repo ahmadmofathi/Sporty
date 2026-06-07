@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21200" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MainContainerVC">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21200"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="containerSceneID">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingContainerViewController" id="MainContainerVC" customClass="OnboardingContainerViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="containerView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pagesArea">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0" alpha="0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btnSkip">
+                                <rect key="frame" x="24" y="803" width="60" height="35"/>
+                                <state key="normal" title="Skip"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btnNext">
+                                <rect key="frame" x="330" y="803" width="60" height="35"/>
+                                <state key="normal" title="Next"/>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="dotsControl">
+                                <rect key="frame" x="149" y="807.5" width="116" height="26"/>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="safeArea"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pagesArea" firstAttribute="top" secondItem="containerView" secondAttribute="top" id="c1"/>
+                            <constraint firstItem="pagesArea" firstAttribute="leading" secondItem="containerView" secondAttribute="leading" id="c2"/>
+                            <constraint firstItem="pagesArea" firstAttribute="trailing" secondItem="containerView" secondAttribute="trailing" id="c3"/>
+                            <constraint firstItem="pagesArea" firstAttribute="bottom" secondItem="containerView" secondAttribute="bottom" id="c4"/>
+                            <constraint firstItem="safeArea" firstAttribute="bottom" secondItem="dotsControl" secondAttribute="bottom" constant="28.5" id="c5"/>
+                            <constraint firstItem="dotsControl" firstAttribute="centerX" secondItem="containerView" secondAttribute="centerX" id="c6"/>
+                            <constraint firstItem="btnSkip" firstAttribute="leading" secondItem="safeArea" secondAttribute="leading" constant="24" id="c7"/>
+                            <constraint firstItem="btnSkip" firstAttribute="centerY" secondItem="dotsControl" secondAttribute="centerY" id="c8"/>
+                            <constraint firstItem="safeArea" firstAttribute="trailing" secondItem="btnNext" secondAttribute="trailing" constant="24" id="c9"/>
+                            <constraint firstItem="btnNext" firstAttribute="centerY" secondItem="dotsControl" secondAttribute="centerY" id="c10"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnNext" destination="btnNext" id="con1"/>
+                        <outlet property="btnSkip" destination="btnSkip" id="con2"/>
+                        <outlet property="dotsControl" destination="dotsControl" id="con3"/>
+                        <outlet property="pagesArea" destination="pagesArea" id="con4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="res1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-800" y="100"/>
+        </scene>
+        <scene sceneID="page1SceneID">
+            <objects>
+                <viewController storyboardIdentifier="page1" id="Page1VC" customClass="OnboardingPageViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p1Bg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="img1">
+                                <rect key="frame" x="57" y="148" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="h11"/>
+                                    <constraint firstAttribute="width" constant="300" id="w11"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Match Center" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="title1">
+                                <rect key="frame" x="24" y="488" width="366" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="desc1">
+                                <rect key="frame" x="32" y="537.5" width="350" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="s1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="img1" firstAttribute="centerX" secondItem="p1Bg" secondAttribute="centerX" id="p11"/>
+                            <constraint firstItem="img1" firstAttribute="top" secondItem="s1" secondAttribute="top" constant="100" id="p12"/>
+                            <constraint firstItem="title1" firstAttribute="top" secondItem="img1" secondAttribute="bottom" constant="40" id="p13"/>
+                            <constraint firstItem="title1" firstAttribute="centerX" secondItem="p1Bg" secondAttribute="centerX" id="p14"/>
+                            <constraint firstItem="desc1" firstAttribute="top" secondItem="title1" secondAttribute="bottom" constant="16" id="p15"/>
+                            <constraint firstItem="desc1" firstAttribute="centerX" secondItem="p1Bg" secondAttribute="centerX" id="p16"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="desc1" id="outD1"/>
+                        <outlet property="imageView" destination="img1" id="outI1"/>
+                        <outlet property="titleLabel" destination="title1" id="outT1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-100" y="100"/>
+        </scene>
+    </scenes>
+</document>
