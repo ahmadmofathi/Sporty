@@ -1,0 +1,70 @@
+/* 
+   Localizable.strings (English — Base)
+   sporty
+
+   Structured key-value localization file.
+   All user-facing strings are organized by feature area.
+*/
+
+// MARK: - General
+"general.unknown_league"  = "Unknown League";
+"general.unknown_country" = "Unknown Country";
+"general.unknown"         = "Unknown";
+"general.cancel"          = "Cancel";
+"general.remove"          = "Remove";
+"general.ok"              = "OK";
+"general.error"           = "Error";
+"general.na"              = "N/A";
+"general.dash"            = "-";
+
+// MARK: - Navigation Titles
+"nav.leagues"   = "Leagues";
+"nav.favorites" = "Favorites";
+
+// MARK: - Home (Sport Names)
+"home.football"   = "Football";
+"home.basketball" = "Basketball";
+"home.tennis"     = "Tennis";
+"home.cricket"    = "Cricket";
+
+// MARK: - Onboarding
+"onboarding.title1" = "Live Match Center";
+"onboarding.desc1"  = "Stay on top of the game with real-time updates.";
+"onboarding.title2" = "Deep Squad Insights";
+"onboarding.desc2"  = "Explore your favorite team's tactical lineups.";
+"onboarding.title3" = "Real-time Alerts";
+"onboarding.desc3"  = "Get notified the second a goal is scored.";
+
+// MARK: - Empty States
+"empty.no_leagues"        = "No leagues found";
+"empty.no_players"        = "No players found";
+"empty.no_league_data"    = "No league data available";
+"empty.failed_leagues"    = "Failed to load leagues";
+"empty.failed_teams"      = "Failed to load teams";
+"empty.failed_league_data" = "Failed to load league data";
+"empty.no_player_data"    = "No data for this player";
+
+// MARK: - Network
+"network.no_internet_title" = "📡 No Internet Connection";
+"network.no_internet_body"  = "Please check your internet connection and try again.";
+
+// MARK: - Favorites
+"favorites.remove_title"   = "Remove From Favorites";
+"favorites.remove_message" = "Are you sure you want to remove %@ from your favorites?";
+
+// MARK: - Tennis Player
+"tennis.season_format" = "Season %@  · %@";
+"tennis.rank_format"   = "🌐 Rank #%@";
+"tennis.record_format" = "✅ %dW  ❌ %dL  🏆 %@";
+"tennis.vs_format"     = "%@ vs %@";
+"tennis.date_format"   = "📅 %@";
+"tennis.result_format" = "🏅 %@";
+"tennis.singles"       = "Singles";
+"tennis.doubles"       = "Doubles";
+
+// MARK: - Player Info
+"player.info_format" = "%@ • Age: %@";
+
+// MARK: - Tennis Tournament
+"tennis.surface_format" = "🎾 %@  · %@";
+"tennis.prize_format"   = "💰 %@";

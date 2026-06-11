@@ -10,10 +10,11 @@ class HomeViewController: UIViewController, SportsViewProtocol, UICollectionView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("entered")
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = ThemeManager.backgroundPrimary
+        view.backgroundColor = ThemeManager.backgroundPrimary
         
         presenter = HomePresenter(view: self)
         presenter.viewDidLoad()
@@ -39,47 +40,41 @@ class HomeViewController: UIViewController, SportsViewProtocol, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let padding: CGFloat = 16
-        let minimumSpacing: CGFloat = 10
+        let padding = DS.Layout.sportsGridPadding
+        let minimumSpacing = DS.Layout.sportsGridSpacing
         let totalWidthPadding = (padding * 2) + minimumSpacing
         
         let cellWidth = (collectionView.bounds.width - totalWidthPadding) / 2
         let cellHeight: CGFloat
         if collectionView.bounds.width > collectionView.bounds.height {
-            cellHeight = 250
+            cellHeight = DS.CellSize.sportsCardLandscapeHeight
         } else {
-            cellHeight = (collectionView.bounds.height - 8) / 2
+            cellHeight = (collectionView.bounds.height - DS.Layout.sportsGridLineSpacing) / 2
         }
         
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return DS.Layout.sportsGridLineSpacing
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SportCell", for: indexPath)
-        
-        if let imageView = cell.viewWithTag(100) as? UIImageView {
-            imageView.image = UIImage(named: sportsImages[indexPath.row])
-            imageView.contentMode = .scaleAspectFill
-            imageView.layer.cornerRadius = 12
-            imageView.clipsToBounds = true
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SportCell", for: indexPath) as? SportsCell else {
+            return UICollectionViewCell()
         }
         
-        if let label = cell.viewWithTag(200) as? UILabel {
-            label.text = sportsNames[indexPath.row]
-        }
+        cell.sportImageView.image = UIImage(named: sportsImages[indexPath.row])
+        cell.sportImageView.contentMode = .scaleAspectFill
+        cell.sportImageView.layer.cornerRadius = DS.CornerRadius.medium
+        cell.sportImageView.clipsToBounds = true
         
-        cell.layer.cornerRadius = 12
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOpacity = 0.05
-        cell.layer.shadowOffset = CGSize(width: 0, height: 2)
-        cell.layer.shadowRadius = 4
-        cell.clipsToBounds = false
-        cell.backgroundColor = .systemBackground
+        cell.sportLabel.text = sportsNames[indexPath.row]
+        cell.sportLabel.textColor = ThemeManager.textPrimary
+        
+        cell.applyCardStyle(cornerRadius: DS.CornerRadius.medium, shadow: DS.Shadow.subtle)
+        cell.backgroundColor = ThemeManager.backgroundCard
         
         return cell
     }

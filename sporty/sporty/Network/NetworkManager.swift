@@ -71,6 +71,8 @@ class NetworkManager : NetworkManagerProtocol{
             case .success(let data):
                 if response.response?.statusCode == 200 && data.success == 1 {
                     completion(.success(data.result ?? []))
+                } else {
+                    completion(.failure(NSError(domain: "", code: response.response?.statusCode ?? 500, userInfo: [NSLocalizedDescriptionKey: L10n.Empty.failedLeagueData])))
                 }
             case .failure(let error):
                 completion(.failure(error))
@@ -86,15 +88,13 @@ class NetworkManager : NetworkManagerProtocol{
             "APIkey": apiKey
         ]
         AF.request(url, method: .get, parameters: parameters).responseDecodable(of: TennisResponse.self) { response in
-            if let data = response.data, let json = String(data: data, encoding: .utf8) {
-                print("🎾 Player Response: \(json)")
-            }
+
             switch response.result {
             case .success(let data):
                 if let profile = data.result?.first {
                     completion(.success(profile))
                 } else {
-                    completion(.failure(NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "No data for this player"])))
+                    completion(.failure(NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: L10n.Empty.noPlayerData])))
                 }
             case .failure(let error):
                 completion(.failure(error))
@@ -110,9 +110,7 @@ class NetworkManager : NetworkManagerProtocol{
         let to = formatter.string(from: today)
         let url = "https://apiv2.allsportsapi.com/tennis/?met=Fixtures&playerId=\(playerKey)&from=\(from)&to=\(to)&APIkey=\(apiKey)"
         AF.request(url).validate().responseDecodable(of: TennisFixturesResponse.self) { response in
-            if let data = response.data, let json = String(data: data, encoding: .utf8) {
-                print("🎾 Tournaments Response: \(json)")
-            }
+
             switch response.result {
             case .success(let data):
                 completion(.success(data.result ?? []))

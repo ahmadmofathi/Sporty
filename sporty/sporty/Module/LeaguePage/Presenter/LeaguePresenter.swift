@@ -49,7 +49,7 @@ class LeaguePresenter {
 
                 if fetchedLeagues.isEmpty {
                     DispatchQueue.main.async {
-                        self.view?.showEmptyState(message: "No leagues found")
+                        self.view?.showEmptyState(message: L10n.Empty.noLeagues)
                     }
                 } else {
                     DispatchQueue.main.async {
@@ -59,9 +59,8 @@ class LeaguePresenter {
                 }
 
             case .failure(let error):
-                print("Error loading leagues: \(error.localizedDescription)")
                 DispatchQueue.main.async {
-                    self.view?.showEmptyState(message: "Failed to load leagues")
+                    self.view?.showEmptyState(message: L10n.Empty.failedLeagues)
                 }
             }
         }
@@ -100,8 +99,8 @@ class LeaguePresenter {
 
     private func updateView() {
 
-        let names     = filteredLeagues.map { $0.leagueName  ?? "Unknown League" }
-        let countries = filteredLeagues.map { $0.countryName ?? "Unknown Country" }
+        let names     = filteredLeagues.map { $0.leagueName  ?? L10n.General.unknownLeague }
+        let countries = filteredLeagues.map { $0.countryName ?? L10n.General.unknownCountry }
         let logos     = filteredLeagues.map { $0.leagueLogo  ?? "" }
         let favorites = filteredLeagues.map {
             CoreDataManager.shared.isLeagueFavorite(byKey: $0.leagueKey ?? 0)

@@ -15,14 +15,16 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
 
     var selectedSport: String?
 
-    private let emptyStateLabel = UILabel()
+    private var emptyStateLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Leagues"
+        title = L10n.Nav.leagues
+        view.backgroundColor = ThemeManager.backgroundPrimary
+        tableView.backgroundColor = ThemeManager.backgroundPrimary
 
-        setupEmptyState()
+        emptyStateLabel = addEmptyStateLabel()
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -39,24 +41,6 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
         presenter.viewDidLoad()
     }
 
-    private func setupEmptyState() {
-
-        emptyStateLabel.translatesAutoresizingMaskIntoConstraints = false
-        emptyStateLabel.textAlignment = .center
-        emptyStateLabel.numberOfLines = 0
-        emptyStateLabel.font = .systemFont(ofSize: 18)
-        emptyStateLabel.textColor = .secondaryLabel
-        emptyStateLabel.isHidden = true
-
-        view.addSubview(emptyStateLabel)
-
-        NSLayoutConstraint.activate([
-            emptyStateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            emptyStateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            emptyStateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
-    }
 
     func displayLeagues(
         _ names: [String],
@@ -101,12 +85,7 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
 
     func showNoInternet() {
 
-        emptyStateLabel.text =
-        """
-        📡 No Internet Connection
-
-        Please check your internet connection and try again.
-        """
+        emptyStateLabel.text = L10n.Network.noInternetFull
 
         emptyStateLabel.isHidden = false
 

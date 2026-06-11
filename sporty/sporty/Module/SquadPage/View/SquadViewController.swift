@@ -17,19 +17,22 @@ class SquadViewController: UIViewController {
     var stadiumNameText: String?
     var sportType: String?
 
-    private let emptyStateLabel = UILabel()
+    private var emptyStateLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = ThemeManager.backgroundPrimary
+        squadTable.backgroundColor = ThemeManager.backgroundPrimary
 
-        setupEmptyState()
+        emptyStateLabel = addEmptyStateLabel()
 
         squadTable.delegate = self
         squadTable.dataSource = self
 
-        teamName.text = teamNameText ?? "N/A"
-        leagueName.text = leagueNameText ?? "N/A"
-        staduimName.text = stadiumNameText ?? "N/A"
+        teamName.text = teamNameText ?? L10n.General.na
+        leagueName.text = leagueNameText ?? L10n.General.na
+        staduimName.text = stadiumNameText ?? L10n.General.na
 
         presenter = SquadPresenter(
             view: self,
@@ -41,24 +44,6 @@ class SquadViewController: UIViewController {
         )
     }
 
-    private func setupEmptyState() {
-
-        emptyStateLabel.translatesAutoresizingMaskIntoConstraints = false
-        emptyStateLabel.textAlignment = .center
-        emptyStateLabel.numberOfLines = 0
-        emptyStateLabel.font = .systemFont(ofSize: 18)
-        emptyStateLabel.textColor = .secondaryLabel
-        emptyStateLabel.isHidden = true
-
-        view.addSubview(emptyStateLabel)
-
-        NSLayoutConstraint.activate([
-            emptyStateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            emptyStateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            emptyStateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
-    }
 }
 
 extension SquadViewController: SquadViewProtocol {
@@ -74,12 +59,7 @@ extension SquadViewController: SquadViewProtocol {
 
     func showNoInternet() {
 
-        emptyStateLabel.text =
-        """
-        📡 No Internet Connection
-
-        Please check your internet connection and try again.
-        """
+        emptyStateLabel.text = L10n.Network.noInternetFull
 
         emptyStateLabel.isHidden = false
         squadTable.isHidden = true
@@ -102,14 +82,14 @@ extension SquadViewController: SquadViewProtocol {
     func showError(message: String) {
 
         let alert = UIAlertController(
-            title: "Error",
+            title: L10n.General.error,
             message: message,
             preferredStyle: .alert
         )
 
         alert.addAction(
             UIAlertAction(
-                title: "OK",
+                title: L10n.General.ok,
                 style: .default
             )
         )
@@ -149,13 +129,13 @@ UITableViewDataSource {
         let player = presenter.players[indexPath.row]
 
         cell.playerName.text =
-        player.playerName ?? "Unknown"
+        player.playerName ?? L10n.General.unknown
 
         cell.playerNumber.text =
-        player.playerNumber ?? "-"
+        player.playerNumber ?? L10n.General.dash
 
         cell.playerInfo.text =
-        "\(player.playerType ?? "") • Age: \(player.playerAge ?? "-")"
+        L10n.Player.info(type: player.playerType ?? "", age: player.playerAge ?? L10n.General.dash)
 
         let placeholder: UIImage?
         print("Type:")

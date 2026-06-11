@@ -36,8 +36,6 @@ class FavoritesPresenter {
 
     func didSelectRow(at index: Int) {
         guard index < favoriteLeagues.count else { return }
-        // استخدام الـ leagueKey كـ id للذهاب للشاشة التالية زي ما HEAD كان عامل
-        // ملحوظة: لو leagueKey عندك نوعه String، السطر ده هيحوله لـ Int بأمان.
         let selectedLeagueId = Int(String(describing: favoriteLeagues[index].leagueKey ?? 0)) ?? 0
         view?.navigateToLeague(with: selectedLeagueId)
     }
@@ -45,7 +43,7 @@ class FavoritesPresenter {
     func requestDeleteLeague(at index: Int) {
         guard index < favoriteLeagues.count else { return }
         let league = favoriteLeagues[index]
-        let name = league.leagueName ?? "Unknown League"
+        let name = league.leagueName ?? L10n.General.unknownLeague
 
         view?.showDeleteConfirmationAlert(leagueName: name) { [weak self] in
             guard let self = self, let key = league.leagueKey else { return }

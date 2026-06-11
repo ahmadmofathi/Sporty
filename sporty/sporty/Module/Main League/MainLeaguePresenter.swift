@@ -72,12 +72,12 @@ class MainLeaguePresenter {
 
         group.notify(queue: .main) {
             if fixturesError != nil {
-                self.view?.showEmptyState(message: "Failed to load league data")
+                self.view?.showEmptyState(message: L10n.Empty.failedLeagueData)
                 return
             }
 
             if self.sport.lowercased() != "tennis", teamsError != nil {
-                self.view?.showEmptyState(message: "Failed to load teams")
+                self.view?.showEmptyState(message: L10n.Empty.failedTeams)
                 return
             }
 
@@ -107,7 +107,7 @@ class MainLeaguePresenter {
             }
 
             if upcoming.isEmpty && latest.isEmpty && self.teams.isEmpty {
-                self.view?.showEmptyState(message: "No league data available")
+                self.view?.showEmptyState(message: L10n.Empty.noLeagueData)
                 return
             }
 
@@ -119,7 +119,7 @@ class MainLeaguePresenter {
     func didSelectTeam(at index: Int) {
         guard index < teams.count else { return }
         let teamId = teams[index].teamKey ?? 0
-        let teamName = teams[index].teamName ?? "Unknown"
+        let teamName = teams[index].teamName ?? L10n.General.unknown
         view?.navigateToTeamDetails(with: teamId, teamName: teamName)
     }
 }

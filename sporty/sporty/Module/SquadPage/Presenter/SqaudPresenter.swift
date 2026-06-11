@@ -63,7 +63,7 @@ class SquadPresenter: SquadPresenterProtocol {
                     if fetchedPlayers.isEmpty {
 
                         self.view?.showEmptyState(
-                            message: "No players found"
+                            message: L10n.Empty.noPlayers
                         )
 
                     } else {

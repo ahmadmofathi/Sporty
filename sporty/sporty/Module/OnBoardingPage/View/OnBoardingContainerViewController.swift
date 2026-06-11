@@ -26,17 +26,14 @@ class OnboardingContainerViewController: UIViewController, UIPageViewControllerD
 
     private func setupPages() {
         let data = [
-            ("firstpage", "Live Match Center", "Stay on top of the game with real-time updates."),
-            ("secondpage", "Deep Squad Insights", "Explore your favorite team's tactical lineups."),
-            ("3rdpage", "Real-time Alerts", "Get notified the second a goal is scored.")
+            ("firstpage", L10n.Onboarding.title1, L10n.Onboarding.desc1),
+            ("secondpage", L10n.Onboarding.title2, L10n.Onboarding.desc2),
+            ("3rdpage", L10n.Onboarding.title3, L10n.Onboarding.desc3)
         ]
 
         for item in data {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "page1") as! OnboardingPageViewController
-            vc.loadViewIfNeeded()
-            vc.imageView.image = UIImage(named: item.0)
-            vc.titleLabel.text = item.1
-            vc.descriptionLabel.text = item.2
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "page1") as? OnboardingPageViewController else { continue }
+            vc.configure(imageName: item.0, title: item.1, description: item.2)
             pages.append(vc)
         }
     }
@@ -58,17 +55,17 @@ class OnboardingContainerViewController: UIViewController, UIPageViewControllerD
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index = pages.firstIndex(of: viewController as! OnboardingPageViewController), index < pages.count - 1 else { return nil }
+        guard let pageVC = viewController as? OnboardingPageViewController, let index = pages.firstIndex(of: pageVC), index < pages.count - 1 else { return nil }
         return pages[index + 1]
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = pages.firstIndex(of: viewController as! OnboardingPageViewController), index > 0 else { return nil }
+        guard let pageVC = viewController as? OnboardingPageViewController, let index = pages.firstIndex(of: pageVC), index > 0 else { return nil }
         return pages[index - 1]
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if completed, let visibleVC = pageViewController.viewControllers?.first, let index = pages.firstIndex(of: visibleVC as! OnboardingPageViewController) {
+        if completed, let visibleVC = pageViewController.viewControllers?.first as? OnboardingPageViewController, let index = pages.firstIndex(of: visibleVC) {
             dotsControl.currentPage = index
         }
     }

@@ -8,9 +8,13 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Favorites"
+        title = L10n.Nav.favorites
         navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.rowHeight = 92
+        tableView.rowHeight = DS.CellSize.favoriteRowHeight
+        
+        view.backgroundColor = ThemeManager.backgroundPrimary
+        tableView.backgroundColor = ThemeManager.backgroundPrimary
+        
         presenter = FavoritesPresenter(view: self)
     }
     
@@ -40,13 +44,13 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
     
     func showDeleteConfirmationAlert(leagueName: String, confirmHandler: @escaping () -> Void) {
         let alert = UIAlertController(
-            title: "Remove From Favorites",
-            message: "Are you sure you want to remove \(leagueName) from your favorites?",
+            title: L10n.Favorites.removeTitle,
+            message: L10n.Favorites.removeMessage(leagueName: leagueName),
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Remove", style: .destructive) { _ in confirmHandler() })
+        alert.addAction(UIAlertAction(title: L10n.General.cancel, style: .cancel))
+        alert.addAction(UIAlertAction(title: L10n.General.remove, style: .destructive) { _ in confirmHandler() })
         
         present(alert, animated: true)
     }
@@ -65,11 +69,10 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FavoriteTableViewCell
         let league = favoriteLeagues[indexPath.row]
         
-        cell.favTitle.text = league.leagueName ?? "Unknown League"
-        cell.favOrigin.text = league.countryName ?? "Unknown Country"
+        cell.favTitle.text = league.leagueName ?? L10n.General.unknownLeague
+        cell.favOrigin.text = league.countryName ?? L10n.General.unknownCountry
         
-        cell.favImg.layer.cornerRadius = 28
-        cell.favImg.clipsToBounds = true
+        cell.favImg.applyCircularMask()
         
         let defaultPlaceholder = UIImage(named: "team")
         if let logoURLString = league.leagueLogo, let url = URL(string: logoURLString), !logoURLString.isEmpty {

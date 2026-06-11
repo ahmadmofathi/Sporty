@@ -7,7 +7,7 @@ protocol SportsViewProtocol: AnyObject {
 
 class HomePresenter {
     private weak var view: SportsViewProtocol?
-    private let sportsNames = ["football", "BasketBall", "Tennis", "cricket"]
+    private let sportsNames = [L10n.Home.football, L10n.Home.basketball, L10n.Home.tennis, L10n.Home.cricket]
     private let sportsImages = ["football", "basketball", "tennis", "baseball"]
     
     init(view: SportsViewProtocol) {

@@ -20,19 +20,24 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
     @IBOutlet weak var latestCollectionHeight: NSLayoutConstraint!
 
     var leagueId: Int = 34
-    var leagueName: String = "Unknown League"
+    var leagueName: String = L10n.General.unknownLeague
     var sportType: String = "football"
 
     private var presenter: MainLeaguePresenter!
     private var upcomingEvents: [MatchProtocol] = []
     private var latestEvents: [MatchProtocol] = []
     private var teams: [LeagueTeam] = []
-    private let emptyStateLabel = UILabel()
+    private var emptyStateLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = ThemeManager.backgroundPrimary
+        upComingCollectionView.backgroundColor = ThemeManager.backgroundPrimary
+        teamsCollectionView.backgroundColor = ThemeManager.backgroundPrimary
+        latestCollectionView.backgroundColor = ThemeManager.backgroundPrimary
+        
         setupDelegates()
-        setupEmptyState()
+        emptyStateLabel = addEmptyStateLabel()
         presenter = MainLeaguePresenter(view: self, leagueId: leagueId, sport: sportType)
         presenter.viewDidLoad()
     }
@@ -53,22 +58,7 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
         teamsCollectionView.dataSource = self
     }
 
-    private func setupEmptyState() {
-        emptyStateLabel.translatesAutoresizingMaskIntoConstraints = false
-        emptyStateLabel.textAlignment = .center
-        emptyStateLabel.numberOfLines = 0
-        emptyStateLabel.font = .systemFont(ofSize: 18)
-        emptyStateLabel.textColor = .secondaryLabel
-        emptyStateLabel.isHidden = true
-        view.addSubview(emptyStateLabel)
 
-        NSLayoutConstraint.activate([
-            emptyStateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emptyStateLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            emptyStateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            emptyStateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
-    }
 
     func setLeagueName(_ name: String) {
         leagueName = name
@@ -90,7 +80,7 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
     }
 
     func showNoInternet() {
-        emptyStateLabel.text = "📡 No Internet Connection\n\nPlease check your internet connection and try again."
+        emptyStateLabel.text = L10n.Network.noInternetFull
         emptyStateLabel.isHidden = false
         upComingCollectionView.isHidden = true
         latestCollectionView.isHidden = true
@@ -132,11 +122,13 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
     }
 
     private func updateLatestCollectionHeight() {
-        let itemHeight: CGFloat = 190
-        let spacing: CGFloat = 14
+        let itemHeight = DS.CellSize.latestEventHeight
+        let spacing = DS.CellSize.latestEventSpacing
         let count = CGFloat(latestEvents.count)
         latestCollectionHeight.constant = count > 0 ? (count * itemHeight) + ((count - 1) * spacing) : 0
-        view.layoutIfNeeded()
+        DispatchQueue.main.async {
+            self.view.layoutIfNeeded()
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -149,8 +141,8 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
         if collectionView == upComingCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UpComingEventCell", for: indexPath) as! UpComingEventCellCollectionViewCell
             let match = upcomingEvents[indexPath.row]
-            cell.team1Name.text = match.title1 ?? "-"
-            cell.team2Name.text = match.title2 ?? "-"
+            cell.team1Name.text = match.title1 ?? L10n.General.dash
+            cell.team2Name.text = match.title2 ?? L10n.General.dash
             cell.team1Img.sd_setImage(with: URL(string: match.logo1 ?? ""), placeholderImage: UIImage(named: "team"))
             cell.team2Img.sd_setImage(with: URL(string: match.logo2 ?? ""), placeholderImage: UIImage(named: "team"))
             return cell
@@ -159,9 +151,9 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
         if collectionView == latestCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "latestCell", for: indexPath) as! LatestCollectionViewCell
             let match = latestEvents[indexPath.row]
-            cell.teamATitle.text = match.title1 ?? "-"
-            cell.teamBTitle.text = match.title2 ?? "-"
-            cell.result.text = match.result ?? "-"
+            cell.teamATitle.text = match.title1 ?? L10n.General.dash
+            cell.teamBTitle.text = match.title2 ?? L10n.General.dash
+            cell.result.text = match.result ?? L10n.General.dash
             cell.teamAImage.sd_setImage(with: URL(string: match.logo1 ?? ""), placeholderImage: UIImage(named: "team"))
             cell.teamBImage.sd_setImage(with: URL(string: match.logo2 ?? ""), placeholderImage: UIImage(named: "team"))
             return cell
@@ -169,34 +161,34 @@ class MainLeagueViewController: UIViewController, MainLeagueViewProtocol, UIColl
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as! TeamCollectionViewCell
         let team = teams[indexPath.row]
-        cell.teamTitle.text = team.teamName ?? "-"
+        cell.teamTitle.text = team.teamName ?? L10n.General.dash
         cell.teamLogo.sd_setImage(with: URL(string: team.teamLogo ?? ""), placeholderImage: UIImage(named: "team"))
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == upComingCollectionView { return CGSize(width: 320, height: 212) }
-        if collectionView == latestCollectionView { return CGSize(width: collectionView.bounds.width, height: 190) }
-        return CGSize(width: 80, height: 116)
+        if collectionView == upComingCollectionView { return CGSize(width: DS.CellSize.upcomingEventWidth, height: DS.CellSize.upcomingEventHeight) }
+        if collectionView == latestCollectionView { return CGSize(width: collectionView.bounds.width, height: DS.CellSize.latestEventHeight) }
+        return CGSize(width: DS.CellSize.teamCellWidth, height: DS.CellSize.teamCellHeight)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return collectionView == latestCollectionView ? 14 : 16
+        return collectionView == latestCollectionView ? DS.CellSize.latestEventSpacing : DS.Layout.defaultLineSpacing
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return collectionView == latestCollectionView ? UIEdgeInsets.zero : UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        return collectionView == latestCollectionView ? UIEdgeInsets.zero : DS.Layout.collectionInsets
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return DS.Layout.defaultInteritemSpacing
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard collectionView == teamsCollectionView else { return }
         let team = teams[indexPath.row]
         let teamId = team.teamKey ?? 0
-        let teamName = team.teamName ?? "Unknown"
+        let teamName = team.teamName ?? L10n.General.unknown
         if sportType.lowercased() == "tennis" {
             navigateToTennisDetails(with: teamId)
         } else {

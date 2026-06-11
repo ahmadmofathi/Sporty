@@ -5,7 +5,7 @@ protocol ReachabilityProtocol {
 }
 
 final class ReachabilityManager: ReachabilityProtocol {
-    static var shared = ReachabilityManager()
+    static let shared = ReachabilityManager()
     private init() {}
 
     var mockIsConnected: Bool?

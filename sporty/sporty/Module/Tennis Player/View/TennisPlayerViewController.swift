@@ -29,6 +29,10 @@ class TennisPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hiddenBtn.isHidden = true
+        
+        view.backgroundColor = ThemeManager.backgroundPrimary
+        tableView.backgroundColor = ThemeManager.backgroundPrimary
+        
         presenter = TennisPlayerPresenter(view: self)
         presenter.leagueId = leagueId
         setupTableView()
@@ -39,7 +43,7 @@ class TennisPlayerViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 90
+        tableView.rowHeight = DS.CellSize.playerRowHeight
         tableView.isScrollEnabled = false
     }
 
@@ -50,7 +54,7 @@ class TennisPlayerViewController: UIViewController {
 
     private func updateTableHeight() {
         let rowCount = presenter.getNumberOfRows(for: playerSegmentControl.selectedSegmentIndex)
-        tableViewHeight.constant = CGFloat(rowCount) * 90
+        tableViewHeight.constant = CGFloat(rowCount) * DS.CellSize.playerRowHeight
         UIView.animate(withDuration: 0.2) {
             self.view.layoutIfNeeded()
         }
@@ -74,7 +78,7 @@ extension TennisPlayerViewController: TennisPlayerViewProtocol {
         DispatchQueue.main.async {
             self.playerName.text = profile.name
             self.PlayerNation.text = profile.nation
-            self.bithDate.text = profile.birthDate ?? "-"
+            self.bithDate.text = profile.birthDate ?? L10n.General.dash
             self.rankNumber.text = self.presenter.getBestRank()
             self.proSince.text = self.presenter.getProSince()
             self.totalGrandSlams.text = self.presenter.getTotalTitles()
@@ -89,8 +93,8 @@ extension TennisPlayerViewController: TennisPlayerViewProtocol {
     }
 
     func showError(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let alert = UIAlertController(title: L10n.General.error, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: L10n.General.ok, style: .default))
         present(alert, animated: true)
     }
 }
@@ -118,6 +122,6 @@ extension TennisPlayerViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return DS.CellSize.playerRowHeight
     }
 }

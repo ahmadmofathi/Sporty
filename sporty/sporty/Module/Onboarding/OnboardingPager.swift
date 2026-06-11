@@ -57,8 +57,8 @@ class OnboardingPageViewController: UIPageViewController {
     private func createPages() {
         let storyboard = UIStoryboard(name: "onboarding", bundle: nil)
 
-        controllers = pages.enumerated().map { index, page in
-            let vc = storyboard.instantiateViewController(withIdentifier: "onboardingContentVC") as! OnboardingContentViewController
+        controllers = pages.enumerated().compactMap { index, page in
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "onboardingContentVC") as? OnboardingContentViewController else { return nil }
             vc.page = page
             vc.isLastPage = index == pages.count - 1
             vc.onFinish = { [weak self] in
