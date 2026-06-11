@@ -15,7 +15,7 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
 
     var selectedSport: String?
 
-    private var emptyStateLabel: UILabel!
+    private var emptyStateView: EmptyStateView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
         view.backgroundColor = ThemeManager.backgroundPrimary
         tableView.backgroundColor = ThemeManager.backgroundPrimary
 
-        emptyStateLabel = addEmptyStateLabel()
+        emptyStateView = addEmptyStateView()
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -85,9 +85,8 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
 
     func showNoInternet() {
 
-        emptyStateLabel.text = L10n.Network.noInternetFull
-
-        emptyStateLabel.isHidden = false
+        emptyStateView.configure(preset: .noInternet, subtitle: L10n.Network.noInternetBody)
+        emptyStateView.showAnimated()
 
         tableView.isHidden = true
         mySearch.isHidden = true
@@ -95,19 +94,26 @@ class LeaguesViewController: UIViewController, LeaguesViewProtocol {
 
     func showEmptyState(message: String) {
 
-        emptyStateLabel.text = message
-
-        emptyStateLabel.isHidden = false
+        emptyStateView.configure(preset: .noData, subtitle: message)
+        emptyStateView.showAnimated()
 
         tableView.isHidden = true
     }
 
     func hideEmptyState() {
 
-        emptyStateLabel.isHidden = true
+        emptyStateView.hideAnimated()
 
         tableView.isHidden = false
         mySearch.isHidden = false
+    }
+
+    func showLoading() {
+        showSkeletonOverlay(style: .rows(count: 6), over: view)
+    }
+
+    func hideLoading() {
+        hideSkeletonOverlay()
     }
 }
 

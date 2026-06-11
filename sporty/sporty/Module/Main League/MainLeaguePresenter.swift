@@ -27,6 +27,8 @@ class MainLeaguePresenter {
             return
         }
 
+        view?.showLoading()
+
         let group = DispatchGroup()
         var finalFixtures: [MatchProtocol] = []
         var fetchedTeams: [LeagueTeam] = []
@@ -71,6 +73,8 @@ class MainLeaguePresenter {
         }
 
         group.notify(queue: .main) {
+            self.view?.hideLoading()
+
             if fixturesError != nil {
                 self.view?.showEmptyState(message: L10n.Empty.failedLeagueData)
                 return

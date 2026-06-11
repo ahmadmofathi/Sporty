@@ -1,341 +1,341 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tennis-profile-vc">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light" />
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <deployment identifier="iOS" />
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084" />
+        <capability name="Safe area layout guides" minToolsVersion="9.0" />
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0" />
     </dependencies>
     <scenes>
-        <!--Tennis Player View Controller-->
+        
         <scene sceneID="tennis-scene-id">
             <objects>
                 <viewController storyboardIdentifier="TennisVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tennis-profile-vc" customClass="TennisPlayerViewController" customModule="sporty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="main-bg-view">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852" />
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" />
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scr-view-id">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852" />
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="content-view-id">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="800" />
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-back-001">
-                                                <rect key="frame" x="16.000000000000007" y="60" width="96.666666666666686" height="34.333333333333343"/>
+                                                <rect key="frame" x="16.000000000000007" y="60" width="96.666666666666686" height="34.333333333333343" />
                                                 <buttonConfiguration key="configuration" style="plain" title="❮ Players">
-                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="baseForegroundColor" red="0.71764705880000002" green="0.43137254899999999" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17" />
+                                                    <color key="baseForegroundColor" red="0.71764705880000002" green="0.43137254899999999" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                 </buttonConfiguration>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="img-avt-002">
-                                                <rect key="frame" x="141.66666666666666" y="110.33333333333331" width="110" height="110"/>
-                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="141.66666666666666" y="110.33333333333331" width="110" height="110" />
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="110" id="h-avt"/>
-                                                    <constraint firstAttribute="width" constant="110" id="w-avt"/>
+                                                    <constraint firstAttribute="height" constant="110" id="h-avt" />
+                                                    <constraint firstAttribute="width" constant="110" id="w-avt" />
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="55"/>
+                                                        <integer key="value" value="55" />
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="2"/>
+                                                        <integer key="value" value="2" />
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorWithUIColor">
-                                                        <color key="value" red="0.8980392157" green="0.66274509800000003" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="value" red="0.8980392157" green="0.66274509800000003" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                     </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity"><real key="value" value="0.3" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius"><integer key="value" value="8" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset"><size key="value" width="0.0" height="4.0" /></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Novak Djokovic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-nm-003">
-                                                <rect key="frame" x="20" y="236.33333333333334" width="353" height="31.333333333333343"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                                <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="20" y="236.33333333333334" width="353" height="31.333333333333343" />
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26" />
+                                                <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🇷🇸  Serbia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-ct-004">
-                                                <rect key="frame" x="20" y="273.66666666666669" width="353" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                <color key="textColor" red="0.40784313719999998" green="0.40784313719999998" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="20" y="273.66666666666669" width="353" height="18" />
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15" />
+                                                <color key="textColor" red="0.40784313719999998" green="0.40784313719999998" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🗓 22 May 1987 · Age 37" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-ag-005">
-                                                <rect key="frame" x="20" y="299.66666666666669" width="353" height="15.666666666666686"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058809999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="20" y="299.66666666666669" width="353" height="15.666666666666686" />
+                                                <fontDescription key="fontDescription" type="system" pointSize="13" />
+                                                <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058809999996" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="stk-st-006">
-                                                <rect key="frame" x="16" y="339.33333333333331" width="361" height="80"/>
+                                                <rect key="frame" x="16" y="339.33333333333331" width="361" height="80" />
                                                 <subviews>
                                                     <view contentMode="scaleToFill" id="c1-id">
-                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="80"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="80" />
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES" />
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="stk-c1">
-                                                                <rect key="frame" x="4" y="18" width="107.33333333333333" height="44"/>
+                                                                <rect key="frame" x="4" y="18" width="107.33333333333333" height="44" />
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="WORLD RANK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lbl-c1-t">
-                                                                        <rect key="frame" x="21.333333333333336" y="0.0" width="64.666666666666657" height="13.666666666666666"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
-                                                                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058809999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <rect key="frame" x="21.333333333333336" y="0.0" width="64.666666666666657" height="13.666666666666666" />
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES" />
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9" />
+                                                                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058809999996" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="#1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lbl-c1-v">
-                                                                        <rect key="frame" x="41.333333333333336" y="17.666666666666671" width="25.000000000000007" height="26.333333333333329"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                                                        <color key="textColor" red="0.71764705880000002" green="0.43137254899999999" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <rect key="frame" x="41.333333333333336" y="17.666666666666671" width="25.000000000000007" height="26.333333333333329" />
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES" />
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22" />
+                                                                        <color key="textColor" red="0.71764705880000002" green="0.43137254899999999" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
                                                         <constraints>
-                                                            <constraint firstItem="stk-c1" firstAttribute="centerY" secondItem="c1-id" secondAttribute="centerY" id="jcX-W2-hug"/>
-                                                            <constraint firstItem="stk-c1" firstAttribute="centerX" secondItem="c1-id" secondAttribute="centerX" id="uta-2m-oAS"/>
+                                                            <constraint firstItem="stk-c1" firstAttribute="centerY" secondItem="c1-id" secondAttribute="centerY" id="jcX-W2-hug" />
+                                                            <constraint firstItem="stk-c1" firstAttribute="centerX" secondItem="c1-id" secondAttribute="centerX" id="uta-2m-oAS" />
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="12"/>
+                                                                <integer key="value" value="12" />
                                                             </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity"><real key="value" value="0.3" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius"><integer key="value" value="8" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset"><size key="value" width="0.0" height="4.0" /></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" id="c2-id">
-                                                        <rect key="frame" x="123" y="0.0" width="115" height="80"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <rect key="frame" x="123" y="0.0" width="115" height="80" />
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES" />
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="stk-c2">
-                                                                <rect key="frame" x="4" y="18" width="107.33333333333333" height="44"/>
+                                                                <rect key="frame" x="4" y="18" width="107.33333333333333" height="44" />
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="PRO SINCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lbl-c2-t">
-                                                                        <rect key="frame" x="28.000000000000004" y="0.0" width="51.333333333333343" height="13.666666666666666"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
-                                                                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058809999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <rect key="frame" x="28.000000000000004" y="0.0" width="51.333333333333343" height="13.666666666666666" />
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES" />
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9" />
+                                                                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058809999996" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="2003" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lbl-c2-v">
-                                                                        <rect key="frame" x="25.666666666666668" y="17.666666666666671" width="56.333333333333329" height="26.333333333333329"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                                                        <color key="textColor" red="0.71764705880000002" green="0.43137254899999999" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <rect key="frame" x="25.666666666666668" y="17.666666666666671" width="56.333333333333329" height="26.333333333333329" />
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES" />
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22" />
+                                                                        <color key="textColor" red="0.71764705880000002" green="0.43137254899999999" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
                                                         <constraints>
-                                                            <constraint firstItem="stk-c2" firstAttribute="centerY" secondItem="c2-id" secondAttribute="centerY" id="peU-Go-P4i"/>
-                                                            <constraint firstItem="stk-c2" firstAttribute="centerX" secondItem="c2-id" secondAttribute="centerX" id="srO-T1-xLU"/>
+                                                            <constraint firstItem="stk-c2" firstAttribute="centerY" secondItem="c2-id" secondAttribute="centerY" id="peU-Go-P4i" />
+                                                            <constraint firstItem="stk-c2" firstAttribute="centerX" secondItem="c2-id" secondAttribute="centerX" id="srO-T1-xLU" />
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="12"/>
+                                                                <integer key="value" value="12" />
                                                             </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity"><real key="value" value="0.3" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius"><integer key="value" value="8" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset"><size key="value" width="0.0" height="4.0" /></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" id="c3-id">
-                                                        <rect key="frame" x="246" y="0.0" width="115" height="80"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <rect key="frame" x="246" y="0.0" width="115" height="80" />
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES" />
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="stk-c3">
-                                                                <rect key="frame" x="4" y="18" width="107.33333333333333" height="44"/>
+                                                                <rect key="frame" x="4" y="18" width="107.33333333333333" height="44" />
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="GRAND SLAMS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lbl-c3-t">
-                                                                        <rect key="frame" x="18.666666666666671" y="0.0" width="70" height="13.666666666666666"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
-                                                                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058809999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <rect key="frame" x="18.666666666666671" y="0.0" width="70" height="13.666666666666666" />
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES" />
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9" />
+                                                                        <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058809999996" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lbl-c3-v">
-                                                                        <rect key="frame" x="40" y="17.666666666666671" width="27.666666666666671" height="26.333333333333329"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                                                        <color key="textColor" red="0.71764705880000002" green="0.43137254899999999" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <rect key="frame" x="40" y="17.666666666666671" width="27.666666666666671" height="26.333333333333329" />
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES" />
+                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22" />
+                                                                        <color key="textColor" red="0.71764705880000002" green="0.43137254899999999" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
                                                         <constraints>
-                                                            <constraint firstItem="stk-c3" firstAttribute="centerX" secondItem="c3-id" secondAttribute="centerX" id="Bxw-oQ-RME"/>
-                                                            <constraint firstItem="stk-c3" firstAttribute="centerY" secondItem="c3-id" secondAttribute="centerY" id="N6H-S1-jrz"/>
+                                                            <constraint firstItem="stk-c3" firstAttribute="centerX" secondItem="c3-id" secondAttribute="centerX" id="Bxw-oQ-RME" />
+                                                            <constraint firstItem="stk-c3" firstAttribute="centerY" secondItem="c3-id" secondAttribute="centerY" id="N6H-S1-jrz" />
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="12"/>
+                                                                <integer key="value" value="12" />
                                                             </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity"><real key="value" value="0.3" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius"><integer key="value" value="8" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset"><size key="value" width="0.0" height="4.0" /></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="h-stk"/>
+                                                    <constraint firstAttribute="height" constant="80" id="h-stk" />
                                                 </constraints>
-                                            </stackView>
+                                            <userDefinedRuntimeAttributes><userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius"><integer key="value" value="16" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity"><real key="value" value="0.15" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius"><integer key="value" value="10" /></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes></stackView>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="seg-tabs-007">
-                                                <rect key="frame" x="16" y="443.33333333333331" width="361" height="32"/>
+                                                <rect key="frame" x="16" y="443.33333333333331" width="361" height="32" />
                                                 <segments>
-                                                    <segment title="📊 Yearly Stats"/>
-                                                    <segment title="🏆 Tournaments"/>
+                                                    <segment title="📊 Yearly Stats" />
+                                                    <segment title="🏆 Tournaments" />
                                                 </segments>
-                                                <color key="selectedSegmentTintColor" red="0.8980392157" green="0.66274509800000003" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="selectedSegmentTintColor" red="0.8980392157" green="0.66274509800000003" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                             </segmentedControl>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tbl-data-009">
-                                                <rect key="frame" x="16" y="529.66666666666663" width="361" height="239.33333333333337"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="16" y="529.66666666666663" width="361" height="239.33333333333337" />
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="239.33000000000001" id="Qn6-Ju-RM3"/>
+                                                    <constraint firstAttribute="height" constant="239.33000000000001" id="Qn6-Ju-RM3" />
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="StatsCell" rowHeight="90" id="stats-cell-id" customClass="TennisPlayerCustomCell" customModule="sporty" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="50" width="361" height="90"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <rect key="frame" x="0.0" y="50" width="361" height="90" />
+                                                        <autoresizingMask key="autoresizingMask" />
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="stats-cell-id" id="cell-container-id">
-                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="90"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="90" />
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES" />
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rw1-ct-009">
-                                                                    <rect key="frame" x="0.0" y="6" width="361" height="78"/>
+                                                                    <rect key="frame" x="0.0" y="6" width="361" height="78" />
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdg-rw1">
-                                                                            <rect key="frame" x="12" y="19" width="40" height="40"/>
+                                                                            <rect key="frame" x="12" y="19" width="40" height="40" />
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-bdg-id">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                                                    <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40" />
+                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15" />
+                                                                                    <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                                 </label>
                                                                             </subviews>
-                                                                            <color key="backgroundColor" red="0.8980392157" green="0.66274509800000003" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="backgroundColor" red="0.8980392157" green="0.66274509800000003" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                             <constraints>
-                                                                                <constraint firstItem="lbl-bdg-id" firstAttribute="top" secondItem="bdg-rw1" secondAttribute="top" id="bi1"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="lbl-bdg-id" secondAttribute="bottom" id="bi2"/>
-                                                                                <constraint firstItem="lbl-bdg-id" firstAttribute="leading" secondItem="bdg-rw1" secondAttribute="leading" id="bi3"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="lbl-bdg-id" secondAttribute="trailing" id="bi4"/>
-                                                                                <constraint firstAttribute="height" constant="40" id="h-bdg"/>
-                                                                                <constraint firstAttribute="width" constant="40" id="w-bdg"/>
+                                                                                <constraint firstItem="lbl-bdg-id" firstAttribute="top" secondItem="bdg-rw1" secondAttribute="top" id="bi1" />
+                                                                                <constraint firstAttribute="bottom" secondItem="lbl-bdg-id" secondAttribute="bottom" id="bi2" />
+                                                                                <constraint firstItem="lbl-bdg-id" firstAttribute="leading" secondItem="bdg-rw1" secondAttribute="leading" id="bi3" />
+                                                                                <constraint firstAttribute="trailing" secondItem="lbl-bdg-id" secondAttribute="trailing" id="bi4" />
+                                                                                <constraint firstAttribute="height" constant="40" id="h-bdg" />
+                                                                                <constraint firstAttribute="width" constant="40" id="w-bdg" />
                                                                             </constraints>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                                    <integer key="value" value="8"/>
+                                                                                    <integer key="value" value="8" />
                                                                                 </userDefinedRuntimeAttribute>
-                                                                            </userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity"><real key="value" value="0.3" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius"><integer key="value" value="8" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset"><size key="value" width="0.0" height="4.0" /></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Season 2024  ↘" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-title-rw1">
-                                                                            <rect key="frame" x="63.999999999999986" y="18" width="192.66666666666663" height="18"/>
-                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                                            <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <rect key="frame" x="63.999999999999986" y="18" width="192.66666666666663" height="18" />
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15" />
+                                                                            <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" text="🌐 Rank #1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-rtop-rw1">
-                                                                            <rect key="frame" x="276.66666666666669" y="18" width="72.333333333333314" height="15.666666666666664"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                                                            <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <rect key="frame" x="276.66666666666669" y="18" width="72.333333333333314" height="15.666666666666664" />
+                                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13" />
+                                                                            <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="🏆 Titles 2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-rbtm-rw1">
-                                                                            <rect key="frame" x="280.66666666666669" y="37.666666666666664" width="68.333333333333314" height="15.666666666666664"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                                                                            <color key="textColor" red="0.40784313719999998" green="0.40784313719999998" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <rect key="frame" x="280.66666666666669" y="37.666666666666664" width="68.333333333333314" height="15.666666666666664" />
+                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13" />
+                                                                            <color key="textColor" red="0.40784313719999998" green="0.40784313719999998" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                                                                         </label>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
                                                                     <constraints>
-                                                                        <constraint firstItem="lbl-rtop-rw1" firstAttribute="leading" secondItem="lbl-title-rw1" secondAttribute="trailing" constant="20" id="cHc-aN-enw"/>
-                                                                        <constraint firstAttribute="height" constant="78" id="h-rw1"/>
-                                                                        <constraint firstItem="bdg-rw1" firstAttribute="leading" secondItem="rw1-ct-009" secondAttribute="leading" constant="12" id="rc1"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="lbl-rbtm-rw1" secondAttribute="trailing" constant="12" id="rc10"/>
-                                                                        <constraint firstItem="bdg-rw1" firstAttribute="centerY" secondItem="rw1-ct-009" secondAttribute="centerY" id="rc2"/>
-                                                                        <constraint firstItem="lbl-title-rw1" firstAttribute="top" secondItem="rw1-ct-009" secondAttribute="top" constant="18" id="rc3"/>
-                                                                        <constraint firstItem="lbl-title-rw1" firstAttribute="leading" secondItem="bdg-rw1" secondAttribute="trailing" constant="12" id="rc4"/>
-                                                                        <constraint firstItem="lbl-rtop-rw1" firstAttribute="top" secondItem="rw1-ct-009" secondAttribute="top" constant="18" id="rc7"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="lbl-rtop-rw1" secondAttribute="trailing" constant="12" id="rc8"/>
-                                                                        <constraint firstItem="lbl-rbtm-rw1" firstAttribute="top" secondItem="lbl-rtop-rw1" secondAttribute="bottom" constant="4" id="rc9"/>
+                                                                        <constraint firstItem="lbl-rtop-rw1" firstAttribute="leading" secondItem="lbl-title-rw1" secondAttribute="trailing" constant="20" id="cHc-aN-enw" />
+                                                                        <constraint firstAttribute="height" constant="78" id="h-rw1" />
+                                                                        <constraint firstItem="bdg-rw1" firstAttribute="leading" secondItem="rw1-ct-009" secondAttribute="leading" constant="12" id="rc1" />
+                                                                        <constraint firstAttribute="trailing" secondItem="lbl-rbtm-rw1" secondAttribute="trailing" constant="12" id="rc10" />
+                                                                        <constraint firstItem="bdg-rw1" firstAttribute="centerY" secondItem="rw1-ct-009" secondAttribute="centerY" id="rc2" />
+                                                                        <constraint firstItem="lbl-title-rw1" firstAttribute="top" secondItem="rw1-ct-009" secondAttribute="top" constant="18" id="rc3" />
+                                                                        <constraint firstItem="lbl-title-rw1" firstAttribute="leading" secondItem="bdg-rw1" secondAttribute="trailing" constant="12" id="rc4" />
+                                                                        <constraint firstItem="lbl-rtop-rw1" firstAttribute="top" secondItem="rw1-ct-009" secondAttribute="top" constant="18" id="rc7" />
+                                                                        <constraint firstAttribute="trailing" secondItem="lbl-rtop-rw1" secondAttribute="trailing" constant="12" id="rc8" />
+                                                                        <constraint firstItem="lbl-rbtm-rw1" firstAttribute="top" secondItem="lbl-rtop-rw1" secondAttribute="bottom" constant="4" id="rc9" />
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                            <integer key="value" value="14"/>
+                                                                            <integer key="value" value="14" />
                                                                         </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity"><real key="value" value="0.3" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius"><integer key="value" value="8" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset"><size key="value" width="0.0" height="4.0" /></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes>
                                                                 </view>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
                                                             <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="rw1-ct-009" secondAttribute="bottom" constant="6" id="c-bm"/>
-                                                                <constraint firstItem="rw1-ct-009" firstAttribute="leading" secondItem="cell-container-id" secondAttribute="leading" id="c-ld"/>
-                                                                <constraint firstItem="rw1-ct-009" firstAttribute="top" secondItem="cell-container-id" secondAttribute="top" constant="6" id="c-tp"/>
-                                                                <constraint firstAttribute="trailing" secondItem="rw1-ct-009" secondAttribute="trailing" id="c-tr"/>
+                                                                <constraint firstAttribute="bottom" secondItem="rw1-ct-009" secondAttribute="bottom" constant="6" id="c-bm" />
+                                                                <constraint firstItem="rw1-ct-009" firstAttribute="leading" secondItem="cell-container-id" secondAttribute="leading" id="c-ld" />
+                                                                <constraint firstItem="rw1-ct-009" firstAttribute="top" secondItem="cell-container-id" secondAttribute="top" constant="6" id="c-tp" />
+                                                                <constraint firstAttribute="trailing" secondItem="rw1-ct-009" secondAttribute="trailing" id="c-tr" />
                                                             </constraints>
                                                         </tableViewCellContentView>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
                                                         <connections>
-                                                            <outlet property="NumberOfTitles" destination="lbl-rbtm-rw1" id="2dv-cY-qUB"/>
-                                                            <outlet property="Rank" destination="lbl-rtop-rw1" id="33u-di-9WO"/>
-                                                            <outlet property="season" destination="lbl-title-rw1" id="3wZ-x7-juq"/>
+                                                            <outlet property="NumberOfTitles" destination="lbl-rbtm-rw1" id="2dv-cY-qUB" />
+                                                            <outlet property="Rank" destination="lbl-rtop-rw1" id="33u-di-9WO" />
+                                                            <outlet property="season" destination="lbl-title-rw1" id="3wZ-x7-juq" />
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
-                                            </tableView>
+                                            <userDefinedRuntimeAttributes><userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius"><integer key="value" value="16" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity"><real key="value" value="0.15" /></userDefinedRuntimeAttribute><userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius"><integer key="value" value="10" /></userDefinedRuntimeAttribute></userDefinedRuntimeAttributes></tableView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" />
                                         <constraints>
-                                            <constraint firstItem="tbl-data-009" firstAttribute="top" secondItem="seg-tabs-007" secondAttribute="bottom" constant="55.333333333333201" id="gpw-Iz-1St"/>
-                                            <constraint firstItem="btn-back-001" firstAttribute="top" secondItem="content-view-id" secondAttribute="top" constant="60" id="m1"/>
-                                            <constraint firstAttribute="trailing" secondItem="lbl-ct-004" secondAttribute="trailing" constant="20" id="m10"/>
-                                            <constraint firstItem="lbl-ag-005" firstAttribute="top" secondItem="lbl-ct-004" secondAttribute="bottom" constant="8" id="m11"/>
-                                            <constraint firstItem="lbl-ag-005" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="20" id="m12"/>
-                                            <constraint firstAttribute="trailing" secondItem="lbl-ag-005" secondAttribute="trailing" constant="20" id="m13"/>
-                                            <constraint firstItem="stk-st-006" firstAttribute="top" secondItem="lbl-ag-005" secondAttribute="bottom" constant="24" id="m14"/>
-                                            <constraint firstItem="stk-st-006" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="16" id="m15"/>
-                                            <constraint firstAttribute="trailing" secondItem="stk-st-006" secondAttribute="trailing" constant="16" id="m16"/>
-                                            <constraint firstItem="seg-tabs-007" firstAttribute="top" secondItem="stk-st-006" secondAttribute="bottom" constant="24" id="m17"/>
-                                            <constraint firstItem="seg-tabs-007" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="16" id="m18"/>
-                                            <constraint firstAttribute="trailing" secondItem="seg-tabs-007" secondAttribute="trailing" constant="16" id="m19"/>
-                                            <constraint firstItem="btn-back-001" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="16" id="m2"/>
-                                            <constraint firstItem="tbl-data-009" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="16" id="m23"/>
-                                            <constraint firstAttribute="trailing" secondItem="tbl-data-009" secondAttribute="trailing" constant="16" id="m24"/>
-                                            <constraint firstAttribute="bottom" secondItem="tbl-data-009" secondAttribute="bottom" constant="31" id="m25"/>
-                                            <constraint firstItem="img-avt-002" firstAttribute="top" secondItem="btn-back-001" secondAttribute="bottom" constant="16" id="m3"/>
-                                            <constraint firstItem="img-avt-002" firstAttribute="centerX" secondItem="content-view-id" secondAttribute="centerX" id="m4"/>
-                                            <constraint firstItem="lbl-nm-003" firstAttribute="top" secondItem="img-avt-002" secondAttribute="bottom" constant="16" id="m5"/>
-                                            <constraint firstItem="lbl-nm-003" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="20" id="m6"/>
-                                            <constraint firstAttribute="trailing" secondItem="lbl-nm-003" secondAttribute="trailing" constant="20" id="m7"/>
-                                            <constraint firstItem="lbl-ct-004" firstAttribute="top" secondItem="lbl-nm-003" secondAttribute="bottom" constant="6" id="m8"/>
-                                            <constraint firstItem="lbl-ct-004" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="20" id="m9"/>
+                                            <constraint firstItem="tbl-data-009" firstAttribute="top" secondItem="seg-tabs-007" secondAttribute="bottom" constant="55.333333333333201" id="gpw-Iz-1St" />
+                                            <constraint firstItem="btn-back-001" firstAttribute="top" secondItem="content-view-id" secondAttribute="top" constant="60" id="m1" />
+                                            <constraint firstAttribute="trailing" secondItem="lbl-ct-004" secondAttribute="trailing" constant="20" id="m10" />
+                                            <constraint firstItem="lbl-ag-005" firstAttribute="top" secondItem="lbl-ct-004" secondAttribute="bottom" constant="8" id="m11" />
+                                            <constraint firstItem="lbl-ag-005" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="20" id="m12" />
+                                            <constraint firstAttribute="trailing" secondItem="lbl-ag-005" secondAttribute="trailing" constant="20" id="m13" />
+                                            <constraint firstItem="stk-st-006" firstAttribute="top" secondItem="lbl-ag-005" secondAttribute="bottom" constant="24" id="m14" />
+                                            <constraint firstItem="stk-st-006" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="16" id="m15" />
+                                            <constraint firstAttribute="trailing" secondItem="stk-st-006" secondAttribute="trailing" constant="16" id="m16" />
+                                            <constraint firstItem="seg-tabs-007" firstAttribute="top" secondItem="stk-st-006" secondAttribute="bottom" constant="24" id="m17" />
+                                            <constraint firstItem="seg-tabs-007" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="16" id="m18" />
+                                            <constraint firstAttribute="trailing" secondItem="seg-tabs-007" secondAttribute="trailing" constant="16" id="m19" />
+                                            <constraint firstItem="btn-back-001" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="16" id="m2" />
+                                            <constraint firstItem="tbl-data-009" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="16" id="m23" />
+                                            <constraint firstAttribute="trailing" secondItem="tbl-data-009" secondAttribute="trailing" constant="16" id="m24" />
+                                            <constraint firstAttribute="bottom" secondItem="tbl-data-009" secondAttribute="bottom" constant="31" id="m25" />
+                                            <constraint firstItem="img-avt-002" firstAttribute="top" secondItem="btn-back-001" secondAttribute="bottom" constant="16" id="m3" />
+                                            <constraint firstItem="img-avt-002" firstAttribute="centerX" secondItem="content-view-id" secondAttribute="centerX" id="m4" />
+                                            <constraint firstItem="lbl-nm-003" firstAttribute="top" secondItem="img-avt-002" secondAttribute="bottom" constant="16" id="m5" />
+                                            <constraint firstItem="lbl-nm-003" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="20" id="m6" />
+                                            <constraint firstAttribute="trailing" secondItem="lbl-nm-003" secondAttribute="trailing" constant="20" id="m7" />
+                                            <constraint firstItem="lbl-ct-004" firstAttribute="top" secondItem="lbl-nm-003" secondAttribute="bottom" constant="6" id="m8" />
+                                            <constraint firstItem="lbl-ct-004" firstAttribute="leading" secondItem="content-view-id" secondAttribute="leading" constant="20" id="m9" />
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="content-view-id" firstAttribute="top" secondItem="scr-view-id" secondAttribute="top" id="s1"/>
-                                    <constraint firstItem="content-view-id" firstAttribute="bottom" secondItem="scr-view-id" secondAttribute="bottom" id="s2"/>
-                                    <constraint firstItem="content-view-id" firstAttribute="leading" secondItem="scr-view-id" secondAttribute="leading" id="s3"/>
-                                    <constraint firstItem="content-view-id" firstAttribute="trailing" secondItem="scr-view-id" secondAttribute="trailing" id="s4"/>
-                                    <constraint firstItem="content-view-id" firstAttribute="width" secondItem="scr-view-id" secondAttribute="width" id="s5"/>
+                                    <constraint firstItem="content-view-id" firstAttribute="top" secondItem="scr-view-id" secondAttribute="top" id="s1" />
+                                    <constraint firstItem="content-view-id" firstAttribute="bottom" secondItem="scr-view-id" secondAttribute="bottom" id="s2" />
+                                    <constraint firstItem="content-view-id" firstAttribute="leading" secondItem="scr-view-id" secondAttribute="leading" id="s3" />
+                                    <constraint firstItem="content-view-id" firstAttribute="trailing" secondItem="scr-view-id" secondAttribute="trailing" id="s4" />
+                                    <constraint firstItem="content-view-id" firstAttribute="width" secondItem="scr-view-id" secondAttribute="width" id="s5" />
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="safe-area-guide"/>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="safe-area-guide" />
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB" />
                         <constraints>
-                            <constraint firstItem="scr-view-id" firstAttribute="top" secondItem="main-bg-view" secondAttribute="top" id="v1"/>
-                            <constraint firstItem="scr-view-id" firstAttribute="bottom" secondItem="main-bg-view" secondAttribute="bottom" id="v2"/>
-                            <constraint firstItem="scr-view-id" firstAttribute="leading" secondItem="main-bg-view" secondAttribute="leading" id="v3"/>
-                            <constraint firstItem="scr-view-id" firstAttribute="trailing" secondItem="main-bg-view" secondAttribute="trailing" id="v4"/>
+                            <constraint firstItem="scr-view-id" firstAttribute="top" secondItem="main-bg-view" secondAttribute="top" id="v1" />
+                            <constraint firstItem="scr-view-id" firstAttribute="bottom" secondItem="main-bg-view" secondAttribute="bottom" id="v2" />
+                            <constraint firstItem="scr-view-id" firstAttribute="leading" secondItem="main-bg-view" secondAttribute="leading" id="v3" />
+                            <constraint firstItem="scr-view-id" firstAttribute="trailing" secondItem="main-bg-view" secondAttribute="trailing" id="v4" />
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="PlayerNation" destination="lbl-ct-004" id="U02-GY-yeH"/>
-                        <outlet property="bithDate" destination="lbl-ag-005" id="NAO-hd-e3f"/>
-                        <outlet property="hiddenBtn" destination="btn-back-001" id="gr0-yd-Udc"/>
-                        <outlet property="playerImage" destination="img-avt-002" id="g66-So-mAf"/>
-                        <outlet property="playerName" destination="lbl-nm-003" id="p6a-Jp-FQH"/>
-                        <outlet property="playerSegmentControl" destination="seg-tabs-007" id="INU-un-mbU"/>
-                        <outlet property="proSince" destination="lbl-c2-v" id="6X3-3F-AG6"/>
-                        <outlet property="rankNumber" destination="lbl-c1-v" id="Ezc-zp-hRG"/>
-                        <outlet property="tableView" destination="tbl-data-009" id="CAM-Nc-v4h"/>
-                        <outlet property="tableViewHeight" destination="Qn6-Ju-RM3" id="yK0-9W-DZz"/>
-                        <outlet property="totalGrandSlams" destination="lbl-c3-v" id="er3-l6-OgV"/>
+                        <outlet property="PlayerNation" destination="lbl-ct-004" id="U02-GY-yeH" />
+                        <outlet property="bithDate" destination="lbl-ag-005" id="NAO-hd-e3f" />
+                        <outlet property="hiddenBtn" destination="btn-back-001" id="gr0-yd-Udc" />
+                        <outlet property="playerImage" destination="img-avt-002" id="g66-So-mAf" />
+                        <outlet property="playerName" destination="lbl-nm-003" id="p6a-Jp-FQH" />
+                        <outlet property="playerSegmentControl" destination="seg-tabs-007" id="INU-un-mbU" />
+                        <outlet property="proSince" destination="lbl-c2-v" id="6X3-3F-AG6" />
+                        <outlet property="rankNumber" destination="lbl-c1-v" id="Ezc-zp-hRG" />
+                        <outlet property="tableView" destination="tbl-data-009" id="CAM-Nc-v4h" />
+                        <outlet property="tableViewHeight" destination="Qn6-Ju-RM3" id="yK0-9W-DZz" />
+                        <outlet property="totalGrandSlams" destination="lbl-c3-v" id="er3-l6-OgV" />
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="first-responder-id" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="first-responder-id" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder" />
             </objects>
-            <point key="canvasLocation" x="12.977099236641221" y="24.647887323943664"/>
+            <point key="canvasLocation" x="12.977099236641221" y="24.647887323943664" />
         </scene>
     </scenes>
 </document>

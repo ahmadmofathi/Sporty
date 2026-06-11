@@ -6,6 +6,8 @@ protocol LeaguesViewProtocol: AnyObject {
     func showNoInternet()
     func showEmptyState(message: String)
     func hideEmptyState()
+    func showLoading()
+    func hideLoading()
 }
 
 class LeaguePresenter {
@@ -37,6 +39,8 @@ class LeaguePresenter {
             return
         }
 
+        view?.showLoading()
+
         networkManager.fetchLeagues(sport: self.Sport ?? "football") { [weak self] result in
 
             guard let self = self else { return }
@@ -49,10 +53,12 @@ class LeaguePresenter {
 
                 if fetchedLeagues.isEmpty {
                     DispatchQueue.main.async {
+                        self.view?.hideLoading()
                         self.view?.showEmptyState(message: L10n.Empty.noLeagues)
                     }
                 } else {
                     DispatchQueue.main.async {
+                        self.view?.hideLoading()
                         self.view?.hideEmptyState()
                         self.updateView()
                     }
@@ -60,6 +66,7 @@ class LeaguePresenter {
 
             case .failure(let error):
                 DispatchQueue.main.async {
+                    self.view?.hideLoading()
                     self.view?.showEmptyState(message: L10n.Empty.failedLeagues)
                 }
             }

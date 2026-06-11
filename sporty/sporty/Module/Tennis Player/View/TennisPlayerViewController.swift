@@ -30,9 +30,6 @@ class TennisPlayerViewController: UIViewController {
         super.viewDidLoad()
         hiddenBtn.isHidden = true
         
-        view.backgroundColor = ThemeManager.backgroundPrimary
-        tableView.backgroundColor = ThemeManager.backgroundPrimary
-        
         presenter = TennisPlayerPresenter(view: self)
         presenter.leagueId = leagueId
         setupTableView()
@@ -63,9 +60,13 @@ class TennisPlayerViewController: UIViewController {
 
 extension TennisPlayerViewController: TennisPlayerViewProtocol {
 
-    func showLoading() {}
+    func showLoading() {
+        showSkeletonOverlay(style: .rows(count: 6), over: view)
+    }
 
-    func hideLoading() {}
+    func hideLoading() {
+        hideSkeletonOverlay()
+    }
 
     func reloadStatsTable() {
         DispatchQueue.main.async {

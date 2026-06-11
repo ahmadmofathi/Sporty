@@ -90,9 +90,6 @@ enum ThemeManager {
         UITabBar.appearance().scrollEdgeAppearance = tabAppearance
         UITabBar.appearance().tintColor            = accentPrimary
 
-        // Table View
-        UITableView.appearance().backgroundColor = backgroundPrimary
-        UITableViewCell.appearance().backgroundColor = backgroundPrimary
 
         // Search Bar
         UISearchBar.appearance().tintColor = accentPrimary

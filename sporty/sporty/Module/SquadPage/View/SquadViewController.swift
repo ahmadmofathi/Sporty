@@ -17,15 +17,12 @@ class SquadViewController: UIViewController {
     var stadiumNameText: String?
     var sportType: String?
 
-    private var emptyStateLabel: UILabel!
+    private var emptyStateView: EmptyStateView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = ThemeManager.backgroundPrimary
-        squadTable.backgroundColor = ThemeManager.backgroundPrimary
 
-        emptyStateLabel = addEmptyStateLabel()
+        emptyStateView = addEmptyStateView()
 
         squadTable.delegate = self
         squadTable.dataSource = self
@@ -59,24 +56,30 @@ extension SquadViewController: SquadViewProtocol {
 
     func showNoInternet() {
 
-        emptyStateLabel.text = L10n.Network.noInternetFull
-
-        emptyStateLabel.isHidden = false
+        emptyStateView.configure(preset: .noInternet, subtitle: L10n.Network.noInternetBody)
+        emptyStateView.showAnimated()
         squadTable.isHidden = true
     }
 
     func showEmptyState(message: String) {
 
-        emptyStateLabel.text = message
-        emptyStateLabel.isHidden = false
-
+        emptyStateView.configure(preset: .noPlayers, subtitle: message)
+        emptyStateView.showAnimated()
         squadTable.isHidden = true
     }
 
     func hideEmptyState() {
 
-        emptyStateLabel.isHidden = true
+        emptyStateView.hideAnimated()
         squadTable.isHidden = false
+    }
+
+    func showLoading() {
+        showSkeletonOverlay(style: .rows(count: 5), over: view)
+    }
+
+    func hideLoading() {
+        hideSkeletonOverlay()
     }
 
     func showError(message: String) {

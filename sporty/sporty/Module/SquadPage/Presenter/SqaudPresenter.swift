@@ -39,6 +39,8 @@ class SquadPresenter: SquadPresenterProtocol {
             return
         }
 
+        view?.showLoading()
+
         networkManger.fetchPlayers(
             teamId: teamId,
             sport: self.sport
@@ -60,6 +62,8 @@ class SquadPresenter: SquadPresenterProtocol {
 
                 DispatchQueue.main.async {
 
+                    self.view?.hideLoading()
+
                     if fetchedPlayers.isEmpty {
 
                         self.view?.showEmptyState(
@@ -80,6 +84,8 @@ class SquadPresenter: SquadPresenterProtocol {
                 )
 
                 DispatchQueue.main.async {
+
+                    self.view?.hideLoading()
 
                     self.view?.showError(
                         message: error.localizedDescription

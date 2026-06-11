@@ -5,6 +5,7 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
     
     private var presenter: FavoritesPresenter!
     private var favoriteLeagues: [League] = []
+    private var emptyStateView: EmptyStateView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,6 +15,17 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
         
         view.backgroundColor = ThemeManager.backgroundPrimary
         tableView.backgroundColor = ThemeManager.backgroundPrimary
+        
+        // Setup premium empty state
+        emptyStateView = EmptyStateView()
+        emptyStateView.configure(preset: .noFavorites, subtitle: "Add leagues to favorites to see them here")
+        view.addSubview(emptyStateView)
+        NSLayoutConstraint.activate([
+            emptyStateView.topAnchor.constraint(equalTo: view.topAnchor),
+            emptyStateView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            emptyStateView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            emptyStateView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
         
         presenter = FavoritesPresenter(view: self)
     }
@@ -27,6 +39,13 @@ class FavoritesTableViewController: UITableViewController, FavoritesViewProtocol
         self.favoriteLeagues = leagues
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            if leagues.isEmpty {
+                self.emptyStateView.showAnimated()
+                self.tableView.isHidden = true
+            } else {
+                self.emptyStateView.hideAnimated()
+                self.tableView.isHidden = false
+            }
         }
     }
     

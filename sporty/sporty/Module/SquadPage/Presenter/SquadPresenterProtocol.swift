@@ -14,6 +14,8 @@ protocol SquadViewProtocol: AnyObject {
     func showNoInternet()
     func showEmptyState(message: String)
     func hideEmptyState()
+    func showLoading()
+    func hideLoading()
 }
 
 
